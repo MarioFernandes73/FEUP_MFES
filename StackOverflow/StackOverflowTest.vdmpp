@@ -2,10 +2,10 @@ class StackOverflowTest
 types
 public String = seq of char;
 public Sex = <Masculino> | <Feminino>;
-values
--- TODO Define values here
+
 instance variables
 	s : StackOverflow := new StackOverflow();
+	
 operations
 	private assertTrue: bool ==> ()
 	assertTrue(cond) == return
@@ -21,15 +21,25 @@ operations
 		assertTrue(newUser in set s.getUsers());
 	);
 	
+	private testAddPost: () ==> ()
+	testAddPost() ==
+	(
+		dcl user:User := new User(1, "User", "email@gmail.com", 47, <Feminino>);
+		dcl tagsList:seq of String := ["Tag1", "Tag2", "Tag3"];
+		dcl postsLength:nat := card s.getPosts();
+		dcl newPost:Post := s.createPost("Title", "Content", user, tagsList);		
+		s.addPost(newPost);
+		
+		assertTrue(postsLength + 1 = card s.getPosts());
+		assertTrue(newPost in set s.getPosts());
+	);
+	
 	public static main: () ==> ()
 	main() ==
 	(
-		new StackOverflowTest().testAddUser();
+		dcl stack:StackOverflowTest := new StackOverflowTest(); 
+		stack.testAddUser();
+		stack.testAddPost();
 	)
 	
-	
-functions
--- TODO Define functiones here
-traces
--- TODO Define Combinatorial Test Traces here
 end StackOverflowTest
