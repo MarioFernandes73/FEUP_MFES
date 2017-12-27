@@ -1,0 +1,38 @@
+class AdministratorUser is subclass of RegisteredUser
+types
+public String = seq of char;
+public Sex = <Masculino> | <Feminino>;
+operations
+		public AdministratorUser(id1:nat, name1:String, email1:String, age1:nat, sex1:Sex, reputation1:int) res: AdministratorUser == (	
+		canRate := true;
+		canCreatePost := true;
+		canEditPost := true;
+		canRemovePost := true;
+		canAddComment := true;
+		canEditComment := true;
+		canRemoveComment := true;
+		canBanUsers := true;
+		canUnbanUsers := true;
+		RegisteredUser(id1, name1, email1, age1, sex1, reputation1);
+	)
+	post res.canRate = true and
+		res.canCreatePost = true and
+		res.canEditPost = true and
+		res.canRemovePost = true and
+		res.canAddComment = true and
+		res.canEditComment = true and
+		res.canRemoveComment = true and
+		res.canBanUsers = true and
+		res.canUnbanUsers = true and
+		res.banned = <Unbanned> and
+		res.name = name1 and
+		res.email = email1 and
+		res.age = age1 and
+		res.sex = sex1 and
+		res.reputation = reputation1;
+		
+public banUser(user:User) == (
+user.setBanState(<Banned>);
+	)
+	pre canBanUsers = true;
+end AdministratorUser

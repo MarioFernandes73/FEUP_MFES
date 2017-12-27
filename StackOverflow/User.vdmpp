@@ -1,28 +1,86 @@
 class User
 types
-public String = seq of char;
-public Sex = <Masculino> | <Feminino>;
-values
--- TODO Define values here
+public BanState = <Banned> | <Unbanned>;
 instance variables
-	private id : nat;
-	private name : String;
-	private age : nat;
-	private email : String;
-	private sex : Sex;
+protected canRate : bool;
+protected canCreatePost : bool;
+protected canEditPost : bool;
+protected canRemovePost : bool;
+protected canAddComment : bool;
+protected canEditComment : bool;
+protected canRemoveComment : bool;
+protected canBanUsers : bool;
+protected canUnbanUsers : bool;
+protected banned : BanState;
 operations
-		public User(id1:nat, name1:String, email1:String, age1:nat, sex1:Sex) res: User == (	
-		id := id1;
-		name := name1;
-		email := email1;
-		age := age1;
-		sex := sex1;
+		public User() res: User == (	
+		canRate := false;
+		canCreatePost := false;
+		canEditPost := false;
+		canRemovePost := false;
+		canAddComment := false;
+		canEditComment := false;
+		canRemoveComment := false;
+		canBanUsers := false;
+		canUnbanUsers := false;
+		banned := <Unbanned>;
 	)
-	post res.name = name1 and res.email = email1 and res.age = age1 and res.sex = sex1;
+	post res.canRate = false and
+		res.canCreatePost = false and
+		res.canEditPost = false and
+		res.canRemovePost = false and
+		res.canAddComment = false and
+		res.canEditComment = false and
+		res.canRemoveComment = false and
+		res.canBanUsers = false and
+		res.canUnbanUsers = false and
+		res.banned = <Unbanned>;
+		
+public getCanRate: () ==> bool
+		getCanRate() == return canRate
+		post RESULT = canRate;
 
+public getCanCreatePost: () ==> bool
+		getCanCreatePost() == return canCreatePost
+		post RESULT = canCreatePost;
+		
+public getCanEditPost: () ==> bool
+		getCanEditPost() == return canEditPost
+		post RESULT = canEditPost;
+		
+public getCanRemovePost: () ==> bool
+		getCanRemovePost() == return canRemovePost
+		post RESULT = canRemovePost;
+		
+public getCanAddComment: () ==> bool
+		getCanAddComment() == return canAddComment
+		post RESULT = canAddComment;
+		
+public getCanEditComment: () ==> bool
+		getCanEditComment() == return canEditComment
+		post RESULT = canEditComment;
+		
+public getCanRemoveComment: () ==> bool
+		getCanRemoveComment() == return canRemoveComment
+		post RESULT = canRemoveComment;
+		
+public getCanBanUsers: () ==> bool
+		getCanBanUsers() == return canBanUsers
+		post RESULT = canBanUsers;
+		
+public getCanUnbanUsers: () ==> bool
+		getCanUnbanUsers() == return canUnbanUsers
+		post RESULT = canUnbanUsers;
+		
+public getBanState: () ==> BanState
+		getBanState() == return banned
+		pre banned <> nil
+		post RESULT = banned;
+		
+	public setBanState(newBanState:BanState) == (
+	banned := newBanState;
+	) 
+	pre banned <> newBanState
+	post banned = newBanState;
 	
-functions
--- TODO Define functiones here
-traces
--- TODO Define Combinatorial Test Traces here
 end User

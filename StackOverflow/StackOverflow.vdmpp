@@ -15,8 +15,12 @@ operations
 	)
 	post res.users = {} and res.userIdCounter = 1 and res.postsList = {};
 	
-	public createUser(name:String, email:String, age:nat, sex:Sex) res:User == (
-	return new User(userIdCounter, name, email, age, sex);
+	public createRegularUser(name:String, email:String, age:nat, sex:Sex, reputation:nat) res:RegularUser == (
+	return new RegularUser(userIdCounter, name, email, age, sex, reputation);
+	);
+	
+		public createAdministratorUser(name:String, email:String, age:nat, sex:Sex, reputation:nat) res:AdministratorUser == (
+	return new AdministratorUser(userIdCounter, name, email, age, sex, reputation);
 	);
 	
 	public addUser(user:User) == (

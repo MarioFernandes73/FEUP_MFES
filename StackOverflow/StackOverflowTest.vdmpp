@@ -2,6 +2,7 @@ class StackOverflowTest
 types
 public String = seq of char;
 public Sex = <Masculino> | <Feminino>;
+public BanState = <Banned> | <Unbanned>;
 values
 -- TODO Define values here
 instance variables
@@ -11,10 +12,66 @@ operations
 	assertTrue(cond) == return
 	pre cond;
 	
+		private testCreateRegularUser: () ==> ()
+	testCreateRegularUser() ==
+	(
+		dcl newUser:RegularUser := s.createRegularUser("Mario", "mario.gustavo@hotmail.com", 23, <Masculino>, 0 );
+		assertTrue(newUser.getCanRate() = true);
+		assertTrue(newUser.getCanCreatePost() = true );
+		assertTrue(newUser.getCanEditPost() = true );
+		assertTrue(newUser.getCanRemovePost() = false );
+		assertTrue(newUser.getCanAddComment() = true );
+		assertTrue(newUser.getCanEditComment() = true );
+		assertTrue(newUser.getCanRemoveComment() = false );
+		assertTrue(newUser.getCanBanUsers() = false );
+		assertTrue(newUser.getCanUnbanUsers() = false );
+		assertTrue(newUser.getName() = "Mario");
+		assertTrue(newUser.getEmail() = "mario.gustavo@hotmail.com");
+		assertTrue(newUser.getAge() = 23);
+		assertTrue(newUser.getSex() = <Masculino>);
+		assertTrue(newUser.getReputation() = 0);
+		assertTrue(newUser.getBanState() = <Unbanned>);
+	);
+	
+			private testCreateAdministratorUser: () ==> ()
+	testCreateAdministratorUser() ==
+	(
+		dcl newUser:AdministratorUser := s.createAdministratorUser("Mario", "mario.gustavo@hotmail.com", 23, <Masculino>, 0 );
+		assertTrue(newUser.getCanRate() = true);
+		assertTrue(newUser.getCanCreatePost() = true );
+		assertTrue(newUser.getCanEditPost() = true );
+		assertTrue(newUser.getCanRemovePost() = true );
+		assertTrue(newUser.getCanAddComment() = true );
+		assertTrue(newUser.getCanEditComment() = true );
+		assertTrue(newUser.getCanRemoveComment() = true );
+		assertTrue(newUser.getCanBanUsers() = true );
+		assertTrue(newUser.getCanUnbanUsers() = true );
+		assertTrue(newUser.getName() = "Mario");
+		assertTrue(newUser.getEmail() = "mario.gustavo@hotmail.com");
+		assertTrue(newUser.getAge() = 23);
+		assertTrue(newUser.getSex() = <Masculino>);
+		assertTrue(newUser.getReputation() = 0);
+		assertTrue(newUser.getBanState() = <Unbanned>);
+	);
+	
+	private testBanUser: () ==> ()
+	testBanUser() ==
+	(
+		dcl newUser:AdministratorUser := s.createAdministratorUser("Mario", "mario.gustavo@hotmail.com", 23, <Masculino>, 0 );
+		dcl newUser2:RegularUser := s.createRegularUser("Mario", "mario.gustavo@hotmail.com", 23, <Masculino>, 0 );
+		dcl newUser3:AdministratorUser := s.createAdministratorUser("Mario", "mario.gustavo@hotmail.com", 23, <Masculino>, 0 );
+		assertTrue(newUser2.getBanState() = <Unbanned>);
+		assertTrue(newUser3.getBanState() = <Unbanned>);
+		newUser.banUser(newUser2);
+		newUser.banUser(newUser3);
+		assertTrue(newUser2.getBanState() = <Banned>);
+		assertTrue(newUser3.getBanState() = <Banned>);
+	);
+	
 	private testAddUser: () ==> ()
 	testAddUser() ==
 	(
-		dcl newUser:User := s.createUser("Mario", "mario.gustavo@hotmail.com", 23, <Masculino> );
+		dcl newUser:RegularUser := s.createRegularUser("Mario", "mario.gustavo@hotmail.com", 23, <Masculino>, 0 );
 		dcl usersLength:nat := card s.getUsers();
 		s.addUser(newUser);
 		assertTrue(usersLength + 1 = card s.getUsers());
@@ -24,6 +81,9 @@ operations
 	public static main: () ==> ()
 	main() ==
 	(
+		new StackOverflowTest().testCreateRegularUser();
+		new StackOverflowTest().testCreateAdministratorUser();
+		new StackOverflowTest().testBanUser();
 		new StackOverflowTest().testAddUser();
 	)
 	
