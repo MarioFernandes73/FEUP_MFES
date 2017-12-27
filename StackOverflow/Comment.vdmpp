@@ -1,0 +1,30 @@
+class Comment
+types
+	public String = seq of char;
+values
+-- TODO Define values here
+instance variables
+	private content : String;
+	private authour : User;
+	--private date : Date;
+	private rating : int;
+
+operations
+	public Comment(commentContent:String, commentAuthour:User) res: Comment == (	
+		content := commentContent;
+		authour := commentAuthour;
+		rating := 0;
+	)
+	post res.content = commentContent and res.authour = commentAuthour and res.rating = 0;
+	
+	public editComment(newContent:String) == (
+		content := newContent;
+	)
+	post content = newContent;
+
+
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here
+end Comment

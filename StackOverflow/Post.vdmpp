@@ -1,0 +1,48 @@
+class Post
+types
+	public String = seq of char;
+	
+values
+-- TODO Define values here
+instance variables
+	--private id : nat;
+	private title : String;
+	private content : String;
+	private authour : User;
+	--private date : Date;
+	private views : nat;
+	private rating : int;
+	
+	private tagsList : seq of String;
+	private commentsList : seq of Comment;
+	
+operations
+	public Post(postTitle:String, postContent:String, postAuthour:User, postTags:seq of String) res: Post == (	
+		title := postTitle;
+		content := postContent;
+		authour := postAuthour;
+		tagsList := postTags;
+		commentsList := [];
+		views := 0;
+		rating := 0;
+	)
+	post res.title = postTitle and res.content = postContent and res.authour = postAuthour and res.tagsList = postTags and views = 0 and rating = 0 and commentsList = [];
+	
+	public editPost(newContent:String) == (
+		content := newContent;
+	)
+	post content = newContent;
+	
+	public increaseRating() == (
+		rating := rating + 1;
+	);
+	
+	public decreaseRating() == (
+		rating := rating - 1;
+	);
+
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here
+end Post

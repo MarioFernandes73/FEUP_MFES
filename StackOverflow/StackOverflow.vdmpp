@@ -7,11 +7,13 @@ values
 instance variables
 	private static userIdCounter : nat := 1;
 	private users : set of User;
+	private postsList : set of Post;
 operations
 	public StackOverflow() res:StackOverflow == (
 	users := {};
+	postsList := {};
 	)
-	post res.users = {} and res.userIdCounter = 1;
+	post res.users = {} and res.userIdCounter = 1 and res.postsList = {};
 	
 	public createUser(name:String, email:String, age:nat, sex:Sex) res:User == (
 	return new User(userIdCounter, name, email, age, sex);
@@ -22,9 +24,22 @@ operations
 	userIdCounter := userIdCounter + 1;
 	);
 	
+	public createPost(title:String, content:String, authour:User, tagsList:seq of String) res:Post == (
+		return new Post(title, content, authour, tagsList);
+	);
+	
+	public addPost(question:Post) == (
+		postsList := {question} union postsList;
+		-- Falta adicionar à lista dos posts do user
+	);
+	
 	public getUsers: () ==> set of User
 	getUsers() == return users
 	post RESULT = users;
+	
+	public getPosts: () ==> set of Post
+	getPosts() == return postsList
+	post RESULT = postsList;
 	
 functions
 -- TODO Define functiones here
