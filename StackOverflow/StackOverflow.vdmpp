@@ -52,4 +52,14 @@ operations
 	)
 	pre inputName <> "";
 	
+		public searchUsersByAge(inputName:nat) res:set of User == (
+	dcl usersTemp : set of User := {};
+	for all currUser in set users do (
+		if currUser.getAge() = inputName then 
+			usersTemp := {currUser} union usersTemp;
+		);
+	return usersTemp;
+	)
+	pre inputName > 0;
+	
 end StackOverflow

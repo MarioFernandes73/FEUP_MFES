@@ -13,6 +13,18 @@ operations
 	assertTrue(cond) == return
 	pre cond;
 	
+	private assertEqual: ? * ? ==> ()
+	assertEqual(expected, actual) == 
+		if expected <> actual then (
+  			IO`print("Actual value (");
+  			IO`print(actual); 
+  			IO`print(") different from expected (");
+  			IO`print(expected);
+  			IO`println(")\n")
+		)
+	post expected = actual;
+	
+	
 		private testCreateRegularUser: () ==> ()
 	testCreateRegularUser() ==
 	(
@@ -114,11 +126,10 @@ operations
 		private testSearchUser: () ==> ()
 	testSearchUser() ==
 	(
-		dcl newUser:RegularUser := s.createRegularUser("Rafael", "mario.gustavo@hotmail.com", 23, <Masculino>, 0 );
+		dcl newUser:RegularUser := s.createRegularUser("Rafael", "mario.gustavo@hotmail.com", 27, <Masculino>, 0 );
 		s.addUser(newUser);
-
-		assertTrue(s.searchUsersByName("Rafael") = {newUser});
-		
+		assertEqual(s.searchUsersByName("Rafael"), {newUser});
+		assertEqual(s.searchUsersByAge(27), {newUser});
 	);
 	
 	public static main: () ==> ()
