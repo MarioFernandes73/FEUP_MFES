@@ -2,7 +2,6 @@ class User
 types
 public String = seq of char;
 public BanState = <Banned> | <Unbanned>;
-public String = seq of char;
 instance variables
 protected canRate : bool;
 protected canCreatePost : bool;
