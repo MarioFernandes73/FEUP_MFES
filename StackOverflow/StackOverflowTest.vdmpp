@@ -98,29 +98,30 @@ operations
 	private testAddPost: () ==> ()
 	testAddPost() ==
 	(
-		dcl user:User := new RegularUser(1, "User", "email@gmail.com", 47, <Feminino>, 0, "mario","12345");
-		dcl tagsList:seq of String := ["Tag1", "Tag2", "Tag3"];
+		dcl user:RegularUser := new RegularUser(1, "User", "email@gmail.com", 47, <Feminino>, 0, "mario","12345");
+		dcl tagsList:set of String := {"Tag1", "Tag2", "Tag3"};
 		dcl postsLength:nat := card s.getPosts();
 		dcl newPost:Post := s.createPost("Title", "Content", user, tagsList);		
-		s.addPost(newPost);
 		
 		assertTrue(postsLength + 1 = card s.getPosts());
 		assertTrue(newPost in set s.getPosts());
+		assertTrue(newPost in set newPost.getAuthor().getPosts());
 	);
 	
 	private testEditPost: () ==> ()
 	testEditPost() ==
 	(
-		dcl user:User := new RegularUser(1, "User", "email@gmail.com", 47, <Feminino>, 0, "mario","12345");
-		dcl tagsList:seq of String := ["Tag1", "Tag2", "Tag3"];
-		dcl newPost:Post := s.createPost("Title", "Content", user, tagsList);		
+		dcl user:RegularUser := new RegularUser(1, "User", "email@gmail.com", 47, <Feminino>, 0, , "mario","12345");
+		dcl tagsList:set of String := {"Tag1", "Tag2", "Tag3"};
+		dcl newPost:Post := s.createPost("Title", "Content", user, tagsList);			
 		dcl title:String := newPost.getTitle();
-		dcl tags:seq of String := newPost.getTagsList();
-		newPost.editPost(title, "New content", tags);
+		dcl tags:set of String := newPost.getTagsList();
+		
+		newPost := s.editPost(newPost, title, "New content", tags);
 		
 		assertTrue(newPost.getTitle() = "Title");
 		assertTrue(newPost.getContent() = "New content");
-		assertTrue(newPost.getTagsList() = ["Tag1", "Tag2", "Tag3"]);
+		assertTrue(newPost.getTagsList() = {"Tag1", "Tag2", "Tag3"});
 	);
 	
 		private testSearchUser: () ==> ()
