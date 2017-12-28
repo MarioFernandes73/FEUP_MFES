@@ -28,9 +28,21 @@ operations
 	userIdCounter := userIdCounter + 1;
 	);
 	
-	public createPost(title:String, content:String, authour:User, tagsList:seq of String) res:Post == (
-		return new Post(title, content, authour, tagsList);
+	public createPost(title:String, content:String, author:RegisteredUser, tagsList:set of String) res:Post == (
+		dcl newPost:Post := author.createPost(title, content, tagsList);
+		addPost(newPost);
+		return newPost;
 	);
+	
+	public editPost(question:Post, newTitle:String, newContent:String, newTags:set of String) res:Post == (
+		dcl author:RegisteredUser := question.getAuthor();
+		return author.editPost(question, newTitle, newContent, newTags);
+	);
+	
+	public deletePost(question:Post) == (
+		dcl author:RegisteredUser := question.getAuthor();
+		author.removePost(question);
+	);	
 	
 	public addPost(question:Post) == (
 		postsList := {question} union postsList;

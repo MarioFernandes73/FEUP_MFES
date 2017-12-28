@@ -9,8 +9,8 @@ instance variables
 	protected email : String;
 	protected sex : Sex;
 	protected reputation : int;
-	protected posts : seq of Post := [];
-	protected comments : seq of Comment := [];
+	protected posts : set of Post := {};
+	protected comments : set of Comment := {};
 operations
 		public RegisteredUser(id1:nat, name1:String, email1:String, age1:nat, sex1:Sex, reputation1:int) res: RegisteredUser == (	
 		id := id1;
@@ -53,12 +53,33 @@ operations
 		getReputation() == return reputation
 		post RESULT = reputation;
 		
-					public getPosts: () ==> seq of Post
+					public getPosts: () ==> set of Post
 		getPosts() == return posts
 		post RESULT = posts;
 		
-					public getComments: () ==> seq of Comment
+					public getComments: () ==> set of Comment
 		getComments() == return comments
 		post RESULT = comments;
 		
+	public addPost(question:Post) == (
+		posts := {question} union posts;
+	);
+	
+	public createPost(title:String, content:String, tagsList:set of String) res:Post == (
+		dcl newPost:Post := new Post(title, content, self, tagsList);
+		addPost(newPost);
+		return newPost;
+	)
+	pre canCreatePost = true;
+	
+	public editPost(question:Post, title:String, content:String, tagsList:set of String) res:Post == (
+		return question.editPost(title, content, tagsList);
+	)
+	pre canEditPost = true;
+	
+	public removePost(question:Post) == (
+		posts := {question} \ posts;
+	)
+	pre canRemovePost = true;
+			
 end RegisteredUser

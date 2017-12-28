@@ -4,12 +4,12 @@ types
 
 instance variables
 	private content : String;
-	private author : User;
+	private author : RegisteredUser;
 	--private date : Date;
 	private rating : int;
 
 operations
-	public Comment(commentContent:String, commentAuthor:User) res: Comment == (	
+	public Comment(commentContent:String, commentAuthor:RegisteredUser) res: Comment == (	
 		content := commentContent;
 		author := commentAuthor;
 		rating := 0;

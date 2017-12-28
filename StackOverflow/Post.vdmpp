@@ -10,30 +10,28 @@ instance variables
 	private views : nat;
 	private rating : int;
 	
-	private tagsList : seq of String;
-	private commentsList : set of Comment;
+	private tagsList : set of String;
+	private commentsList : set of Comment := {};
 	
 operations
-	public Post(postTitle:String, postContent:String, postAuthor:RegisteredUser, postTags:seq of String) res: Post == (	
+	public Post(postTitle:String, postContent:String, postAuthor:RegisteredUser, postTags:set of String) res: Post == (	
 		title := postTitle;
 		content := postContent;
 		author := postAuthor;
 		tagsList := postTags;
-		commentsList := {};
 		views := 0;
-		rating := 0;
-		return self;
+		rating := 0;	
 	)
 	post res.title = postTitle and res.content = postContent and res.author = postAuthor and res.tagsList = postTags 
-		and views = 0 and rating = 0 and commentsList = {};
-		-- and postAuthour.canCreatePost()
+		and res.views = 0 and res.rating = 0 and res.commentsList = {};
 		
-	public editPost(newTitle:String, newContent:String, newTags:seq of String) == (
+	public editPost(newTitle:String, newContent:String, newTags:set of String) res:Post == (
 		title := newTitle;
 		content := newContent;
 		tagsList := newTags;
+		return self;
 	)
-	post content = newContent and title = newTitle and tagsList = newTags; -- and author.canEditPost()
+	post content = newContent and title = newTitle and tagsList = newTags;
 	        
   public getTitle: () ==> String
   	getTitle() == return title
@@ -58,9 +56,9 @@ operations
   	pre views >= 0
     post RESULT = views;
     
-  public getTagsList: () ==> seq of String
+  public getTagsList: () ==> set of String
   	getTagsList() == return tagsList
-    pre tagsList <> []
+    pre tagsList <> {}
     post RESULT = tagsList;
     
   public getCommentsList: () ==> set of Comment
