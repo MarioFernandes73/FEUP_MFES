@@ -1,8 +1,7 @@
 class Comment
 types
 	public String = seq of char;
-values
--- TODO Define values here
+
 instance variables
 	private content : String;
 	private authour : User;
@@ -17,14 +16,18 @@ operations
 	)
 	post res.content = commentContent and res.authour = commentAuthour and res.rating = 0;
 	
+		
+	public increaseRating() == (
+		rating := rating + 1;
+	);
+	
+	public decreaseRating() == (
+		rating := rating - 1;
+	);
+	
 	public editComment(newContent:String) == (
 		content := newContent;
 	)
 	post content = newContent;
 
-
-functions
--- TODO Define functiones here
-traces
--- TODO Define Combinatorial Test Traces here
 end Comment

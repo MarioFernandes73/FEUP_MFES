@@ -34,7 +34,6 @@ operations
 	
 	public addPost(question:Post) == (
 		postsList := {question} union postsList;
-		-- Falta adicionar à lista dos posts do user
 	);
 	
 	public getUsers: () ==> set of User

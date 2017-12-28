@@ -2,10 +2,7 @@ class Post
 types
 	public String = seq of char;
 	
-values
--- TODO Define values here
 instance variables
-	--private id : nat;
 	private title : String;
 	private content : String;
 	private authour : User;
@@ -14,7 +11,7 @@ instance variables
 	private rating : int;
 	
 	private tagsList : seq of String;
-	private commentsList : seq of Comment;
+	private commentsList : set of Comment;
 	
 operations
 	public Post(postTitle:String, postContent:String, postAuthour:User, postTags:seq of String) res: Post == (	
@@ -22,27 +19,32 @@ operations
 		content := postContent;
 		authour := postAuthour;
 		tagsList := postTags;
-		commentsList := [];
+		commentsList := {};
 		views := 0;
 		rating := 0;
 	)
-	post res.title = postTitle and res.content = postContent and res.authour = postAuthour and res.tagsList = postTags and views = 0 and rating = 0 and commentsList = [];
+	post res.title = postTitle and res.content = postContent and res.authour = postAuthour and res.tagsList = postTags and views = 0 and rating = 0 and commentsList = {};
 	
-	public editPost(newContent:String) == (
+	public editPost(newTitle:String, newContent:String, newTags:seq of String) == (
+		title := newTitle;
 		content := newContent;
+		tagsList := newTags;
 	)
-	post content = newContent;
-	
-	public increaseRating() == (
-		rating := rating + 1;
-	);
-	
-	public decreaseRating() == (
-		rating := rating - 1;
-	);
+	post content = newContent and title = newTitle and tagsList = newTags;
+	        
+  public getTitle: () ==> String
+  	getTitle() == return title
+    pre title <> []
+    post RESULT = title;
+    
+  public getContent: () ==> String
+  	getContent() == return content
+    pre content <> []
+    post RESULT = content;
+    
+  public getTagsList: () ==> seq of String
+  	getTagsList() == return tagsList
+    pre tagsList <> []
+    post RESULT = tagsList;
 
-functions
--- TODO Define functiones here
-traces
--- TODO Define Combinatorial Test Traces here
 end Post
