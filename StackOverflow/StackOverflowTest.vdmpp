@@ -111,7 +111,7 @@ operations
 	private testEditPost: () ==> ()
 	testEditPost() ==
 	(
-		dcl user:RegularUser := new RegularUser(1, "User", "email@gmail.com", 47, <Feminino>, 0, , "mario","12345");
+		dcl user:RegularUser := new RegularUser(1, "User", "email@gmail.com", 47, <Feminino>, 0, "mario","12345");
 		dcl tagsList:set of String := {"Tag1", "Tag2", "Tag3"};
 		dcl newPost:Post := s.createPost("Title", "Content", user, tagsList);			
 		dcl title:String := newPost.getTitle();
