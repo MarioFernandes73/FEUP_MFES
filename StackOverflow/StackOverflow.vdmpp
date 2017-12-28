@@ -3,11 +3,13 @@ types
 public String = seq of char;
 public Sex = <Masculino> | <Feminino>;
 instance variables
-	private static userIdCounter : nat := 1;
+	private userIdCounter : nat := 1;
 	private users : set of User;
 	private postsList : set of Post;
+	private currentUser : User;
 operations
 	public StackOverflow() res:StackOverflow == (
+	currentUser := new GuestUser();
 	users := {};
 	postsList := {};
 	)

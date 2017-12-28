@@ -1,12 +1,15 @@
-class GuestUser
+class GuestUser is subclass of User
 types
--- TODO Define types here
+public String = seq of char;
+public Sex = <Masculino> | <Feminino>;
 values
 -- TODO Define values here
 instance variables
 -- TODO Define instance variables here
 operations
--- TODO Define operations here
+		public GuestUser() res: GuestUser == (	
+		User();
+	);
 functions
 -- TODO Define functiones here
 traces
