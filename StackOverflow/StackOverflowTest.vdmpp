@@ -13,6 +13,18 @@ operations
 	assertTrue(cond) == return
 	pre cond;
 	
+	private assertEqual: ? * ? ==> ()
+	assertEqual(expected, actual) == 
+		if expected <> actual then (
+  			IO`print("Actual value (");
+  			IO`print(actual); 
+  			IO`print(") different from expected (");
+  			IO`print(expected);
+  			IO`println(")\n")
+		)
+	post expected = actual;
+	
+	
 		private testCreateRegularUser: () ==> ()
 	testCreateRegularUser() ==
 	(
@@ -67,6 +79,10 @@ operations
 		newUser.banUser(newUser3);
 		assertTrue(newUser2.getBanState() = <Banned>);
 		assertTrue(newUser3.getBanState() = <Banned>);
+		newUser.unbanUser(newUser2);
+		newUser.unbanUser(newUser3);
+		assertTrue(newUser2.getBanState() = <Unbanned>);
+		assertTrue(newUser3.getBanState() = <Unbanned>);
 	);
 	
 	private testAddUser: () ==> ()
@@ -108,6 +124,15 @@ operations
 		assertTrue(newPost.getTagsList() = {"Tag1", "Tag2", "Tag3"});
 	);
 	
+		private testSearchUser: () ==> ()
+	testSearchUser() ==
+	(
+		dcl newUser:RegularUser := s.createRegularUser("Rafael", "mario.gustavo@hotmail.com", 27, <Masculino>, 0 );
+		s.addUser(newUser);
+		assertEqual(s.searchUsersByName("Rafael"), {newUser});
+		assertEqual(s.searchUsersByAge(27), {newUser});
+	);
+	
 	public static main: () ==> ()
 	main() ==
 	(
@@ -118,6 +143,7 @@ operations
 		stack.testBanUser();
 		stack.testAddUser();
 		stack.testAddPost();	
+		stack.testSearchUser();
 	)
 	
 end StackOverflowTest

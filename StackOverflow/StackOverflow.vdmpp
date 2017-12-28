@@ -2,14 +2,14 @@ class StackOverflow
 types
 public String = seq of char;
 public Sex = <Masculino> | <Feminino>;
-values
--- TODO Define values here
 instance variables
-	private static userIdCounter : nat := 1;
+	private userIdCounter : nat := 1;
 	private users : set of User;
 	private postsList : set of Post;
+	private currentUser : User;
 operations
 	public StackOverflow() res:StackOverflow == (
+	currentUser := new GuestUser();
 	users := {};
 	postsList := {};
 	)
@@ -56,8 +56,24 @@ operations
 	getPosts() == return postsList
 	post RESULT = postsList;
 	
-functions
--- TODO Define functiones here
-traces
--- TODO Define Combinatorial Test Traces here
+	public searchUsersByName(inputName:String) res:set of User == (
+	dcl usersTemp : set of User := {};
+	for all currUser in set users do (
+		if currUser.getName() = inputName then 
+			usersTemp := {currUser} union usersTemp;
+		);
+	return usersTemp;
+	)
+	pre inputName <> "";
+	
+		public searchUsersByAge(inputName:nat) res:set of User == (
+	dcl usersTemp : set of User := {};
+	for all currUser in set users do (
+		if currUser.getAge() = inputName then 
+			usersTemp := {currUser} union usersTemp;
+		);
+	return usersTemp;
+	)
+	pre inputName > 0;
+	
 end StackOverflow
