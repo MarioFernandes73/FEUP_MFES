@@ -1,5 +1,6 @@
 class User
 types
+public String = seq of char;
 public BanState = <Banned> | <Unbanned>;
 instance variables
 protected canRate : bool;
@@ -82,5 +83,9 @@ public getBanState: () ==> BanState
 	) 
 	pre banned <> newBanState
 	post banned = newBanState;
-	
+
+			public getName: () ==> String
+		getName() == return ""
+		post RESULT = "";
+		
 end User

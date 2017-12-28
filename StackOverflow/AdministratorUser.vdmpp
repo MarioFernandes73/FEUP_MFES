@@ -35,4 +35,9 @@ public banUser(user:User) == (
 user.setBanState(<Banned>);
 	)
 	pre canBanUsers = true;
+	
+public unbanUser(user:User) == (
+user.setBanState(<Unbanned>);
+	)
+	pre canUnbanUsers = true;
 end AdministratorUser

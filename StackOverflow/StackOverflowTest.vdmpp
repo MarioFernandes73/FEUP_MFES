@@ -67,6 +67,10 @@ operations
 		newUser.banUser(newUser3);
 		assertTrue(newUser2.getBanState() = <Banned>);
 		assertTrue(newUser3.getBanState() = <Banned>);
+		newUser.unbanUser(newUser2);
+		newUser.unbanUser(newUser3);
+		assertTrue(newUser2.getBanState() = <Unbanned>);
+		assertTrue(newUser3.getBanState() = <Unbanned>);
 	);
 	
 	private testAddUser: () ==> ()
@@ -107,6 +111,16 @@ operations
 		assertTrue(newPost.getTagsList() = ["Tag1", "Tag2", "Tag3"]);
 	);
 	
+		private testSearchUser: () ==> ()
+	testSearchUser() ==
+	(
+		dcl newUser:RegularUser := s.createRegularUser("Rafael", "mario.gustavo@hotmail.com", 23, <Masculino>, 0 );
+		s.addUser(newUser);
+
+		assertTrue(s.searchUsersByName("Rafael") = {newUser});
+		
+	);
+	
 	public static main: () ==> ()
 	main() ==
 	(
@@ -117,6 +131,7 @@ operations
 		stack.testBanUser();
 		stack.testAddUser();
 		stack.testAddPost();	
+		stack.testSearchUser();
 	)
 	
 end StackOverflowTest
