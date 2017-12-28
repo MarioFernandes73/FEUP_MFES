@@ -3,13 +3,13 @@ types
 public String = seq of char;
 public Sex = <Masculino> | <Feminino>;
 operations
-		public RegularUser(id1:nat, name1:String, email1:String, age1:nat, sex1:Sex, reputation1:int) res: RegularUser == (	
+		public RegularUser(id1:nat, name1:String, email1:String, age1:nat, sex1:Sex, reputation1:int, username1:String, password1:String) res: RegularUser == (	
 		canRate := true;
 		canCreatePost := true;
 		canEditPost := true;
 		canAddComment := true;
 		canEditComment := true;
-		RegisteredUser(id1, name1, email1, age1, sex1, reputation1);
+		RegisteredUser(id1, name1, email1, age1, sex1, reputation1, username1, password1);
 	)
 	post res.canRate = true and
 		res.canCreatePost = true and
@@ -25,5 +25,7 @@ operations
 		res.email = email1 and
 		res.age = age1 and
 		res.sex = sex1 and
-		res.reputation = reputation1;
+		res.reputation = reputation1 and
+		res.username = username1 and
+		res.password = password1;
 end RegularUser

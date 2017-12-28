@@ -92,4 +92,12 @@ public getBanState: () ==> BanState
 		getAge() == return 0
 		post RESULT = 0;
 		
+	public getUsername: () ==> String
+		getUsername() == return ""
+		post RESULT = "";
+		
+	public getPassword: () ==> String
+		getPassword() == return ""
+		post RESULT = "";
+		
 end User

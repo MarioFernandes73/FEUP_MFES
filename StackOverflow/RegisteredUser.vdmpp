@@ -11,54 +11,68 @@ instance variables
 	protected reputation : int;
 	protected posts : seq of Post := [];
 	protected comments : seq of Comment := [];
+	protected username : String;
+	protected password : String;
 operations
-		public RegisteredUser(id1:nat, name1:String, email1:String, age1:nat, sex1:Sex, reputation1:int) res: RegisteredUser == (	
+		public RegisteredUser(id1:nat, name1:String, email1:String, age1:nat, sex1:Sex, reputation1:int, username1:String, password1:String) res: RegisteredUser == (	
 		id := id1;
 		name := name1;
 		email := email1;
 		age := age1;
 		sex := sex1;
 		reputation := reputation1;
+		username := username1;
+		password := password1;
 	)
 	post res.name = name1 and
 		res.email = email1 and
 		res.age = age1 and
 		res.sex = sex1 and
-		res.reputation = reputation1;
+		res.reputation = reputation1 and 
+		res.username = username1 and
+		res.password = password1;
 	
 	public getId: () ==> nat
 		getId() == return id
 		pre id > 0
 		post RESULT = id;
 		
-			public getName: () ==> String
+	public getName: () ==> String
 		getName() == return name
 		post RESULT = name;
 		
-			public getAge: () ==> nat
+	public getAge: () ==> nat
 		getAge() == return age
 		pre age > 0
 		post RESULT = age;
 		
-			public getEmail: () ==> String
+	public getEmail: () ==> String
 		getEmail() == return email
 		post RESULT = email;
 		
-			public getSex: () ==> Sex
+	public getSex: () ==> Sex
 		getSex() == return sex
 		pre sex <> nil
 		post RESULT = sex;
 		
-					public getReputation: () ==> int
+	public getReputation: () ==> int
 		getReputation() == return reputation
 		post RESULT = reputation;
 		
-					public getPosts: () ==> seq of Post
+	public getPosts: () ==> seq of Post
 		getPosts() == return posts
 		post RESULT = posts;
 		
-					public getComments: () ==> seq of Comment
+	public getComments: () ==> seq of Comment
 		getComments() == return comments
 		post RESULT = comments;
+		
+	public getUsername: () ==> String
+		getUsername() == return username
+		post RESULT = username;
+		
+	public getPassword: () ==> String
+		getPassword() == return password
+		post RESULT = password;
 		
 end RegisteredUser

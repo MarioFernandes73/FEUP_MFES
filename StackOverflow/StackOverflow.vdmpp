@@ -15,12 +15,12 @@ operations
 	)
 	post res.users = {} and res.userIdCounter = 1 and res.postsList = {};
 	
-	public createRegularUser(name:String, email:String, age:nat, sex:Sex, reputation:nat) res:RegularUser == (
-	return new RegularUser(userIdCounter, name, email, age, sex, reputation);
+	public createRegularUser(name:String, email:String, age:nat, sex:Sex, reputation:nat, username:String, password:String) res:RegularUser == (
+	return new RegularUser(userIdCounter, name, email, age, sex, reputation, username, password);
 	);
 	
-		public createAdministratorUser(name:String, email:String, age:nat, sex:Sex, reputation:nat) res:AdministratorUser == (
-	return new AdministratorUser(userIdCounter, name, email, age, sex, reputation);
+		public createAdministratorUser(name:String, email:String, age:nat, sex:Sex, reputation:nat, username:String, password:String) res:AdministratorUser == (
+	return new AdministratorUser(userIdCounter, name, email, age, sex, reputation, username, password);
 	);
 	
 	public addUser(user:User) == (
@@ -44,6 +44,10 @@ operations
 	getPosts() == return postsList
 	post RESULT = postsList;
 	
+	public getCurrentUser: () ==> User
+	getCurrentUser() == return currentUser
+	post RESULT = currentUser;
+	
 	public searchUsersByName(inputName:String) res:set of User == (
 	dcl usersTemp : set of User := {};
 	for all currUser in set users do (
@@ -63,5 +67,15 @@ operations
 	return usersTemp;
 	)
 	pre inputName > 0;
+	
+			public tryLogin(inputUsername:String, inputPassword:String) res:bool == (
+	for all currUser in set users do (
+		if currUser.getUsername() = inputUsername and currUser.getPassword() = inputPassword then( 
+			currentUser := currUser;
+			return true);
+		);
+		return false;
+	)
+	pre inputUsername <> "" and inputPassword <> "";
 	
 end StackOverflow

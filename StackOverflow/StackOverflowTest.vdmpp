@@ -28,7 +28,7 @@ operations
 		private testCreateRegularUser: () ==> ()
 	testCreateRegularUser() ==
 	(
-		dcl newUser:RegularUser := s.createRegularUser("Mario", "mario.gustavo@hotmail.com", 23, <Masculino>, 0 );
+		dcl newUser:RegularUser := s.createRegularUser("Mario", "mario.gustavo@hotmail.com", 23, <Masculino>, 0, "mario","12345" );
 		assertTrue(newUser.getCanRate() = true);
 		assertTrue(newUser.getCanCreatePost() = true );
 		assertTrue(newUser.getCanEditPost() = true );
@@ -49,7 +49,7 @@ operations
 			private testCreateAdministratorUser: () ==> ()
 	testCreateAdministratorUser() ==
 	(
-		dcl newUser:AdministratorUser := s.createAdministratorUser("Mario", "mario.gustavo@hotmail.com", 23, <Masculino>, 0 );
+		dcl newUser:AdministratorUser := s.createAdministratorUser("Mario", "mario.gustavo@hotmail.com", 23, <Masculino>, 0, "mario","12345" );
 		assertTrue(newUser.getCanRate() = true);
 		assertTrue(newUser.getCanCreatePost() = true );
 		assertTrue(newUser.getCanEditPost() = true );
@@ -70,9 +70,9 @@ operations
 	private testBanUser: () ==> ()
 	testBanUser() ==
 	(
-		dcl newUser:AdministratorUser := s.createAdministratorUser("Mario", "mario.gustavo@hotmail.com", 23, <Masculino>, 0 );
-		dcl newUser2:RegularUser := s.createRegularUser("Mario", "mario.gustavo@hotmail.com", 23, <Masculino>, 0 );
-		dcl newUser3:AdministratorUser := s.createAdministratorUser("Mario", "mario.gustavo@hotmail.com", 23, <Masculino>, 0 );
+		dcl newUser:AdministratorUser := s.createAdministratorUser("Mario", "mario.gustavo@hotmail.com", 23, <Masculino>, 0, "mario","12345" );
+		dcl newUser2:RegularUser := s.createRegularUser("Mario", "mario.gustavo@hotmail.com", 23, <Masculino>, 0, "mario","12345" );
+		dcl newUser3:AdministratorUser := s.createAdministratorUser("Mario", "mario.gustavo@hotmail.com", 23, <Masculino>, 0, "mario","12345" );
 		assertTrue(newUser2.getBanState() = <Unbanned>);
 		assertTrue(newUser3.getBanState() = <Unbanned>);
 		newUser.banUser(newUser2);
@@ -88,7 +88,7 @@ operations
 	private testAddUser: () ==> ()
 	testAddUser() ==
 	(
-		dcl newUser:RegularUser := s.createRegularUser("Mario", "mario.gustavo@hotmail.com", 23, <Masculino>, 0 );
+		dcl newUser:RegularUser := s.createRegularUser("Mario", "mario.gustavo@hotmail.com", 23, <Masculino>, 0, "mario","12345" );
 		dcl usersLength:nat := card s.getUsers();
 		s.addUser(newUser);
 		assertTrue(usersLength + 1 = card s.getUsers());
@@ -98,7 +98,7 @@ operations
 	private testAddPost: () ==> ()
 	testAddPost() ==
 	(
-		dcl user:User := new RegularUser(1, "User", "email@gmail.com", 47, <Feminino>, 0);
+		dcl user:User := new RegularUser(1, "User", "email@gmail.com", 47, <Feminino>, 0, "mario","12345");
 		dcl tagsList:seq of String := ["Tag1", "Tag2", "Tag3"];
 		dcl postsLength:nat := card s.getPosts();
 		dcl newPost:Post := s.createPost("Title", "Content", user, tagsList);		
@@ -111,7 +111,7 @@ operations
 	private testEditPost: () ==> ()
 	testEditPost() ==
 	(
-		dcl user:User := new RegularUser(1, "User", "email@gmail.com", 47, <Feminino>, 0);
+		dcl user:User := new RegularUser(1, "User", "email@gmail.com", 47, <Feminino>, 0, "mario","12345");
 		dcl tagsList:seq of String := ["Tag1", "Tag2", "Tag3"];
 		dcl newPost:Post := s.createPost("Title", "Content", user, tagsList);		
 		dcl title:String := newPost.getTitle();
@@ -126,23 +126,34 @@ operations
 		private testSearchUser: () ==> ()
 	testSearchUser() ==
 	(
-		dcl newUser:RegularUser := s.createRegularUser("Rafael", "mario.gustavo@hotmail.com", 27, <Masculino>, 0 );
+		dcl newUser:RegularUser := s.createRegularUser("Rafael", "mario.gustavo@hotmail.com", 27, <Masculino>, 0, "mario","12345" );
 		s.addUser(newUser);
 		assertEqual(s.searchUsersByName("Rafael"), {newUser});
 		assertEqual(s.searchUsersByAge(27), {newUser});
 	);
 	
+			private testLogin: () ==> ()
+	testLogin() ==
+	(
+		dcl newUser:RegularUser := s.createRegularUser("Jorge", "mario.gustavo@hotmail.com", 27, <Masculino>, 0, "jj","12345" );
+		dcl tempBool : bool := false;
+		
+		s.addUser(newUser);
+		tempBool := s.tryLogin("jj","12345");
+		assertTrue(tempBool);
+		assertEqual(newUser,s.getCurrentUser());
+	);
+	
 	public static main: () ==> ()
 	main() ==
-	(
-		dcl stack:StackOverflowTest := new StackOverflowTest(); 
-		
-		stack.testCreateRegularUser();
-		stack.testCreateAdministratorUser();
-		stack.testBanUser();
-		stack.testAddUser();
-		stack.testAddPost();	
-		stack.testSearchUser();
+	(		
+		new StackOverflowTest().testCreateRegularUser();
+		new StackOverflowTest().testCreateAdministratorUser();
+		new StackOverflowTest().testBanUser();
+		new StackOverflowTest().testAddUser();
+		new StackOverflowTest().testAddPost();	
+		new StackOverflowTest().testSearchUser();
+		new StackOverflowTest().testLogin();
 	)
 	
 end StackOverflowTest
