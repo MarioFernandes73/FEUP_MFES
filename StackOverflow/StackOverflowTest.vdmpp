@@ -82,7 +82,7 @@ operations
 	private testAddPost: () ==> ()
 	testAddPost() ==
 	(
-		dcl user:User := new User(1, "User", "email@gmail.com", 47, <Feminino>);
+		dcl user:User := new RegularUser(1, "User", "email@gmail.com", 47, <Feminino>, 0);
 		dcl tagsList:seq of String := ["Tag1", "Tag2", "Tag3"];
 		dcl postsLength:nat := card s.getPosts();
 		dcl newPost:Post := s.createPost("Title", "Content", user, tagsList);		
@@ -92,16 +92,31 @@ operations
 		assertTrue(newPost in set s.getPosts());
 	);
 	
+	private testEditPost: () ==> ()
+	testEditPost() ==
+	(
+		dcl user:User := new RegularUser(1, "User", "email@gmail.com", 47, <Feminino>, 0);
+		dcl tagsList:seq of String := ["Tag1", "Tag2", "Tag3"];
+		dcl newPost:Post := s.createPost("Title", "Content", user, tagsList);		
+		dcl title:String := newPost.getTitle();
+		dcl tags:seq of String := newPost.getTagsList();
+		newPost.editPost(title, "New content", tags);
+		
+		assertTrue(newPost.getTitle() = "Title");
+		assertTrue(newPost.getContent() = "New content");
+		assertTrue(newPost.getTagsList() = ["Tag1", "Tag2", "Tag3"]);
+	);
+	
 	public static main: () ==> ()
 	main() ==
 	(
-		new StackOverflowTest().testCreateRegularUser();
-		new StackOverflowTest().testCreateAdministratorUser();
-		new StackOverflowTest().testBanUser();
-		new StackOverflowTest().testAddUser();
 		dcl stack:StackOverflowTest := new StackOverflowTest(); 
+		
+		stack.testCreateRegularUser();
+		stack.testCreateAdministratorUser();
+		stack.testBanUser();
 		stack.testAddUser();
-		stack.testAddPost();
+		stack.testAddPost();	
 	)
 	
 end StackOverflowTest

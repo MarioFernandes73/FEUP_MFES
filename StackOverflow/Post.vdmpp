@@ -5,7 +5,7 @@ types
 instance variables
 	private title : String;
 	private content : String;
-	private authour : User;
+	private author : RegisteredUser;
 	--private date : Date;
 	private views : nat;
 	private rating : int;
@@ -14,23 +14,26 @@ instance variables
 	private commentsList : set of Comment;
 	
 operations
-	public Post(postTitle:String, postContent:String, postAuthour:User, postTags:seq of String) res: Post == (	
+	public Post(postTitle:String, postContent:String, postAuthor:RegisteredUser, postTags:seq of String) res: Post == (	
 		title := postTitle;
 		content := postContent;
-		authour := postAuthour;
+		author := postAuthor;
 		tagsList := postTags;
 		commentsList := {};
 		views := 0;
 		rating := 0;
+		return self;
 	)
-	post res.title = postTitle and res.content = postContent and res.authour = postAuthour and res.tagsList = postTags and views = 0 and rating = 0 and commentsList = {};
-	
+	post res.title = postTitle and res.content = postContent and res.author = postAuthor and res.tagsList = postTags 
+		and views = 0 and rating = 0 and commentsList = {};
+		-- and postAuthour.canCreatePost()
+		
 	public editPost(newTitle:String, newContent:String, newTags:seq of String) == (
 		title := newTitle;
 		content := newContent;
 		tagsList := newTags;
 	)
-	post content = newContent and title = newTitle and tagsList = newTags;
+	post content = newContent and title = newTitle and tagsList = newTags; -- and author.canEditPost()
 	        
   public getTitle: () ==> String
   	getTitle() == return title
@@ -42,9 +45,26 @@ operations
     pre content <> []
     post RESULT = content;
     
+  public getAuthor: () ==> RegisteredUser
+  	getAuthor() == return author
+    post RESULT = author;
+    
+  public getRating: () ==> int
+  	getRating() == return rating
+    post RESULT = rating;
+    
+  public getViews: () ==> nat
+  	getViews() == return views
+  	pre views >= 0
+    post RESULT = views;
+    
   public getTagsList: () ==> seq of String
   	getTagsList() == return tagsList
     pre tagsList <> []
     post RESULT = tagsList;
+    
+  public getCommentsList: () ==> set of Comment
+  	getCommentsList() == return commentsList
+    post RESULT = commentsList;
 
 end Post
