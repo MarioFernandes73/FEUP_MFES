@@ -31,6 +31,19 @@ operations
 		res.reputation = reputation1 and 
 		res.username = username1 and
 		res.password = password1;
+		
+		public editUser(name1:String, email1:String, age1:nat, sex1:Sex) res:RegisteredUser == (
+			name := name1;
+			email := email1;
+			age := age1;
+			sex := sex1;
+			return self;
+		)
+		pre name1 <> "" and email1 <> "" and age1 > 0 and sex1 <> nil
+		post res.name = name1 and
+			res.email = email1 and
+			res.age = age1 and
+			res.sex = sex1;
 	
 	public getId: () ==> nat
 		getId() == return id

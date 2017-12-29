@@ -2,6 +2,7 @@ class User
 types
 public String = seq of char;
 public BanState = <Banned> | <Unbanned>;
+public Sex = <Masculino> | <Feminino>;
 instance variables
 protected canRate : bool;
 protected canCreatePost : bool;
@@ -84,6 +85,14 @@ public getBanState: () ==> BanState
 	pre banned <> newBanState
 	post banned = newBanState;
 
+	public getEmail: () ==> String
+		getEmail() == return ""
+		post RESULT = "";
+		
+	public getSex: () ==> Sex
+		getSex() == return nil
+		post RESULT = nil;	
+
 	public getName: () ==> String
 		getName() == return ""
 		post RESULT = "";
@@ -99,5 +108,8 @@ public getBanState: () ==> BanState
 	public getPassword: () ==> String
 		getPassword() == return ""
 		post RESULT = "";
-		
+
+public editUser(name1:String, email1:String, age1:nat, sex1:Sex) res:User == (
+return self;
+) pre name1 <> "" and email1 <> "" and age1 > 0 and sex1 <> nil;
 end User

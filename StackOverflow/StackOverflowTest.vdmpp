@@ -215,6 +215,34 @@ operations
 		assertEqual(newUser,s.getCurrentUser());
 	);
 	
+			private testSearchPost: () ==> ()
+	testSearchPost() ==
+	(
+		dcl user:RegularUser := new RegularUser(1, "User", "email@gmail.com", 47, <Feminino>, 0, "mario","12345");
+		dcl tagsList:set of String := {"Tag1", "Tag2", "Tag3"};
+		dcl tagsList2:set of String := {"Tag3"};
+		dcl newPost:Post := s.createPost("Title", "Content", user, tagsList);
+		dcl newPost2:Post := s.createPost("Title", "Content", user, tagsList2);
+		
+		assertEqual(s.searchPostsByTags("Tag1"),{newPost});
+		assertEqual(s.searchPostsByTags("Tag3"),{newPost, newPost2});
+	);
+	
+				private testEditUser: () ==> ()
+	testEditUser() ==
+	(
+		dcl newUser:RegularUser := s.createRegularUser("Ana", "ana@hotmail.com", 27, <Feminino>, 0, "aa","12345" );
+		dcl tempBool : bool;
+		s.addUser(newUser);
+		tempBool := s.tryLogin("aa","12345");
+		s.editUser("Mario","mario.gustavo@hotmail.com", 23, <Masculino>);
+		assertTrue(s.getCurrentUser().getName() = "Mario");
+		assertTrue(s.getCurrentUser().getEmail() = "mario.gustavo@hotmail.com");
+		assertTrue(s.getCurrentUser().getAge() = 23);
+		assertTrue(s.getCurrentUser().getSex() = <Masculino>);
+	);
+	
+	
 	public static main: () ==> ()
 	main() ==
 	(		
@@ -230,6 +258,8 @@ operations
 		new StackOverflowTest().testAddComment();	
 		new StackOverflowTest().testEditComment();	
 		new StackOverflowTest().testRemoveComment();	
-	);
+		new StackOverflowTest().testSearchPost();
+		new StackOverflowTest().testEditUser();
+	)
 	
 end StackOverflowTest
