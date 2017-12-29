@@ -80,6 +80,24 @@ operations
 	)
 	pre inputName > 0;
 	
+			public searchPostsByTags(inputTag:String) res:set of Post == (
+	dcl postsTemp : set of Post := {};
+	for all currPost in set postsList do (
+	let tagList = currPost.getTagsList() in (
+	if(inputTag in set tagList) then 
+	postsTemp := postsTemp union {currPost};
+	 )
+	);
+	return postsTemp;
+	)
+	pre inputTag <> "";
+	
+	
+	public editUser(name:String, email:String, age:nat, sex:Sex) == (
+	currentUser := currentUser.editUser(name,email,age,sex);
+	);
+	
+	
 			public tryLogin(inputUsername:String, inputPassword:String) res:bool == (
 	for all currUser in set users do (
 		if currUser.getUsername() = inputUsername and currUser.getPassword() = inputPassword then( 
