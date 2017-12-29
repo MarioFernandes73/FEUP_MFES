@@ -241,7 +241,34 @@ operations
 		assertTrue(s.getCurrentUser().getAge() = 23);
 		assertTrue(s.getCurrentUser().getSex() = <Masculino>);
 	);
+
+			private testOrderPosts: () ==> ()
+	testOrderPosts() ==
+	(
+		dcl user:RegularUser := new RegularUser(1, "User", "email@gmail.com", 47, <Feminino>, 0, "mario","12345");
+		dcl tagsList:set of String := {"Tag1", "Tag2", "Tag3"};
+		dcl newPost:Post := s.createPost("Title", "Content", user, tagsList, 01, 01, 2015);
+		dcl newPost2:Post := s.createPost("Title", "Content", user, tagsList, 29, 12, 2017);
+		dcl newPost3:Post := s.createPost("Title2", "Content2", user, tagsList, 27, 05, 2017);
+		dcl newPost4:Post := s.createPost("Title", "Content", user, tagsList, 31, 03, 2016);
+		dcl newPost5:Post := s.createPost("Title", "Content", user, tagsList, 01, 12, 2017);
+		dcl newPost6:Post := s.createPost("Title", "Content", user, tagsList, 27, 05, 2017);
+		
+		newPost2.increaseRating();
+		newPost2.increaseRating();
+		newPost3.increaseRating();
+		newPost4.decreaseRating();
+		newPost5.increaseRating();
+		newPost5.increaseRating();
+		newPost6.decreaseRating();
+		
+		assertEqual(s.getPosts(),{newPost,newPost2,newPost3,newPost4,newPost5,newPost6});
+		
+		assertEqual(s.orderPostsByDate(s.getPosts()),{newPost2, newPost5, newPost3, newPost6, newPost4,newPost});
+		assertEqual(s.orderPostsByRating(s.getPosts()),{newPost4,newPost6,newPost,newPost3,newPost2,newPost5});
+	);
 	
+
 	
 	public static main: () ==> ()
 	main() ==
@@ -260,6 +287,7 @@ operations
 		new StackOverflowTest().testRemoveComment();	
 		new StackOverflowTest().testSearchPost();
 		new StackOverflowTest().testEditUser();
+		new StackOverflowTest().testOrderPosts();
 	)
 	
 end StackOverflowTest
