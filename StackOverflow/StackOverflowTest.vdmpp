@@ -221,8 +221,8 @@ operations
 		dcl user:RegularUser := new RegularUser(1, "User", "email@gmail.com", 47, <Feminino>, 0, "mario","12345");
 		dcl tagsList:set of String := {"Tag1", "Tag2", "Tag3"};
 		dcl tagsList2:set of String := {"Tag3"};
-		dcl newPost:Post := s.createPost("Title", "Content", user, tagsList);
-		dcl newPost2:Post := s.createPost("Title", "Content", user, tagsList2);
+		dcl newPost:Post := s.createPost("Title", "Content", user, tagsList, 29, 12, 2017);
+		dcl newPost2:Post := s.createPost("Title", "Content", user, tagsList2, 29, 12, 2017);
 		
 		assertEqual(s.searchPostsByTags("Tag1"),{newPost});
 		assertEqual(s.searchPostsByTags("Tag3"),{newPost, newPost2});
