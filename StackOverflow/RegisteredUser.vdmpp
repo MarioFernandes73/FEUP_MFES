@@ -79,8 +79,16 @@ operations
 		posts := {question} union posts;
 	);
 	
-	public createPost(title:String, content:String, tagsList:set of String) res:Post == (
-		dcl newPost:Post := new Post(title, content, self, tagsList);
+	public addComment(comment:Comment) == (
+		comments := {comment} union comments;
+	);
+	
+	public deleteComment(comment:Comment) == (
+		comments := {comment} \ comments;
+	);
+	
+	public createPost(title:String, content:String, tagsList:set of String, day: nat1, month: nat1, year: nat1) res:Post == (
+		dcl newPost:Post := new Post(title, content, self, tagsList, day, month, year);
 		addPost(newPost);
 		return newPost;
 	)
@@ -89,11 +97,30 @@ operations
 	public editPost(question:Post, title:String, content:String, tagsList:set of String) res:Post == (
 		return question.editPost(title, content, tagsList);
 	)
-	pre canEditPost = true;
+	pre canEditPost = true and question in set posts;
 	
 	public removePost(question:Post) == (
 		posts := {question} \ posts;
 	)
-	pre canRemovePost = true;
+	pre question in set posts;
+	
+	public createComment(question:Post, content:String, day: nat1, month: nat1, year: nat1) res:Comment == (
+		dcl newComment:Comment := new Comment(content, self, day, month, year);
+		question.addComment(newComment);
+		addComment(newComment);
+		return newComment;
+	)
+	pre canAddComment = true;
+	
+	public editComment(comment:Comment, content:String) res:Comment == (
+		return comment.editComment(content);
+	)
+	pre canEditComment = true and comment in set comments;
+	
+	public removeComment(question:Post, comment:Comment) == (
+		question.removeComment(comment);
+		deleteComment(comment);
+	)
+	pre comment in set comments;
 			
 end RegisteredUser

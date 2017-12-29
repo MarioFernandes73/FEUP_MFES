@@ -3,6 +3,7 @@ types
 public String = seq of char;
 public Sex = <Masculino> | <Feminino>;
 public BanState = <Banned> | <Unbanned>;
+								 
 values
 -- TODO Define values here
 instance variables
@@ -101,11 +102,15 @@ operations
 		dcl user:RegularUser := new RegularUser(1, "User", "email@gmail.com", 47, <Feminino>, 0, "mario","12345");
 		dcl tagsList:set of String := {"Tag1", "Tag2", "Tag3"};
 		dcl postsLength:nat := card s.getPosts();
-		dcl newPost:Post := s.createPost("Title", "Content", user, tagsList);		
+		dcl newPost:Post := s.createPost("Title", "Content", user, tagsList, 29, 12, 2017);		
 		
 		assertTrue(postsLength + 1 = card s.getPosts());
 		assertTrue(newPost in set s.getPosts());
-		assertTrue(newPost in set newPost.getAuthor().getPosts());
+		assertTrue(newPost in set user.getPosts());
+		assertEqual(newPost.getAuthor(), user);
+		assertEqual(newPost.getDate().day, 29);
+		assertEqual(newPost.getDate().month, 12);
+		assertEqual(newPost.getDate().year, 2017);
 	);
 	
 	private testEditPost: () ==> ()
@@ -113,7 +118,7 @@ operations
 	(
 		dcl user:RegularUser := new RegularUser(1, "User", "email@gmail.com", 47, <Feminino>, 0, "mario","12345");
 		dcl tagsList:set of String := {"Tag1", "Tag2", "Tag3"};
-		dcl newPost:Post := s.createPost("Title", "Content", user, tagsList);			
+		dcl newPost:Post := s.createPost("Title", "Content", user, tagsList, 29, 12, 2017);			
 		dcl title:String := newPost.getTitle();
 		dcl tags:set of String := newPost.getTagsList();
 		
@@ -121,9 +126,74 @@ operations
 		
 		assertTrue(newPost.getTitle() = "Title");
 		assertTrue(newPost.getContent() = "New content");
-		assertTrue(newPost.getTagsList() = {"Tag1", "Tag2", "Tag3"});
+		assertEqual(newPost.getAuthor(), user);
+		assertEqual(newPost.getTagsList(), {"Tag1", "Tag2", "Tag3"});
+		assertEqual(newPost.getDate().day, 29);
+		assertEqual(newPost.getDate().month, 12);
+		assertEqual(newPost.getDate().year, 2017);
 	);
 	
+	private testRemovePost: () ==> ()
+	testRemovePost() ==
+	(
+		dcl user:RegularUser := new RegularUser(1, "User", "email@gmail.com", 47, <Feminino>, 0, "mario","12345");
+		dcl tagsList:set of String := {"Tag1", "Tag2", "Tag3"};
+		dcl newPost:Post := s.createPost("Title", "Content", user, tagsList, 29, 12, 2017);	
+		dcl postsLength:nat := card s.getPosts();	
+		s.deletePost(newPost);
+		
+		assertTrue(postsLength - 1 = card s.getPosts());
+		assertTrue(newPost not in set s.getPosts());
+		assertTrue(newPost not in set newPost.getAuthor().getPosts());
+	);
+	
+	private testAddComment: () ==> ()
+	testAddComment() ==
+	(
+		dcl user:RegularUser := new RegularUser(1, "User", "email@gmail.com", 47, <Feminino>, 0, "mario","12345");
+		dcl tagsList:set of String := {"Tag1", "Tag2", "Tag3"};
+		dcl newPost:Post := s.createPost("Title", "Content", user, tagsList, 29, 12, 2017);		
+		dcl newComment:Comment := s.addComment(newPost, "Content", user, 29,12,2017);
+		
+		assertTrue(newComment in set newPost.getCommentsList());
+		assertTrue(newComment in set user.getComments());
+		assertEqual(newComment.getContent(), "Content");
+		assertEqual(newComment.getDate().day, 29);
+		assertEqual(newComment.getDate().month, 12);
+		assertEqual(newComment.getDate().year, 2017);
+	);
+	
+	private testEditComment: () ==> ()
+	testEditComment() ==
+	(
+		dcl user:RegularUser := new RegularUser(1, "User", "email@gmail.com", 47, <Feminino>, 0, "mario","12345");
+		dcl tagsList:set of String := {"Tag1", "Tag2", "Tag3"};
+		dcl newPost:Post := s.createPost("Title", "Content", user, tagsList, 29, 12, 2017);		
+		dcl newComment:Comment := s.addComment(newPost, "Content", user, 29,12,2017);
+		
+		newComment := s.editComment(newComment, "New Content");
+		
+		assertTrue(newComment in set newPost.getCommentsList());
+		assertTrue(newComment in set user.getComments());
+		assertEqual(newComment.getContent(), "New Content");
+		assertEqual(newComment.getDate().day, 29);
+		assertEqual(newComment.getDate().month, 12);
+		assertEqual(newComment.getDate().year, 2017);
+	);
+	
+	private testRemoveComment: () ==> ()
+	testRemoveComment() ==
+	(
+		dcl user:RegularUser := new RegularUser(1, "User", "email@gmail.com", 47, <Feminino>, 0, "mario","12345");
+		dcl tagsList:set of String := {"Tag1", "Tag2", "Tag3"};
+		dcl newPost:Post := s.createPost("Title", "Content", user, tagsList, 29, 12, 2017);		
+		dcl newComment:Comment := s.addComment(newPost, "Content", user, 29,12,2017);
+		
+		s.deleteComment(newPost, newComment);
+		
+		assertTrue(newComment not in set newPost.getCommentsList());
+		assertTrue(newComment not in set user.getComments());
+	);
 		private testSearchUser: () ==> ()
 	testSearchUser() ==
 	(
@@ -153,8 +223,13 @@ operations
 		new StackOverflowTest().testBanUser();
 		new StackOverflowTest().testAddUser();
 		new StackOverflowTest().testAddPost();	
+		new StackOverflowTest().testEditPost();
+		new StackOverflowTest().testRemovePost();
 		new StackOverflowTest().testSearchUser();
 		new StackOverflowTest().testLogin();
-	)
+		new StackOverflowTest().testAddComment();	
+		new StackOverflowTest().testEditComment();	
+		new StackOverflowTest().testRemoveComment();	
+	);
 	
 end StackOverflowTest

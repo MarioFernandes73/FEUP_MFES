@@ -28,8 +28,8 @@ operations
 	userIdCounter := userIdCounter + 1;
 	);
 	
-	public createPost(title:String, content:String, author:RegisteredUser, tagsList:set of String) res:Post == (
-		dcl newPost:Post := author.createPost(title, content, tagsList);
+	public createPost(title:String, content:String, author:RegisteredUser, tagsList:set of String, day: nat1, month: nat1, year: nat1) res:Post == (
+		dcl newPost:Post := author.createPost(title, content, tagsList, day, month, year);
 		addPost(newPost);
 		return newPost;
 	);
@@ -42,10 +42,30 @@ operations
 	public deletePost(question:Post) == (
 		dcl author:RegisteredUser := question.getAuthor();
 		author.removePost(question);
+		removePost(question);
+	);	
+	
+	public addComment(question:Post, content:String, author:RegisteredUser, day: nat1, month: nat1, year: nat1) res:Comment == (
+		dcl newComment:Comment := author.createComment(question, content, day, month, year);
+		return newComment;
+	);
+	
+	public editComment(comment:Comment, newContent:String) res:Comment == (
+		dcl author:RegisteredUser := comment.getAuthor();
+		return author.editComment(comment, newContent);
+	);
+	
+	public deleteComment(question:Post, comment:Comment) == (
+		dcl author:RegisteredUser := comment.getAuthor();
+		author.removeComment(question, comment);
 	);	
 	
 	public addPost(question:Post) == (
 		postsList := {question} union postsList;
+	);
+	
+	public removePost(question:Post) == (
+		postsList := {question} \ postsList;
 	);
 	
 	public getUsers: () ==> set of User
