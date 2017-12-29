@@ -23,10 +23,12 @@ operations
 		
 	public increaseRating() == (
 		rating := rating + 1;
+		author.addReputation(3);
 	);
 	
 	public decreaseRating() == (
 		rating := rating - 1;
+		author.addReputation(-2);
 	);
 	
 	public editComment(newContent:String) res:Comment == (

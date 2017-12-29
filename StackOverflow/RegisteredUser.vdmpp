@@ -71,8 +71,12 @@ operations
 	public getReputation: () ==> int
 		getReputation() == return reputation
 		post RESULT = reputation;
-		
-					public getPosts: () ==> set of Post
+	
+	public addReputation: int ==> ()
+		addReputation(value) == reputation := reputation + value
+		pre value <> 0;
+	
+	public getPosts: () ==> set of Post
 		getPosts() == return posts
 		post RESULT = posts;
 		

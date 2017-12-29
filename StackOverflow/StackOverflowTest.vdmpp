@@ -132,7 +132,34 @@ operations
 		assertEqual(newPost.getDate().month, 12);
 		assertEqual(newPost.getDate().year, 2017);
 	);
-	
+
+	private testRating: () ==> ()
+	testRating() ==
+	(
+		dcl user:RegularUser := new RegularUser(1, "User", "email@gmail.com", 47, <Feminino>, 0, "mario","12345");
+		dcl tagsList:set of String := {"Tag1", "Tag2", "Tag3"};
+		dcl newPost:Post := s.createPost("Title", "Content", user, tagsList, 29, 12, 2017);
+		dcl newComment:Comment := s.addComment(newPost, "Content", user, 29,12,2017);	
+		
+		assertEqual(newPost.getRating(), 0);
+		assertEqual(newComment.getRating(), 0);
+		assertEqual(user.getReputation(),0);
+		newPost.increaseRating();
+		newComment.increaseRating();
+		assertEqual(newPost.getRating(),1);
+		assertEqual(newComment.getRating(), 1);
+		assertEqual(user.getReputation(),4);
+		newPost.decreaseRating();
+		newPost.decreaseRating();
+		newComment.decreaseRating();
+		newComment.decreaseRating();
+		assertEqual(newPost.getRating(),-1);
+		assertEqual(newComment.getRating(), -1);
+		assertEqual(user.getReputation(),-2);
+		
+		
+	);
+
 	private testRemovePost: () ==> ()
 	testRemovePost() ==
 	(
@@ -221,11 +248,12 @@ operations
 		dcl user:RegularUser := new RegularUser(1, "User", "email@gmail.com", 47, <Feminino>, 0, "mario","12345");
 		dcl tagsList:set of String := {"Tag1", "Tag2", "Tag3"};
 		dcl tagsList2:set of String := {"Tag3"};
-		dcl newPost:Post := s.createPost("Title", "Content", user, tagsList, 29, 12, 2017);
-		dcl newPost2:Post := s.createPost("Title", "Content", user, tagsList2, 29, 12, 2017);
+		dcl newPost:Post := s.createPost("Title4", "Content", user, tagsList, 29, 12, 2017);
+		dcl newPost2:Post := s.createPost("teste para Title7 meio", "Content", user, tagsList2, 29, 12, 2017);
 		
 		assertEqual(s.searchPostsByTags("Tag1"),{newPost});
 		assertEqual(s.searchPostsByTags("Tag3"),{newPost, newPost2});
+		assertEqual(s.searchPostsByTitle("Title7"),{newPost2});
 	);
 	
 				private testEditUser: () ==> ()
@@ -284,7 +312,8 @@ operations
 		new StackOverflowTest().testLogin();
 		new StackOverflowTest().testAddComment();	
 		new StackOverflowTest().testEditComment();	
-		new StackOverflowTest().testRemoveComment();	
+		new StackOverflowTest().testRemoveComment();
+		new StackOverflowTest().testRating();	
 		new StackOverflowTest().testSearchPost();
 		new StackOverflowTest().testEditUser();
 		new StackOverflowTest().testOrderPosts();

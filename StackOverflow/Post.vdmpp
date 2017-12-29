@@ -78,10 +78,12 @@ operations
 
 	public increaseRating() == (
 		rating := rating + 1;
+		author.addReputation(1);
 	);
 	
 	public decreaseRating() == (
 		rating := rating - 1;
+		author.addReputation(-1);
 	);
 
 
