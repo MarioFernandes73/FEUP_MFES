@@ -1,8 +1,4 @@
 class User
-types
-public String = seq of char;
-public BanState = <Banned> | <Unbanned>;
-public Sex = <Masculino> | <Feminino>;
 instance variables
 protected canRate : bool;
 protected canCreatePost : bool;
@@ -13,7 +9,7 @@ protected canEditComment : bool;
 protected canRemoveComment : bool;
 protected canBanUsers : bool;
 protected canUnbanUsers : bool;
-protected banned : BanState;
+protected banned : Utils`BanState;
 operations
 		public User:() ==> User
 		User() == (	
@@ -75,27 +71,27 @@ public getCanUnbanUsers: () ==> bool
 		getCanUnbanUsers() == (return canUnbanUsers;)
 		post RESULT = canUnbanUsers;
 		
-public getBanState: () ==> BanState
+public getBanState: () ==> Utils`BanState
 		getBanState() == (return banned;)
 		pre banned <> nil
 		post RESULT = banned;
 		
-	public setBanState:BanState ==> ()
+	public setBanState:Utils`BanState ==> ()
 	setBanState(newBanState) == (
 	banned := newBanState;
 	) 
 	pre banned <> newBanState
 	post banned = newBanState;
 
-	public getEmail: () ==> String
+	public getEmail: () ==> Utils`String
 		getEmail() == (return "";)
 		post RESULT = "";
 		
-	public getSex: () ==> Sex
+	public getSex: () ==> Utils`Sex
 		getSex() == (return <Masculino>;)
 		post RESULT = <Masculino>;	
 
-	public getName: () ==> String
+	public getName: () ==> Utils`String
 		getName() == (return "";)
 		post RESULT = "";
 	
@@ -103,15 +99,15 @@ public getBanState: () ==> BanState
 		getAge() == (return 1;)
 		post RESULT = 1;
 		
-	public getUsername: () ==> String
+	public getUsername: () ==> Utils`String
 		getUsername() == (return "";)
 		post RESULT = "";
 		
-	public getPassword: () ==> String
+	public getPassword: () ==> Utils`String
 		getPassword() == (return "";)
 		post RESULT = "";
 
-public editUser: String * String * nat * Sex ==> User
+public editUser: Utils`String * Utils`String * nat * Utils`Sex ==> User
 editUser(name1,email1,age1,sex1) == (
 return self;
 ) pre name1 <> "" and email1 <> "" and age1 > 0 and sex1 <> nil;

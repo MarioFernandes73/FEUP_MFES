@@ -1,9 +1,6 @@
 class AdministratorUser is subclass of RegisteredUser
-types
-public String = seq of char;
-public Sex = <Masculino> | <Feminino>;
 operations
-		public AdministratorUser : nat * String * String * nat * Sex * int * String * String ==> AdministratorUser 	
+		public AdministratorUser : nat * Utils`String * Utils`String * nat * Utils`Sex * int * Utils`String * Utils`String ==> AdministratorUser 	
 		AdministratorUser(id1, name1, email1, age1, sex1, reputation1, username1, password1) == (
 		canRate := true;
 		canCreatePost := true;

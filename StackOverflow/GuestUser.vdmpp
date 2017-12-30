@@ -1,7 +1,4 @@
 class GuestUser is subclass of User
-types
-public String = seq of char;
-public Sex = <Masculino> | <Feminino>;
 operations
 		public GuestUser:() ==> GuestUser
 		GuestUser() == (	

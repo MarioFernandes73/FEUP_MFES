@@ -1,20 +1,17 @@
 class RegisteredUser is subclass of User
-types
-public String = seq of char;
-public Sex = <Masculino> | <Feminino>;
 instance variables
 	protected id : nat;
-	protected name : String;
+	protected name : Utils`String;
 	protected age : nat;
-	protected email : String;
-	protected sex : Sex;
+	protected email : Utils`String;
+	protected sex : Utils`Sex;
 	protected reputation : int;
 	protected posts : set of Post := {};
 	protected comments : set of Comment := {};
-	protected username : String;
-	protected password : String;
+	protected username : Utils`String;
+	protected password : Utils`String;
 operations
-		public RegisteredUser: nat * String * String * nat * Sex * int * String * String ==> RegisteredUser
+		public RegisteredUser: nat * Utils`String * Utils`String * nat * Utils`Sex * int * Utils`String * Utils`String ==> RegisteredUser
 		RegisteredUser(id1,name1,email1,age1,sex1,reputation1,username1,password1) == 
 		(id := id1;
 		name := name1;
@@ -27,7 +24,7 @@ operations
 		return self;)
 	post name = name1 and email = email1 and age = age1 and sex = sex1 and reputation = reputation1 and username = username1 and password = password1;
 		
-		public editUser: String * String * nat * Sex ==> RegisteredUser
+		public editUser: Utils`String * Utils`String * nat * Utils`Sex ==> RegisteredUser
 		editUser(name1,email1,age1,sex1) == 
 		(name := name1;
 			email := email1;
@@ -42,7 +39,7 @@ operations
 		pre (id > 0)
 		post RESULT = id;
 		
-	public getName: () ==> String
+	public getName: () ==> Utils`String
 		getName() == (return name;)
 		post RESULT = name;
 		
@@ -51,11 +48,11 @@ operations
 		pre (age > 1)
 		post RESULT = age;
 		
-	public getEmail: () ==> String
+	public getEmail: () ==> Utils`String
 		getEmail() == (return email;)
 		post RESULT = email;
 		
-	public getSex: () ==> Sex
+	public getSex: () ==> Utils`Sex
 		getSex() == (return sex;)
 		pre sex = <Masculino> or sex = <Feminino>
 		post RESULT = sex;
@@ -76,11 +73,11 @@ operations
 		getComments() == (return comments;)
 		post RESULT = comments;
 		
-	public getUsername: () ==> String
+	public getUsername: () ==> Utils`String
 		getUsername() == (return username;)
 		post RESULT = username;
 		
-	public getPassword: () ==> String
+	public getPassword: () ==> Utils`String
 		getPassword() == (return password;)
 		post RESULT = password;
 		
@@ -93,14 +90,14 @@ operations
 	public deleteComment:Comment ==> ()
 	deleteComment(comment) == (comments := {comment} \ comments;);
 	
-	public createPost: String * String * set of String *  nat1 *  nat1 * nat1 ==> Post
+	public createPost: Utils`String * Utils`String * set of Utils`String *  nat1 *  nat1 * nat1 ==> Post
 		createPost(title,content,tagsList,day,month,year) == 
 		(dcl newPost:Post := new Post(title, content, self, tagsList, day, month, year);
 		addPost(newPost);
 		return newPost;)
 	pre canCreatePost = true;
 	
-	public editPost:Post * String * String * set of String ==> Post 
+	public editPost:Post * Utils`String * Utils`String * set of Utils`String ==> Post 
 	editPost(question,title,content,tagsList) == 
 	(return question.editPost(title, content, tagsList);)
 	pre canEditPost = true and question in set posts;
@@ -110,7 +107,7 @@ operations
 	(posts := {question} \ posts;)
 	pre question in set posts;
 	
-	public createComment:Post * String * nat1 * nat1 * nat1 ==> Comment 
+	public createComment:Post * Utils`String * nat1 * nat1 * nat1 ==> Comment 
 	createComment(question,content,day,month,year) == 
 	(dcl newComment:Comment := new Comment(content, self, day, month, year);
 		question.addComment(newComment);
@@ -118,7 +115,7 @@ operations
 		return newComment;)
 	pre canAddComment = true;
 	
-	public editComment:Comment * String ==> Comment
+	public editComment:Comment * Utils`String ==> Comment
 	editComment(comment,content) == (return comment.editComment(content);	)
 	pre canEditComment = true and comment in set comments;
 	

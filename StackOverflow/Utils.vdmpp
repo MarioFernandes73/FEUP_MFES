@@ -4,7 +4,9 @@ types
 								 month: nat1
 								 day : nat1
 								 inv mk_Date(y,m,d) == y > 1900 and m <= 12 and d <= Utils`DaysOfMonth(m);
-
+	public String = seq of char;
+	public BanState = <Banned> | <Unbanned>;
+	public Sex = <Masculino> | <Feminino>;
 operations
   public static pure DaysOfMonth: nat1 ==> nat1
 	 DaysOfMonth(month) == (

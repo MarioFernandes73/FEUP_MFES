@@ -1,15 +1,12 @@
 class Comment
-types
-	public String = seq of char;
-
 instance variables
-	private content : String;
+	private content : Utils`String;
 	private author : RegisteredUser;
 	private date : Utils`Date;
 	private rating : int := 0;
 
 operations	
-	public Comment: String * RegisteredUser * nat1 * nat1 * nat1 ==> Comment
+	public Comment: Utils`String * RegisteredUser * nat1 * nat1 * nat1 ==> Comment
 		Comment(commentContent, commentAuthor, day, month, year) == 
 		(	content := commentContent;
 			author := commentAuthor;
@@ -17,7 +14,7 @@ operations
 		)
 		post content = commentContent and author = commentAuthor and rating = 0 and date.year = year and date.month = month and date.day = day;	
 	
-	public editComment: String ==> Comment
+	public editComment: Utils`String ==> Comment
 		editComment(newContent) == 
 		(	content := newContent;
 			return self;
@@ -36,7 +33,7 @@ operations
 			author.addReputation(-2)
 		);
 	
-	public getContent: () ==> String
+	public getContent: () ==> Utils`String
   	getContent() == 
   	( return content;
   	)

@@ -1,19 +1,17 @@
 class Post
-types
-	public String = seq of char;	
 instance variables
-	private title : String;
-	private content : String;
+	private title : Utils`String;
+	private content : Utils`String;
 	private author : RegisteredUser;
 	private date : Utils`Date;
 	private views : nat := 0;
 	private rating : int := 0;
 	
-	private tagsList : set of String;
+	private tagsList : set of Utils`String;
 	private commentsList : set of Comment := {};
 	
 operations
-	public Post: String * String * RegisteredUser * set of String * nat1 * nat1 * nat1 ==> Post
+	public Post: Utils`String * Utils`String * RegisteredUser * set of Utils`String * nat1 * nat1 * nat1 ==> Post
 		Post(postTitle, postContent, postAuthor, postTags, day, month, year) == 
 		(	title := postTitle;
 			content := postContent;
@@ -25,7 +23,7 @@ operations
 		post title = postTitle and content = postContent and author = postAuthor and tagsList = postTags 
 				and views = 0 and rating = 0 and commentsList = {} and date.year = year and date.month = month and date.day = day;
 		
-	public editPost: String * String * set of String ==> Post
+	public editPost: Utils`String * Utils`String * set of Utils`String ==> Post
 		editPost(newTitle, newContent, newTags) == 
 		(	title := newTitle;
 			content := newContent;
@@ -57,14 +55,14 @@ operations
 			author.addReputation(-1)
 		);
 	        
-  public getTitle: () ==> String
+  public getTitle: () ==> Utils`String
   	getTitle() == 
   	(	return title;
   	)
     pre title <> []
     post RESULT = title;
     
-  public getContent: () ==> String
+  public getContent: () ==> Utils`String
   	getContent() == 
   	(	return content;
   	)
@@ -96,7 +94,7 @@ operations
   	pre (views >= 0)
     post RESULT = views;
     
-  public getTagsList: () ==> set of String
+  public getTagsList: () ==> set of Utils`String
   	getTagsList() == 
   	( return tagsList;
   	)

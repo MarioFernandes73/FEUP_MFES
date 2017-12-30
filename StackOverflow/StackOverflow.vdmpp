@@ -1,8 +1,4 @@
 class StackOverflow
-types
-public String = seq of char;
-public Sex = <Masculino> | <Feminino>;
-
 instance variables
 	private userIdCounter : nat := 1;
 	private users : set of User;
@@ -18,11 +14,11 @@ operations
 			return self;)
 		post users = {} and userIdCounter = 1 and postsList = {};
 		
-	public createRegularUser: String * String * nat * Sex * nat * String * String ==> RegularUser
+	public createRegularUser: Utils`String * Utils`String * nat * Utils`Sex * nat * Utils`String * Utils`String ==> RegularUser
 		createRegularUser(name, email, age, sex, reputation, username, password) == 
 		(return new RegularUser(userIdCounter, name, email, age, sex, reputation, username, password););
 		
-	public createAdministratorUser: String * String * nat * Sex * nat * String * String ==> AdministratorUser
+	public createAdministratorUser: Utils`String * Utils`String * nat * Utils`Sex * nat * Utils`String * Utils`String ==> AdministratorUser
 		createAdministratorUser(name, email, age, sex, reputation, username, password) == 
 		(return new AdministratorUser(userIdCounter, name, email, age, sex, reputation, username, password););
 	
@@ -33,13 +29,13 @@ operations
 		pre (user not in set users)
 		post userIdCounter > 1 and user in set users;
 		
-	public createPost: String * String * RegisteredUser * set of String * nat1 * nat1 * nat1 ==> Post
+	public createPost: Utils`String * Utils`String * RegisteredUser * set of Utils`String * nat1 * nat1 * nat1 ==> Post
 		createPost(title, content, author, tagsList, day, month, year) == 
 		(dcl newPost:Post := author.createPost(title, content, tagsList, day, month, year);
 			addPost(newPost);
 			return newPost;);
 		
-	public editPost: Post * String * String * set of String ==> Post
+	public editPost: Post * Utils`String * Utils`String * set of Utils`String ==> Post
 		editPost(question, newTitle, newContent, newTags) == 
 		(dcl author:RegisteredUser := question.getAuthor();
 			return author.editPost(question, newTitle, newContent, newTags););
@@ -50,11 +46,11 @@ operations
 			author.removePost(question);
 			removePost(question););	
 		
-	public addComment:Post * String * RegisteredUser * nat1 * nat1 * nat1 ==> Comment
+	public addComment:Post * Utils`String * RegisteredUser * nat1 * nat1 * nat1 ==> Comment
 		addComment(question, content, author, day, month, year) == 
 		(return author.createComment(question, content, day, month, year););
 	
-	public editComment: Comment * String ==> Comment
+	public editComment: Comment * Utils`String ==> Comment
 		editComment(comment, newContent) == 
 		(dcl author:RegisteredUser := comment.getAuthor();
 			return author.editComment(comment, newContent););
@@ -88,7 +84,7 @@ operations
 	getCurrentUser() == (return currentUser;)
 	post RESULT = currentUser;
 	
-	public searchUsersByName:String ==> set of User
+	public searchUsersByName:Utils`String ==> set of User
 	searchUsersByName(inputName) == 
 	(dcl usersTemp : set of User := {};
 	for all currUser in set users do 
@@ -106,7 +102,7 @@ operations
 	return usersTemp;)
 	pre inputName > 0;
 	
-				public searchPostsByTitle:String ==> set of Post
+				public searchPostsByTitle:Utils`String ==> set of Post
 				searchPostsByTitle(inputTitle) == 
 				(dcl postsTemp : set of Post := {};
 	dcl inputSize : int := len inputTitle;
@@ -128,7 +124,7 @@ operations
 	return postsTemp;)
 	pre inputTitle <> "";
 	
-			public searchPostsByTags:String ==> set of Post
+			public searchPostsByTags:Utils`String ==> set of Post
 			searchPostsByTags(inputTag) == 
 			(dcl postsTemp : set of Post := {};
 	for all currPost in set postsList do 
@@ -139,13 +135,13 @@ operations
 	pre inputTag <> "";
 	
 	
-	public editUser:String * String * nat * Sex ==> ()
+	public editUser:Utils`String * Utils`String * nat * Utils`Sex ==> ()
 	editUser(name,email,age,sex) == 
 	(currentUser := currentUser.editUser(name,email,age,sex);) 
 	pre name <> "" and email <> "" and age > 1 and sex <> nil;
 	
 	
-			public tryLogin:String * String ==> bool
+			public tryLogin:Utils`String * Utils`String ==> bool
 			tryLogin(inputUsername,inputPassword) == 
 			(	for all currUser in set users do 
 			(if currUser.getUsername() = inputUsername and currUser.getPassword() = inputPassword then( 
@@ -175,8 +171,8 @@ operations
     post card posts = card RESULT;
     
     public orderPostsByRating: set of Post ==> set of Post
-    orderPostsByRating(posts) == ( 
-    dcl tempPosts : set of Post := {};
+    orderPostsByRating(posts) == 
+    (dcl tempPosts : set of Post := {};
     dcl currentRating : int;
     dcl tempRating : int;
     dcl tempPost : Post;
