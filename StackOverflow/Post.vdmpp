@@ -3,7 +3,7 @@ instance variables
 	private title : Utils`String;
 	private content : Utils`String;
 	private author : RegisteredUser;
-	private date : Utils`Date;
+	private date : Date;
 	private views : nat := 0;
 	private rating : int := 0;
 	
@@ -17,7 +17,7 @@ operations
 			content := postContent;
 			author := postAuthor;
 			tagsList := postTags;
-			date := mk_Utils`Date(year, month, day);
+			date := new Date(year, month, day);
 			return self;
 		)
 		post title = postTitle and content = postContent and author = postAuthor and tagsList = postTags 
@@ -75,7 +75,7 @@ operations
   	)
     post RESULT = author;
     
-  public getDate: () ==> Utils`Date
+  public getDate: () ==> Date
   	getDate() == 
   	( return date;
   	)

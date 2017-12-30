@@ -153,8 +153,8 @@ operations
  public orderPostsByDate:set of Post ==> set of Post
  orderPostsByDate(posts) == 
  ( dcl tempPosts : set of Post := {};
-    dcl currentDate : Utils`Date;
-    dcl tempDate : Utils`Date;
+    dcl currentDate : Date;
+    dcl tempDate : Date;
     dcl tempPost : Post;
     for all currPost in set posts do 
     (currentDate := currPost.getDate(); 
@@ -162,7 +162,7 @@ operations
         tempPost := currPost;
         for all currPost2 in set posts do 
         (if(currPost2 not in set tempPosts) then 
-        ( if(Utils`compareDates(currPost2.getDate(),currentDate) and Utils`compareDates(currPost2.getDate(), tempDate)) then 
+        ( if(Date`compareDates(currPost2.getDate(),currentDate) and Date`compareDates(currPost2.getDate(), tempDate)) then 
         (tempPost := currPost2;
         tempDate := currPost2.getDate();););
     tempPosts := tempPosts union {tempPost};); );
