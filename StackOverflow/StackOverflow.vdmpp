@@ -174,7 +174,7 @@ operations
 	public editUser:String * String * nat * Sex ==> ()
 	editUser(name,email,age,sex) == (
 	currentUser := currentUser.editUser(name,email,age,sex);
-	) pre name <> "" and email <> "" and age > 0 and sex <> nil;
+	) pre name <> "" and email <> "" and age > 1 and sex <> nil;
 	
 	
 			public tryLogin:String * String ==> bool
