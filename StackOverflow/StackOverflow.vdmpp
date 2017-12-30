@@ -8,12 +8,14 @@ instance variables
 	private postsList : set of Post;
 	private currentUser : User;
 operations
-	public StackOverflow() res:StackOverflow == (
+	public StackOverflow:() ==> StackOverflow
+	StackOverflow() == (
 	currentUser := new GuestUser();
 	users := {};
 	postsList := {};
+	return self;
 	)
-	post res.users = {} and res.userIdCounter = 1 and res.postsList = {};
+	post users = {} and userIdCounter = 1 and postsList = {};
 	
 	public createRegularUser(name:String, email:String, age:nat, sex:Sex, reputation:nat, username:String, password:String) res:RegularUser == (
 	return new RegularUser(userIdCounter, name, email, age, sex, reputation, username, password);
