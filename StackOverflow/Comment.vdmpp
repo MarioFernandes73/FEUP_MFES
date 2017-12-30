@@ -10,47 +10,55 @@ instance variables
 
 operations	
 	public Comment: String * RegisteredUser * nat1 * nat1 * nat1 ==> Comment
-		Comment(commentContent, commentAuthor, day, month, year) == (
-			content := commentContent;
+		Comment(commentContent, commentAuthor, day, month, year) == 
+		(	content := commentContent;
 			author := commentAuthor;
 			date := mk_Utils`Date(year, month, day);
 		)
 		post content = commentContent and author = commentAuthor and rating = 0 and date.year = year and date.month = month and date.day = day;	
 	
 	public editComment: String ==> Comment
-		editComment(newContent) == (
-			content := newContent;
+		editComment(newContent) == 
+		(	content := newContent;
 			return self;
 		)
 		post content = newContent;		
 	
   public increaseRating: () ==> ()
-  	increaseRating() == (
-  		rating := rating + 1;
+  	increaseRating() == 
+  	(	rating := rating + 1;
 			author.addReputation(3)
 		);
 		
   public decreaseRating: () ==> ()
-  	decreaseRating() == (
-  		rating := rating - 1;
+  	decreaseRating() == 
+  	(	rating := rating - 1;
 			author.addReputation(-2)
 		);
 	
 	public getContent: () ==> String
-  	getContent() == return content
+  	getContent() == 
+  	( return content;
+  	)
     pre content <> []
     post RESULT = content;
     
   public getAuthor: () ==> RegisteredUser
-  	getAuthor() == return author
+  	getAuthor() == 
+  	( return author;
+  	)
     post RESULT = author;
     
   public getDate: () ==> Utils`Date
-  	getDate() == return date
+  	getDate() == 
+  	( return date;
+  	)
     post RESULT = date;
     
   public getRating: () ==> int
-  	getRating() == return rating
+  	getRating() == 
+  	( return rating;
+  	)
     post RESULT = rating;
 	
 end Comment

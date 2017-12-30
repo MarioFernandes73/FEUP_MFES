@@ -160,6 +160,8 @@ operations
 		assertEqual(newPost.getDate().day, 29);
 		assertEqual(newPost.getDate().month, 12);
 		assertEqual(newPost.getDate().year, 2017);
+		assertEqual(newPost.getViews(), 0);
+		assertEqual(newPost.getRating(), 0);
 	);
 	
 	private testEditPost: () ==> ()

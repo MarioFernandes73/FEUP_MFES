@@ -14,8 +14,8 @@ instance variables
 	
 operations
 	public Post: String * String * RegisteredUser * set of String * nat1 * nat1 * nat1 ==> Post
-		Post(postTitle, postContent, postAuthor, postTags, day, month, year) == (
-			title := postTitle;
+		Post(postTitle, postContent, postAuthor, postTags, day, month, year) == 
+		(	title := postTitle;
 			content := postContent;
 			author := postAuthor;
 			tagsList := postTags;
@@ -26,8 +26,8 @@ operations
 				and views = 0 and rating = 0 and commentsList = {} and date.year = year and date.month = month and date.day = day;
 		
 	public editPost: String * String * set of String ==> Post
-		editPost(newTitle, newContent, newTags) == (
-			title := newTitle;
+		editPost(newTitle, newContent, newTags) == 
+		(	title := newTitle;
 			content := newContent;
 			tagsList := newTags;
 			return self;
@@ -35,77 +35,77 @@ operations
 		post content = newContent and title = newTitle and tagsList = newTags;
 	
   public addComment: Comment ==> ()
-  	addComment(comment) == (
-  		commentsList := {comment} union commentsList;
+  	addComment(comment) == 
+  	(	commentsList := {comment} union commentsList;
 		);
 	
   public removeComment: Comment ==> ()
-  	removeComment(comment) == (
-  		commentsList := {comment} \ commentsList;
+  	removeComment(comment) == 
+  	(	commentsList := {comment} \ commentsList;
 		)
 		pre comment in set commentsList;
 		
   public increaseRating: () ==> ()
-  	increaseRating() == (
-  		rating := rating + 1;
+  	increaseRating() == 
+  	(	rating := rating + 1;
 			author.addReputation(1)
 		);
 		
   public decreaseRating: () ==> ()
-  	decreaseRating() == (
-  		rating := rating - 1;
+  	decreaseRating() == 
+  	(	rating := rating - 1;
 			author.addReputation(-1)
 		);
 	        
   public getTitle: () ==> String
-  	getTitle() == (
-  		return title;
+  	getTitle() == 
+  	(	return title;
   	)
     pre title <> []
     post RESULT = title;
     
   public getContent: () ==> String
-  	getContent() == (
-  		return content;
+  	getContent() == 
+  	(	return content;
   	)
     pre content <> []
     post RESULT = content;
     
   public getAuthor: () ==> RegisteredUser
-  	getAuthor() == (
-  		return author;
+  	getAuthor() == 
+  	(	return author;
   	)
     post RESULT = author;
     
   public getDate: () ==> Utils`Date
-  	getDate() == (
-  		return date;
+  	getDate() == 
+  	( return date;
   	)
     post RESULT = date;
     
   public getRating: () ==> int
-  	getRating() == (
-  		return rating;
+  	getRating() == 
+  	( return rating;
   	)
     post RESULT = rating;
     
   public getViews: () ==> nat
-  	getViews() == (
-  		return views;
+  	getViews() == 
+  	( return views;
   	)
-  	pre views >= 0
+  	pre (views >= 0)
     post RESULT = views;
     
   public getTagsList: () ==> set of String
-  	getTagsList() == (
-  		return tagsList;
+  	getTagsList() == 
+  	( return tagsList;
   	)
     pre tagsList <> {}
     post RESULT = tagsList;
     
   public getCommentsList: () ==> set of Comment
-  	getCommentsList() == (
-  		return commentsList;
+  	getCommentsList() == 
+  	( return commentsList;
   	)
     post RESULT = commentsList;
 
