@@ -15,7 +15,8 @@ protected canBanUsers : bool;
 protected canUnbanUsers : bool;
 protected banned : BanState;
 operations
-		public User() res: User == (	
+		public User:() ==> User
+		User() == (	
 		canRate := false;
 		canCreatePost := false;
 		canEditPost := false;
@@ -27,16 +28,16 @@ operations
 		canUnbanUsers := false;
 		banned := <Unbanned>;
 	)
-	post res.canRate = false and
-		res.canCreatePost = false and
-		res.canEditPost = false and
-		res.canRemovePost = false and
-		res.canAddComment = false and
-		res.canEditComment = false and
-		res.canRemoveComment = false and
-		res.canBanUsers = false and
-		res.canUnbanUsers = false and
-		res.banned = <Unbanned>;
+	post canRate = false and
+		canCreatePost = false and
+		canEditPost = false and
+		canRemovePost = false and
+		canAddComment = false and
+		canEditComment = false and
+		canRemoveComment = false and
+		canBanUsers = false and
+		canUnbanUsers = false and
+		banned = <Unbanned>;
 		
 public getCanRate: () ==> bool
 		getCanRate() == return canRate
@@ -109,7 +110,10 @@ public getBanState: () ==> BanState
 		getPassword() == return ""
 		post RESULT = "";
 
-public editUser(name1:String, email1:String, age1:nat, sex1:Sex) res:User == (
+public editUser: String * String * nat * Sex ==> User
+editUser(name1,email1,age1,sex1) == (
 return self;
 ) pre name1 <> "" and email1 <> "" and age1 > 0 and sex1 <> nil;
+
+
 end User

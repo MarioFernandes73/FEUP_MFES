@@ -3,7 +3,8 @@ types
 public String = seq of char;
 public Sex = <Masculino> | <Feminino>;
 operations
-		public RegularUser(id1:nat, name1:String, email1:String, age1:nat, sex1:Sex, reputation1:int, username1:String, password1:String) res: RegularUser == (	
+		public RegularUser:nat * String * String * nat * Sex * int * String * String ==> RegularUser	
+		RegularUser(id1,name1,email1,age1,sex1,reputation1,username1,password1) == (
 		canRate := true;
 		canCreatePost := true;
 		canEditPost := true;

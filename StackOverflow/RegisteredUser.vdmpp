@@ -14,7 +14,8 @@ instance variables
 	protected username : String;
 	protected password : String;
 operations
-		public RegisteredUser(id1:nat, name1:String, email1:String, age1:nat, sex1:Sex, reputation1:int, username1:String, password1:String) res: RegisteredUser == (	
+		public RegisteredUser: nat * String * String * nat * Sex * int * String * String ==> RegisteredUser
+		RegisteredUser(id1,name1,email1,age1,sex1,reputation1,username1,password1) == (	
 		id := id1;
 		name := name1;
 		email := email1;
@@ -23,16 +24,18 @@ operations
 		reputation := reputation1;
 		username := username1;
 		password := password1;
+		return self;
 	)
-	post res.name = name1 and
-		res.email = email1 and
-		res.age = age1 and
-		res.sex = sex1 and
-		res.reputation = reputation1 and 
-		res.username = username1 and
-		res.password = password1;
+	post name = name1 and
+		email = email1 and
+		age = age1 and
+		sex = sex1 and
+		reputation = reputation1 and 
+		username = username1 and
+		password = password1;
 		
-		public editUser(name1:String, email1:String, age1:nat, sex1:Sex) res:RegisteredUser == (
+		public editUser: String * String * nat * Sex ==> RegisteredUser
+		editUser(name1,email1,age1,sex1) == (
 			name := name1;
 			email := email1;
 			age := age1;
@@ -40,10 +43,10 @@ operations
 			return self;
 		)
 		pre name1 <> "" and email1 <> "" and age1 > 0 and sex1 <> nil
-		post res.name = name1 and
-			res.email = email1 and
-			res.age = age1 and
-			res.sex = sex1;
+		post name = name1 and
+			email = email1 and
+			age = age1 and
+			sex = sex1;
 	
 	public getId: () ==> nat
 		getId() == return id
@@ -92,36 +95,43 @@ operations
 		getPassword() == return password
 		post RESULT = password;
 		
-	public addPost(question:Post) == (
+	public addPost: Post ==> () 
+	addPost(question) == (
 		posts := {question} union posts;
 	);
 	
-	public addComment(comment:Comment) == (
+	public addComment: Comment ==> ()
+	addComment(comment)  == (
 		comments := {comment} union comments;
 	);
 	
-	public deleteComment(comment:Comment) == (
+	public deleteComment:Comment ==> ()
+	deleteComment(comment) == (
 		comments := {comment} \ comments;
 	);
 	
-	public createPost(title:String, content:String, tagsList:set of String, day: nat1, month: nat1, year: nat1) res:Post == (
+	public createPost: String * String * set of String *  nat1 *  nat1 * nat1 ==> Post
+		createPost(title,content,tagsList,day,month,year) == (
 		dcl newPost:Post := new Post(title, content, self, tagsList, day, month, year);
 		addPost(newPost);
 		return newPost;
 	)
 	pre canCreatePost = true;
 	
-	public editPost(question:Post, title:String, content:String, tagsList:set of String) res:Post == (
+	public editPost:Post * String * String * set of String ==> Post 
+	editPost(question,title,content,tagsList) == (
 		return question.editPost(title, content, tagsList);
 	)
 	pre canEditPost = true and question in set posts;
 	
-	public removePost(question:Post) == (
+	public removePost:Post ==> ()
+	removePost(question) == (
 		posts := {question} \ posts;
 	)
 	pre question in set posts;
 	
-	public createComment(question:Post, content:String, day: nat1, month: nat1, year: nat1) res:Comment == (
+	public createComment:Post * String * nat1 * nat1 * nat1 ==> Comment 
+	createComment(question,content,day,month,year) == (
 		dcl newComment:Comment := new Comment(content, self, day, month, year);
 		question.addComment(newComment);
 		addComment(newComment);
@@ -129,12 +139,14 @@ operations
 	)
 	pre canAddComment = true;
 	
-	public editComment(comment:Comment, content:String) res:Comment == (
+	public editComment:Comment * String ==> Comment
+	editComment(comment,content) == (
 		return comment.editComment(content);
 	)
 	pre canEditComment = true and comment in set comments;
 	
-	public removeComment(question:Post, comment:Comment) == (
+	public removeComment:Post * Comment ==> ()
+	removeComment(question,comment) == (
 		question.removeComment(comment);
 		deleteComment(comment);
 	)
