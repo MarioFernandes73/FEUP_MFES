@@ -80,7 +80,8 @@ public getBanState: () ==> BanState
 		pre banned <> nil
 		post RESULT = banned;
 		
-	public setBanState(newBanState:BanState) == (
+	public setBanState:BanState ==> ()
+	setBanState(newBanState) == (
 	banned := newBanState;
 	) 
 	pre banned <> newBanState

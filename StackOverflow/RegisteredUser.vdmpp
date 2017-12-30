@@ -35,7 +35,8 @@ operations
 		password = password1;
 		
 		public editUser: String * String * nat * Sex ==> RegisteredUser
-		editUser(name1,email1,age1,sex1) == (
+		editUser(name1,email1,age1,sex1) == 
+		(
 			name := name1;
 			email := email1;
 			age := age1;
@@ -111,7 +112,8 @@ operations
 	);
 	
 	public createPost: String * String * set of String *  nat1 *  nat1 * nat1 ==> Post
-		createPost(title,content,tagsList,day,month,year) == (
+		createPost(title,content,tagsList,day,month,year) == 
+		(
 		dcl newPost:Post := new Post(title, content, self, tagsList, day, month, year);
 		addPost(newPost);
 		return newPost;
@@ -119,13 +121,15 @@ operations
 	pre canCreatePost = true;
 	
 	public editPost:Post * String * String * set of String ==> Post 
-	editPost(question,title,content,tagsList) == (
+	editPost(question,title,content,tagsList) == 
+	(
 		return question.editPost(title, content, tagsList);
 	)
 	pre canEditPost = true and question in set posts;
 	
 	public removePost:Post ==> ()
-	removePost(question) == (
+	removePost(question) == 
+	(
 		posts := {question} \ posts;
 	)
 	pre question in set posts;
@@ -146,7 +150,8 @@ operations
 	pre canEditComment = true and comment in set comments;
 	
 	public removeComment:Post * Comment ==> ()
-	removeComment(question,comment) == (
+	removeComment(question,comment) == 
+	(
 		question.removeComment(comment);
 		deleteComment(comment);
 	)

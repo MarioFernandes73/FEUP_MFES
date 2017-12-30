@@ -3,7 +3,7 @@ types
 	public Date :: year : nat1
 								 month: nat1
 								 day : nat1
-								 inv mk_Date(y,m,d) == m <= 12 and d <= Utils`DaysOfMonth(m);
+								 inv mk_Date(y,m,d) == y > 1900 and m <= 12 and d <= Utils`DaysOfMonth(m);
 
 operations
   public static pure DaysOfMonth: nat1 ==> nat1
