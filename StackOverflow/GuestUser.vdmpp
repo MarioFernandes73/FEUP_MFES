@@ -2,16 +2,18 @@ class GuestUser is subclass of User
 types
 public String = seq of char;
 public Sex = <Masculino> | <Feminino>;
-values
--- TODO Define values here
-instance variables
--- TODO Define instance variables here
 operations
-		public GuestUser() res: GuestUser == (	
+		public GuestUser:() ==> GuestUser
+		GuestUser() == (	
 		User();
-	);
-functions
--- TODO Define functiones here
-traces
--- TODO Define Combinatorial Test Traces here
+	)  post canRate = false and
+		canCreatePost = false and
+		canEditPost = false and
+		canRemovePost = false and
+		canAddComment = false and
+		canEditComment = false and
+		canRemoveComment = false and
+		canBanUsers = false and
+		canUnbanUsers = false and
+		banned = <Unbanned>;
 end GuestUser

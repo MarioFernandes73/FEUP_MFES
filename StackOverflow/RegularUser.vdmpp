@@ -12,21 +12,21 @@ operations
 		canEditComment := true;
 		RegisteredUser(id1, name1, email1, age1, sex1, reputation1, username1, password1);
 	)
-	post res.canRate = true and
-		res.canCreatePost = true and
-		res.canEditPost = true and
-		res.canRemovePost = false and
-		res.canAddComment = true and
-		res.canEditComment = true and
-		res.canRemoveComment = false and
-		res.canBanUsers = false and
-		res.canUnbanUsers = false and
-		res.banned = <Unbanned> and
-		res.name = name1 and
-		res.email = email1 and
-		res.age = age1 and
-		res.sex = sex1 and
-		res.reputation = reputation1 and
-		res.username = username1 and
-		res.password = password1;
+	post canRate = true and
+		canCreatePost = true and
+		canEditPost = true and
+		canRemovePost = false and
+		canAddComment = true and
+		canEditComment = true and
+		canRemoveComment = false and
+		canBanUsers = false and
+		canUnbanUsers = false and
+		banned = <Unbanned> and
+		name = name1 and
+		email = email1 and
+		age = age1 and
+		sex = sex1 and
+		reputation = reputation1 and
+		username = username1 and
+		password = password1;
 end RegularUser
