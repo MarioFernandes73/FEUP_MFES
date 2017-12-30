@@ -13,29 +13,33 @@ instance variables
 	private date : Date;
 	private rating : int := 0;
 
-operations
-	public Comment(commentContent:String, commentAuthor:RegisteredUser, day:nat1, month: nat1, year: nat1) res: Comment == (	
-		content := commentContent;
-		author := commentAuthor;
-		date := mk_Date(year, month, day);
-	)
-	post res.content = commentContent and res.author = commentAuthor and res.rating = 0;	
+operations	
+	public Comment: String * RegisteredUser * nat1 * nat1 * nat1 ==> Comment
+		Comment(commentContent, commentAuthor, day, month, year) == (
+			content := commentContent;
+			author := commentAuthor;
+			date := mk_Date(year, month, day);
+		)
+		post content = commentContent and author = commentAuthor and rating = 0 and date.year = year and date.month = month and date.day = day;	
+	
+	public editComment: String ==> Comment
+		editComment(newContent) == (
+			content := newContent;
+			return self;
+		)
+		post content = newContent;		
+	
+  public increaseRating: () ==> ()
+  	increaseRating() == (
+  		rating := rating + 1;
+			author.addReputation(3)
+		);
 		
-	public increaseRating() == (
-		rating := rating + 1;
-		author.addReputation(3);
-	);
-	
-	public decreaseRating() == (
-		rating := rating - 1;
-		author.addReputation(-2);
-	);
-	
-	public editComment(newContent:String) res:Comment == (
-		content := newContent;
-		return self;
-	)
-	post content = newContent;
+  public decreaseRating: () ==> ()
+  	decreaseRating() == (
+  		rating := rating - 1;
+			author.addReputation(-2)
+		);
 	
 	public getContent: () ==> String
   	getContent() == return content

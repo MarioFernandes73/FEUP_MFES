@@ -13,32 +13,49 @@ instance variables
 	private commentsList : set of Comment := {};
 	
 operations
-	public Post(postTitle:String, postContent:String, postAuthor:RegisteredUser, postTags:set of String, day:nat1, month: nat1, year: nat1) res: Post == (	
-		title := postTitle;
-		content := postContent;
-		author := postAuthor;
-		tagsList := postTags;
-		date := mk_Utils`Date(year, month, day);
-	)
-	post res.title = postTitle and res.content = postContent and res.author = postAuthor and res.tagsList = postTags 
-		and res.views = 0 and res.rating = 0 and res.commentsList = {};
+	public Post: String * String * RegisteredUser * set of String * nat1 * nat1 * nat1 ==> Post
+		Post(postTitle, postContent, postAuthor, postTags, day, month, year) == (
+			title := postTitle;
+			content := postContent;
+			author := postAuthor;
+			tagsList := postTags;
+			date := mk_Utils`Date(year, month, day);
+			return self;
+		)
+		post title = postTitle and content = postContent and author = postAuthor and tagsList = postTags 
+				and views = 0 and rating = 0 and commentsList = {} and date.year = year and date.month = month and date.day = day;
 		
-	public editPost(newTitle:String, newContent:String, newTags:set of String) res:Post == (
-		title := newTitle;
-		content := newContent;
-		tagsList := newTags;
-		return self;
-	)
-	post content = newContent and title = newTitle and tagsList = newTags;
+	public editPost: String * String * set of String ==> Post
+		editPost(newTitle, newContent, newTags) == (
+			title := newTitle;
+			content := newContent;
+			tagsList := newTags;
+			return self;
+		)
+		post content = newContent and title = newTitle and tagsList = newTags;
 	
-	public addComment(comment:Comment) == (
-		commentsList := {comment} union commentsList;
-	);
+  public addComment: Comment ==> ()
+  	addComment(comment) == (
+  		commentsList := {comment} union commentsList;
+		);
 	
-	public removeComment(comment:Comment) == (
-		commentsList := {comment} \ commentsList;
-	)
-	pre comment in set commentsList;
+  public removeComment: Comment ==> ()
+  	removeComment(comment) == (
+  		commentsList := {comment} \ commentsList;
+		)
+		pre comment in set commentsList;
+		
+  public increaseRating: () ==> ()
+  	increaseRating() == (
+  		rating := rating + 1;
+			author.addReputation(1)
+		);
+		
+  public decreaseRating: () ==> ()
+  	decreaseRating() == (
+  		rating := rating - 1;
+			author.addReputation(-1)
+		);
 	        
   public getTitle: () ==> String
   	getTitle() == return title
@@ -75,16 +92,5 @@ operations
   public getCommentsList: () ==> set of Comment
   	getCommentsList() == return commentsList
     post RESULT = commentsList;
-
-	public increaseRating() == (
-		rating := rating + 1;
-		author.addReputation(1);
-	);
-	
-	public decreaseRating() == (
-		rating := rating - 1;
-		author.addReputation(-1);
-	);
-
 
 end Post
