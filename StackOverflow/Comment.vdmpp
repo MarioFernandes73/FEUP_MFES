@@ -1,16 +1,11 @@
 class Comment
 types
 	public String = seq of char;
-	
-	public Date :: year : nat1
-								 month: nat1
-								 day : nat1
-								 inv mk_Date(y,m,d) == m <= 12 and d <= Utils`DaysOfMonth(m);
 
 instance variables
 	private content : String;
 	private author : RegisteredUser;
-	private date : Date;
+	private date : Utils`Date;
 	private rating : int := 0;
 
 operations	
@@ -18,7 +13,7 @@ operations
 		Comment(commentContent, commentAuthor, day, month, year) == (
 			content := commentContent;
 			author := commentAuthor;
-			date := mk_Date(year, month, day);
+			date := mk_Utils`Date(year, month, day);
 		)
 		post content = commentContent and author = commentAuthor and rating = 0 and date.year = year and date.month = month and date.day = day;	
 	
@@ -50,7 +45,7 @@ operations
   	getAuthor() == return author
     post RESULT = author;
     
-  public getDate: () ==> Date
+  public getDate: () ==> Utils`Date
   	getDate() == return date
     post RESULT = date;
     
