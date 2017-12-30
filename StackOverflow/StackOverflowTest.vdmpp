@@ -286,6 +286,8 @@ operations
 		dcl tempBool : bool := false;
 		
 		s.addUser(newUser);
+		tempBool := s.tryLogin("j","12345");
+		assertTrue(tempBool = false);
 		tempBool := s.tryLogin("jj","12345");
 		assertTrue(tempBool);
 		assertEqual(newUser,s.getCurrentUser());

@@ -40,43 +40,43 @@ operations
 		banned = <Unbanned>;
 		
 public getCanRate: () ==> bool
-		getCanRate() == return canRate
+		getCanRate() == (return canRate;)
 		post RESULT = canRate;
 
 public getCanCreatePost: () ==> bool
-		getCanCreatePost() == return canCreatePost
+		getCanCreatePost() == (return canCreatePost;)
 		post RESULT = canCreatePost;
 		
 public getCanEditPost: () ==> bool
-		getCanEditPost() == return canEditPost
+		getCanEditPost() == (return canEditPost;)
 		post RESULT = canEditPost;
 		
 public getCanRemovePost: () ==> bool
-		getCanRemovePost() == return canRemovePost
+		getCanRemovePost() == (return canRemovePost;)
 		post RESULT = canRemovePost;
 		
 public getCanAddComment: () ==> bool
-		getCanAddComment() == return canAddComment
+		getCanAddComment() == (return canAddComment;)
 		post RESULT = canAddComment;
 		
 public getCanEditComment: () ==> bool
-		getCanEditComment() == return canEditComment
+		getCanEditComment() == (return canEditComment;)
 		post RESULT = canEditComment;
 		
 public getCanRemoveComment: () ==> bool
-		getCanRemoveComment() == return canRemoveComment
+		getCanRemoveComment() == (return canRemoveComment;)
 		post RESULT = canRemoveComment;
 		
 public getCanBanUsers: () ==> bool
-		getCanBanUsers() == return canBanUsers
+		getCanBanUsers() == (return canBanUsers;)
 		post RESULT = canBanUsers;
 		
 public getCanUnbanUsers: () ==> bool
-		getCanUnbanUsers() == return canUnbanUsers
+		getCanUnbanUsers() == (return canUnbanUsers;)
 		post RESULT = canUnbanUsers;
 		
 public getBanState: () ==> BanState
-		getBanState() == return banned
+		getBanState() == (return banned;)
 		pre banned <> nil
 		post RESULT = banned;
 		
@@ -88,27 +88,27 @@ public getBanState: () ==> BanState
 	post banned = newBanState;
 
 	public getEmail: () ==> String
-		getEmail() == return ""
+		getEmail() == (return "";)
 		post RESULT = "";
 		
 	public getSex: () ==> Sex
-		getSex() == return <Masculino>
+		getSex() == (return <Masculino>;)
 		post RESULT = <Masculino>;	
 
 	public getName: () ==> String
-		getName() == return ""
+		getName() == (return "";)
 		post RESULT = "";
 	
 		public getAge: () ==> nat
-		getAge() == return 1
+		getAge() == (return 1;)
 		post RESULT = 1;
 		
 	public getUsername: () ==> String
-		getUsername() == return ""
+		getUsername() == (return "";)
 		post RESULT = "";
 		
 	public getPassword: () ==> String
-		getPassword() == return ""
+		getPassword() == (return "";)
 		post RESULT = "";
 
 public editUser: String * String * nat * Sex ==> User

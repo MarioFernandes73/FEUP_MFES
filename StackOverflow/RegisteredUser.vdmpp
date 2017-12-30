@@ -15,8 +15,8 @@ instance variables
 	protected password : String;
 operations
 		public RegisteredUser: nat * String * String * nat * Sex * int * String * String ==> RegisteredUser
-		RegisteredUser(id1,name1,email1,age1,sex1,reputation1,username1,password1) == (	
-		id := id1;
+		RegisteredUser(id1,name1,email1,age1,sex1,reputation1,username1,password1) == 
+		(id := id1;
 		name := name1;
 		email := email1;
 		age := age1;
@@ -24,127 +24,108 @@ operations
 		reputation := reputation1;
 		username := username1;
 		password := password1;
-		return self;
-	)
+		return self;)
 	post name = name1 and email = email1 and age = age1 and sex = sex1 and reputation = reputation1 and username = username1 and password = password1;
 		
 		public editUser: String * String * nat * Sex ==> RegisteredUser
-		editUser(name1,email1,age1,sex1) == (
-			name := name1;
+		editUser(name1,email1,age1,sex1) == 
+		(name := name1;
 			email := email1;
 			age := age1;
 			sex := sex1;
-			return self;
-		)
+			return self;)
 		pre name1 <> "" and email1 <> "" and age1 > 0 and (sex1 = <Masculino> or sex1 = <Feminino>)
 		post name = name1 and email = email1 and age = age1 and sex = sex1;
 	
 	public getId: () ==> int
-		getId() == return id
-		pre id > 0
+		getId() == (return id;)
+		pre (id > 0)
 		post RESULT = id;
 		
 	public getName: () ==> String
-		getName() == return name
+		getName() == (return name;)
 		post RESULT = name;
 		
 	public getAge: () ==> nat
-		getAge() == return age
-		pre age > 1
+		getAge() == (return age;)
+		pre (age > 1)
 		post RESULT = age;
 		
 	public getEmail: () ==> String
-		getEmail() == return email
+		getEmail() == (return email;)
 		post RESULT = email;
 		
 	public getSex: () ==> Sex
-		getSex() == return sex
-		pre sex <> nil
+		getSex() == (return sex;)
+		pre sex = <Masculino> or sex = <Feminino>
 		post RESULT = sex;
 		
 	public getReputation: () ==> int
-		getReputation() == return reputation
+		getReputation() == (return reputation;)
 		post RESULT = reputation;
 	
 	public addReputation: int ==> ()
-		addReputation(value) == reputation := reputation + value
+		addReputation(value) == (reputation := reputation + value;)
 		pre value <> 0;
 	
 	public getPosts: () ==> set of Post
-		getPosts() == return posts
+		getPosts() == (return posts;)
 		post RESULT = posts;
 		
 					public getComments: () ==> set of Comment
-		getComments() == return comments
+		getComments() == (return comments;)
 		post RESULT = comments;
 		
 	public getUsername: () ==> String
-		getUsername() == return username
+		getUsername() == (return username;)
 		post RESULT = username;
 		
 	public getPassword: () ==> String
-		getPassword() == return password
+		getPassword() == (return password;)
 		post RESULT = password;
 		
 	public addPost: Post ==> () 
-	addPost(question) == (
-		posts := {question} union posts;
-	);
+	addPost(question) == (posts := {question} union posts;);
 	
 	public addComment: Comment ==> ()
-	addComment(comment)  == (
-		comments := {comment} union comments;
-	);
+	addComment(comment)  == (comments := {comment} union comments;);
 	
 	public deleteComment:Comment ==> ()
-	deleteComment(comment) == (
-		comments := {comment} \ comments;
-	);
+	deleteComment(comment) == (comments := {comment} \ comments;);
 	
 	public createPost: String * String * set of String *  nat1 *  nat1 * nat1 ==> Post
 		createPost(title,content,tagsList,day,month,year) == 
-		(
-		dcl newPost:Post := new Post(title, content, self, tagsList, day, month, year);
+		(dcl newPost:Post := new Post(title, content, self, tagsList, day, month, year);
 		addPost(newPost);
-		return newPost;
-	)
+		return newPost;)
 	pre canCreatePost = true;
 	
 	public editPost:Post * String * String * set of String ==> Post 
 	editPost(question,title,content,tagsList) == 
-	(
-		return question.editPost(title, content, tagsList);
-	)
+	(return question.editPost(title, content, tagsList);)
 	pre canEditPost = true and question in set posts;
 	
 	public removePost:Post ==> ()
 	removePost(question) == 
-	(
-		posts := {question} \ posts;
-	)
+	(posts := {question} \ posts;)
 	pre question in set posts;
 	
 	public createComment:Post * String * nat1 * nat1 * nat1 ==> Comment 
-	createComment(question,content,day,month,year) == (
-		dcl newComment:Comment := new Comment(content, self, day, month, year);
+	createComment(question,content,day,month,year) == 
+	(dcl newComment:Comment := new Comment(content, self, day, month, year);
 		question.addComment(newComment);
 		addComment(newComment);
-		return newComment;
-	)
+		return newComment;)
 	pre canAddComment = true;
 	
 	public editComment:Comment * String ==> Comment
-	editComment(comment,content) == (
-		return comment.editComment(content);
-	)
+	editComment(comment,content) == (return comment.editComment(content);	)
 	pre canEditComment = true and comment in set comments;
 	
 	public removeComment:Post * Comment ==> ()
 	removeComment(question,comment) == 
-	(
-		question.removeComment(comment);
-		deleteComment(comment);
-	)
+	(question.removeComment(comment);
+		deleteComment(comment);)
 	pre comment in set comments;
 			
 end RegisteredUser
