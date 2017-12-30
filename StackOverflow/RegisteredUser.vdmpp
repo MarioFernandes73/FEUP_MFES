@@ -26,30 +26,20 @@ operations
 		password := password1;
 		return self;
 	)
-	post name = name1 and
-		email = email1 and
-		age = age1 and
-		sex = sex1 and
-		reputation = reputation1 and 
-		username = username1 and
-		password = password1;
+	post name = name1 and email = email1 and age = age1 and sex = sex1 and reputation = reputation1 and username = username1 and password = password1;
 		
 		public editUser: String * String * nat * Sex ==> RegisteredUser
-		editUser(name1,email1,age1,sex1) == 
-		(
+		editUser(name1,email1,age1,sex1) == (
 			name := name1;
 			email := email1;
 			age := age1;
 			sex := sex1;
 			return self;
 		)
-		pre name1 <> "" and email1 <> "" and age1 > 0 and sex1 <> nil
-		post name = name1 and
-			email = email1 and
-			age = age1 and
-			sex = sex1;
+		pre name1 <> "" and email1 <> "" and age1 > 0 and (sex1 = <Masculino> or sex1 = <Feminino>)
+		post name = name1 and email = email1 and age = age1 and sex = sex1;
 	
-	public getId: () ==> nat
+	public getId: () ==> int
 		getId() == return id
 		pre id > 0
 		post RESULT = id;
@@ -60,7 +50,7 @@ operations
 		
 	public getAge: () ==> nat
 		getAge() == return age
-		pre age > 0
+		pre age > 1
 		post RESULT = age;
 		
 	public getEmail: () ==> String

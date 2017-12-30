@@ -92,16 +92,16 @@ public getBanState: () ==> BanState
 		post RESULT = "";
 		
 	public getSex: () ==> Sex
-		getSex() == return nil
-		post RESULT = nil;	
+		getSex() == return <Masculino>
+		post RESULT = <Masculino>;	
 
 	public getName: () ==> String
 		getName() == return ""
 		post RESULT = "";
 	
 		public getAge: () ==> nat
-		getAge() == return 0
-		post RESULT = 0;
+		getAge() == return 1
+		post RESULT = 1;
 		
 	public getUsername: () ==> String
 		getUsername() == return ""

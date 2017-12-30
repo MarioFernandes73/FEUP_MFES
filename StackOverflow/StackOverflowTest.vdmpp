@@ -25,6 +25,51 @@ operations
 		)
 	post expected = actual;
 	
+	private testcreateStackOverflow: () ==> ()
+	testcreateStackOverflow() == (
+	dcl guest : GuestUser := s.getCurrentUser();
+		assertTrue(isofclass(GuestUser,guest));
+		assertTrue(guest.getName() = "");
+		assertTrue(guest.getEmail() = "");
+		assertTrue(guest.getAge() = 1);
+		assertTrue(guest.getSex() = <Masculino>);
+		assertTrue(guest.getUsername() = "");
+		assertTrue(guest.getPassword() = "");
+		
+		guest := guest.editUser("Mario","mario.gustavo@hotmail.com", 23, <Masculino>);
+		assertTrue(guest.getName() = "");
+		assertTrue(guest.getEmail() = "");
+		assertTrue(guest.getAge() = 1);
+		assertTrue(guest.getSex() = <Masculino>);
+		assertTrue(guest.getUsername() = "");
+		assertTrue(guest.getPassword() = "");
+	);
+	
+	
+	private testCreateRegisteredUser: () ==> ()
+	testCreateRegisteredUser() == (
+		dcl newUser:RegisteredUser := new RegisteredUser(1,"Mario", "mario.gustavo@hotmail.com", 23, <Masculino>, 0, "mario","12345" );
+		assertTrue(newUser.getCanRate() = false);
+		assertTrue(newUser.getCanCreatePost() = false );
+		assertTrue(newUser.getCanEditPost() = false );
+		assertTrue(newUser.getCanRemovePost() = false );
+		assertTrue(newUser.getCanAddComment() = false );
+		assertTrue(newUser.getCanEditComment() = false );
+		assertTrue(newUser.getCanRemoveComment() = false );
+		assertTrue(newUser.getCanBanUsers() = false );
+		assertTrue(newUser.getCanUnbanUsers() = false );
+		assertTrue(newUser.getName() = "Mario");
+		assertTrue(newUser.getEmail() = "mario.gustavo@hotmail.com");
+		assertTrue(newUser.getAge() = 23);
+		assertTrue(newUser.getSex() = <Masculino>);
+		assertTrue(newUser.getReputation() = 0);
+		assertTrue(newUser.getBanState() = <Unbanned>);
+		assertTrue(newUser.getId() = 1);
+		assertEqual(newUser.getPosts(), {});
+		assertTrue(newUser.getUsername() = "mario");
+		assertTrue(newUser.getPassword() = "12345");
+	
+	);
 	
 		private testCreateRegularUser: () ==> ()
 	testCreateRegularUser() ==
@@ -45,6 +90,10 @@ operations
 		assertTrue(newUser.getSex() = <Masculino>);
 		assertTrue(newUser.getReputation() = 0);
 		assertTrue(newUser.getBanState() = <Unbanned>);
+		assertTrue(newUser.getId() = 1);
+		assertEqual(newUser.getPosts(), {});
+		assertTrue(newUser.getUsername() = "mario");
+		assertTrue(newUser.getPassword() = "12345");
 	);
 	
 			private testCreateAdministratorUser: () ==> ()
@@ -268,6 +317,11 @@ operations
 		assertTrue(s.getCurrentUser().getEmail() = "mario.gustavo@hotmail.com");
 		assertTrue(s.getCurrentUser().getAge() = 23);
 		assertTrue(s.getCurrentUser().getSex() = <Masculino>);
+		s.editUser("Ana", "ana@hotmail.com", 27, <Feminino>);
+		assertTrue(s.getCurrentUser().getName() = "Ana");
+		assertTrue(s.getCurrentUser().getEmail() = "ana@hotmail.com");
+		assertTrue(s.getCurrentUser().getAge() = 27);
+		assertTrue(s.getCurrentUser().getSex() = <Feminino>);
 	);
 
 			private testOrderPosts: () ==> ()
@@ -300,7 +354,9 @@ operations
 	
 	public static main: () ==> ()
 	main() ==
-	(		
+	(	
+		new StackOverflowTest().testcreateStackOverflow();
+	  new StackOverflowTest().testCreateRegisteredUser();
 		new StackOverflowTest().testCreateRegularUser();
 		new StackOverflowTest().testCreateAdministratorUser();
 		new StackOverflowTest().testBanUser();
