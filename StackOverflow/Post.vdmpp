@@ -58,39 +58,55 @@ operations
 		);
 	        
   public getTitle: () ==> String
-  	getTitle() == return title
+  	getTitle() == (
+  		return title;
+  	)
     pre title <> []
     post RESULT = title;
     
   public getContent: () ==> String
-  	getContent() == return content
+  	getContent() == (
+  		return content;
+  	)
     pre content <> []
     post RESULT = content;
     
   public getAuthor: () ==> RegisteredUser
-  	getAuthor() == return author
+  	getAuthor() == (
+  		return author;
+  	)
     post RESULT = author;
     
   public getDate: () ==> Utils`Date
-  	getDate() == return date
+  	getDate() == (
+  		return date;
+  	)
     post RESULT = date;
     
   public getRating: () ==> int
-  	getRating() == return rating
+  	getRating() == (
+  		return rating;
+  	)
     post RESULT = rating;
     
   public getViews: () ==> nat
-  	getViews() == return views
+  	getViews() == (
+  		return views;
+  	)
   	pre views >= 0
     post RESULT = views;
     
   public getTagsList: () ==> set of String
-  	getTagsList() == return tagsList
+  	getTagsList() == (
+  		return tagsList;
+  	)
     pre tagsList <> {}
     post RESULT = tagsList;
     
   public getCommentsList: () ==> set of Comment
-  	getCommentsList() == return commentsList
+  	getCommentsList() == (
+  		return commentsList;
+  	)
     post RESULT = commentsList;
 
 end Post
