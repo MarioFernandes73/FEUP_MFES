@@ -107,8 +107,8 @@ operations
 	pre inputName > 0;
 	
 				public searchPostsByTitle:String ==> set of Post
-				searchPostsByTitle(inputTitle) == (
-	dcl postsTemp : set of Post := {};
+				searchPostsByTitle(inputTitle) == 
+				(dcl postsTemp : set of Post := {};
 	dcl inputSize : int := len inputTitle;
 	dcl counter : nat := 1;
 	dcl counter2 : nat := 1;
@@ -180,22 +180,18 @@ operations
     dcl currentRating : int;
     dcl tempRating : int;
     dcl tempPost : Post;
-    for all currPost in set posts do (
-        currentRating := currPost.getRating();
-        tempRating := currentRating;
-        tempPost := currPost;
-        for all currPost2 in set posts do (
-                 if(currPost2 not in set tempPosts) then (
-                        if(currPost2.getRating() > currentRating and currPost2.getRating() > tempRating) then (
-                            tempPost := currPost2;
-                            tempRating := currPost2.getRating();
-                        );
-                 );
-             tempPosts := tempPosts union {tempPost};
-            );
-    );
-    return tempPosts;
-  ) pre card posts > 0
+    for all currPost in set posts do 
+    (currentRating := currPost.getRating();
+    tempRating := currentRating;
+    tempPost := currPost;
+        for all currPost2 in set posts do 
+        (if(currPost2 not in set tempPosts) then 
+        (if(currPost2.getRating() > currentRating and currPost2.getRating() > tempRating) then 
+        (tempPost := currPost2;
+        tempRating := currPost2.getRating(); ););
+        tempPosts := tempPosts union {tempPost}; ););
+    return tempPosts;)
+    pre (card posts > 0)
     post card posts = card RESULT; 
 	
 end StackOverflow
