@@ -35,8 +35,7 @@ operations
 		password = password1;
 		
 		public editUser: String * String * nat * Sex ==> RegisteredUser
-		editUser(name1,email1,age1,sex1) == 
-		(
+		editUser(name1,email1,age1,sex1) == (
 			name := name1;
 			email := email1;
 			age := age1;
@@ -55,7 +54,9 @@ operations
 		post RESULT = id;
 		
 	public getName: () ==> String
-		getName() == return name
+		getName() == ( 
+			return name;
+		)
 		post RESULT = name;
 		
 	public getAge: () ==> nat
