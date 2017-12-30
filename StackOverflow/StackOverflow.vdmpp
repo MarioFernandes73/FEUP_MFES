@@ -2,76 +2,91 @@ class StackOverflow
 types
 public String = seq of char;
 public Sex = <Masculino> | <Feminino>;
+
 instance variables
 	private userIdCounter : nat := 1;
 	private users : set of User;
 	private postsList : set of Post;
 	private currentUser : User;
+	
 operations
-	public StackOverflow:() ==> StackOverflow
-	StackOverflow() == (
-	currentUser := new GuestUser();
-	users := {};
-	postsList := {};
-	return self;
-	)
-	post users = {} and userIdCounter = 1 and postsList = {};
+	public StackOverflow: () ==> StackOverflow
+		StackOverflow() == (
+			currentUser := new GuestUser();
+			users := {};
+			postsList := {};
+			return self;
+		)
+		post users = {} and userIdCounter = 1 and postsList = {};
+		
+	public createRegularUser: String * String * nat * Sex * nat * String * String ==> RegularUser
+		createRegularUser(name, email, age, sex, reputation, username, password) == (
+			return new RegularUser(userIdCounter, name, email, age, sex, reputation, username, password);
+		);
+		
+	public createAdministratorUser: String * String * nat * Sex * nat * String * String ==> AdministratorUser
+		createAdministratorUser(name, email, age, sex, reputation, username, password) == (
+			return new AdministratorUser(userIdCounter, name, email, age, sex, reputation, username, password);
+		);
 	
-	public createRegularUser(name:String, email:String, age:nat, sex:Sex, reputation:nat, username:String, password:String) res:RegularUser == (
-	return new RegularUser(userIdCounter, name, email, age, sex, reputation, username, password);
-	);
+	public addUser: User ==> ()
+		addUser(user) == (
+			users := {user} union users;
+			userIdCounter := userIdCounter + 1;
+		) 
+		pre user not in set users
+		post userIdCounter > 1 and user in set users;
+		
+	public createPost: String * String * RegisteredUser * set of String * nat1 * nat1 * nat1 ==> Post
+		createPost(title, content, author, tagsList, day, month, year) == (
+			dcl newPost:Post := author.createPost(title, content, tagsList, day, month, year);
+			addPost(newPost);
+			return newPost;
+		);
+		
+	public editPost: Post * String * String * set of String ==> Post
+		editPost(question, newTitle, newContent, newTags) == (
+			dcl author:RegisteredUser := question.getAuthor();
+			return author.editPost(question, newTitle, newContent, newTags);
+		);
+
+	public deletePost:Post ==> ()
+		deletePost(question) == (
+			dcl author:RegisteredUser := question.getAuthor();
+			author.removePost(question);
+			removePost(question);
+		);	
+		
+	public addComment:Post * String * RegisteredUser * nat1 * nat1 * nat1 ==> Comment
+		addComment(question, content, author, day, month, year) == (
+			return author.createComment(question, content, day, month, year);
+		);
 	
-		public createAdministratorUser(name:String, email:String, age:nat, sex:Sex, reputation:nat, username:String, password:String) res:AdministratorUser == (
-	return new AdministratorUser(userIdCounter, name, email, age, sex, reputation, username, password);
-	);
+	public editComment: Comment * String ==> Comment
+		editComment(comment, newContent) == (
+			dcl author:RegisteredUser := comment.getAuthor();
+			return author.editComment(comment, newContent);
+		);
 	
-	public addUser(user:User) == (
-	users := {user} union users;
-	userIdCounter := userIdCounter + 1;
-	) pre user not in set users
-	post userIdCounter > 1 and user in set users;
+	public deleteComment:Post * Comment ==> ()
+		deleteComment(question, comment) == (
+			dcl author:RegisteredUser := comment.getAuthor();
+			author.removeComment(question, comment);
+		);	
 	
-	public createPost(title:String, content:String, author:RegisteredUser, tagsList:set of String, day: nat1, month: nat1, year: nat1) res:Post == (
-		dcl newPost:Post := author.createPost(title, content, tagsList, day, month, year);
-		addPost(newPost);
-		return newPost;
-	);
+	public addPost: Post ==> ()
+		addPost(question) == (
+			postsList := {question} union postsList;
+		) 
+		pre question not in set postsList
+		post question in set postsList;
 	
-	public editPost(question:Post, newTitle:String, newContent:String, newTags:set of String) res:Post == (
-		dcl author:RegisteredUser := question.getAuthor();
-		return author.editPost(question, newTitle, newContent, newTags);
-	);
-	
-	public deletePost(question:Post) == (
-		dcl author:RegisteredUser := question.getAuthor();
-		author.removePost(question);
-		removePost(question);
-	);	
-	
-	public addComment(question:Post, content:String, author:RegisteredUser, day: nat1, month: nat1, year: nat1) res:Comment == (
-		dcl newComment:Comment := author.createComment(question, content, day, month, year);
-		return newComment;
-	);
-	
-	public editComment(comment:Comment, newContent:String) res:Comment == (
-		dcl author:RegisteredUser := comment.getAuthor();
-		return author.editComment(comment, newContent);
-	);
-	
-	public deleteComment(question:Post, comment:Comment) == (
-		dcl author:RegisteredUser := comment.getAuthor();
-		author.removeComment(question, comment);
-	);	
-	
-	public addPost(question:Post) == (
-		postsList := {question} union postsList;
-	) pre question not in set postsList
-	post question in set postsList;
-	
-	public removePost(question:Post) == (
-		postsList := {question} \ postsList;
-	) pre question in set postsList
-	post question not in set postsList;
+	public removePost: Post ==> ()
+		removePost(question) == (
+			postsList := {question} \ postsList;
+		) 
+		pre question in set postsList
+		post question not in set postsList;
 	
 	public getUsers: () ==> set of User
 	getUsers() == return users
