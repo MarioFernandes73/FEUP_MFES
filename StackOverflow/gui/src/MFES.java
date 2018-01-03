@@ -828,6 +828,7 @@ public class MFES	 {
 		}
 	
 	private void setupPostVisualization(Post post) {
+		post.increaseViews();
 		postSection.removeAll();
 		commentSection.removeAll();
 		postSection.setPreferredSize(new Dimension(100,100));

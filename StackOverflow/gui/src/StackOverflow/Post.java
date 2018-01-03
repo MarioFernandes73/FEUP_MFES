@@ -112,6 +112,11 @@ public class Post {
 
     return Utils.copy(commentsList);
   }
+  
+  public void increaseViews() {
+	  
+	  views = views.longValue() + 1L;
+  }
 
   public Post() {}
 
