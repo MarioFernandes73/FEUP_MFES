@@ -1,8 +1,8 @@
 package StackOverflow;
 
 import java.util.*;
-import org.overture.codegen.runtime.*;
 import StackOverflow.quotes.*;
+import org.overture.codegen.runtime.*;
 
 @SuppressWarnings("all")
 public class AdministratorUser extends RegisteredUser {

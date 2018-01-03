@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -464,8 +465,8 @@ public class MFES	 {
 			for(int i = 0; i < tags.length; i++) {
 				tagSet.add(tags[i]);
 			}
-			Date temp = new Date();
-			Post tempPost = s.createPost(postTitleEntry.getText(), postContentEntry.getText(), (RegisteredUser) s.getCurrentUser(), tagSet, temp.day, temp.month, temp.year);
+			Calendar now = Calendar.getInstance();
+			Post tempPost = s.createPost(postTitleEntry.getText(), postContentEntry.getText(), (RegisteredUser) s.getCurrentUser(), tagSet, now.get(Calendar.DAY_OF_MONTH),now.get(Calendar.MONTH)+1,now.get(Calendar.YEAR));
 			s.addPost(tempPost);
 			createFirstItems();
 			setupPostVisualization(tempPost);
@@ -936,13 +937,17 @@ public class MFES	 {
 		postSection.add(scrollPane);
 		
 		Object[] currentComments = post.getCommentsList().toArray();
-		if(currentComments.length == 0)
-			return;
-		if(s.getCurrentUser() instanceof GuestUser) {
-			commentSection.setLayout(new GridLayout(currentComments.length,0,0,10));
-		} else {
-			commentSection.setLayout(new GridLayout(currentComments.length+1,0,0,10));
+		if(currentComments.length == 0) {
+			commentSection.setLayout(new GridLayout(1,0,0,10));
 		}
+		else {
+				if(s.getCurrentUser() instanceof GuestUser) {
+					commentSection.setLayout(new GridLayout(currentComments.length,0,0,10));
+				} else {
+					commentSection.setLayout(new GridLayout(currentComments.length+1,0,0,10));
+				}
+			}
+
 		commentSection.removeAll();
 		for(int i = 0; i < currentComments.length; i++) {
 			Comment currComment = (Comment) currentComments[i];
@@ -1025,8 +1030,8 @@ public class MFES	 {
 		addNewComment.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					Date tempDate = new Date();
-					post.addComment(new Comment(newCommentEntry.getText(),(RegisteredUser)s.getCurrentUser(),tempDate.day,tempDate.month,tempDate.year));
+					Calendar now = Calendar.getInstance();
+					post.addComment(new Comment(newCommentEntry.getText(),(RegisteredUser)s.getCurrentUser(),now.get(Calendar.DAY_OF_MONTH),now.get(Calendar.MONTH)+1,now.get(Calendar.YEAR)));
 					setupPostVisualization(post);
 					cl.show(panelCont, "1");
 					cl.show(panelCont, "4");

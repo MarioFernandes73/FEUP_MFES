@@ -36,6 +36,17 @@ public class User {
     cg_init_User_1();
   }
 
+  public User editUser(
+      final String name1, final String email1, final Number age1, final Object sex1) {
+
+    return this;
+  }
+
+  public void setBanState(final Object newBanState) {
+
+    banned = newBanState;
+  }
+
   public Boolean getCanRate() {
 
     return canRate;
@@ -86,11 +97,6 @@ public class User {
     return banned;
   }
 
-  public void setBanState(final Object newBanState) {
-
-    banned = newBanState;
-  }
-
   public String getEmail() {
 
     return "";
@@ -119,12 +125,6 @@ public class User {
   public String getPassword() {
 
     return "";
-  }
-
-  public User editUser(
-      final String name1, final String email1, final Number age1, final Object sex1) {
-
-    return this;
   }
 
   public String toString() {

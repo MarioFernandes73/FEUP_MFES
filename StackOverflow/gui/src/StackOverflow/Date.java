@@ -21,61 +21,61 @@ public class Date {
     cg_init_Date_1(y, m, d);
   }
 
-  public static Number DaysOfMonth(final Number month_1) {
+  public static Number DaysOfMonth(final Number m) {
 
-    Boolean orResult_3 = false;
+    Boolean orResult_1 = false;
 
-    if (Utils.equals(month_1, 1L)) {
-      orResult_3 = true;
+    if (Utils.equals(m, 1L)) {
+      orResult_1 = true;
     } else {
-      Boolean orResult_4 = false;
+      Boolean orResult_2 = false;
 
-      if (Utils.equals(month_1, 3L)) {
-        orResult_4 = true;
+      if (Utils.equals(m, 3L)) {
+        orResult_2 = true;
       } else {
-        Boolean orResult_5 = false;
+        Boolean orResult_3 = false;
 
-        if (Utils.equals(month_1, 5L)) {
-          orResult_5 = true;
+        if (Utils.equals(m, 5L)) {
+          orResult_3 = true;
         } else {
-          Boolean orResult_6 = false;
+          Boolean orResult_4 = false;
 
-          if (Utils.equals(month_1, 7L)) {
-            orResult_6 = true;
+          if (Utils.equals(m, 7L)) {
+            orResult_4 = true;
           } else {
-            Boolean orResult_7 = false;
+            Boolean orResult_5 = false;
 
-            if (Utils.equals(month_1, 8L)) {
-              orResult_7 = true;
+            if (Utils.equals(m, 8L)) {
+              orResult_5 = true;
             } else {
-              Boolean orResult_8 = false;
+              Boolean orResult_6 = false;
 
-              if (Utils.equals(month_1, 10L)) {
-                orResult_8 = true;
+              if (Utils.equals(m, 10L)) {
+                orResult_6 = true;
               } else {
-                orResult_8 = Utils.equals(month_1, 12L);
+                orResult_6 = Utils.equals(m, 12L);
               }
 
-              orResult_7 = orResult_8;
+              orResult_5 = orResult_6;
             }
 
-            orResult_6 = orResult_7;
+            orResult_4 = orResult_5;
           }
 
-          orResult_5 = orResult_6;
+          orResult_3 = orResult_4;
         }
 
-        orResult_4 = orResult_5;
+        orResult_2 = orResult_3;
       }
 
-      orResult_3 = orResult_4;
+      orResult_1 = orResult_2;
     }
 
-    if (orResult_3) {
+    if (orResult_1) {
       return 31L;
 
     } else {
-      if (Utils.equals(month_1, 2L)) {
+      if (Utils.equals(m, 2L)) {
         return 28L;
 
       } else {
@@ -92,35 +92,35 @@ public class Date {
       return true;
 
     } else {
-      Boolean andResult_97 = false;
+      Boolean andResult_24 = false;
 
       if (Utils.equals(date1.year, date2.year)) {
         if (date1.month.longValue() > date2.month.longValue()) {
-          andResult_97 = true;
+          andResult_24 = true;
         }
       }
 
-      if (andResult_97) {
+      if (andResult_24) {
         return true;
 
       } else {
-        Boolean andResult_98 = false;
+        Boolean andResult_25 = false;
 
         if (Utils.equals(date1.year, date2.year)) {
-          Boolean andResult_99 = false;
+          Boolean andResult_26 = false;
 
           if (Utils.equals(date1.month, date2.month)) {
             if (date1.day.longValue() > date2.day.longValue()) {
-              andResult_99 = true;
+              andResult_26 = true;
             }
           }
 
-          if (andResult_99) {
-            andResult_98 = true;
+          if (andResult_26) {
+            andResult_25 = true;
           }
         }
 
-        if (andResult_98) {
+        if (andResult_25) {
           return true;
 
         } else {

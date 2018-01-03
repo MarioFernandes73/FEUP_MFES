@@ -2,6 +2,7 @@ package StackOverflow;
 
 import java.util.*;
 import org.overture.codegen.runtime.*;
+
 import StackOverflow.quotes.*;
 
 @SuppressWarnings("all")
@@ -509,6 +510,17 @@ public class StackOverflowTest {
         SetUtil.set(newPost4, newPost6, newPost, newPost3, newPost2, newPost5));
   }
 
+  private void testDates() {
+
+    Date date1 = new Date(2017L, 5L, 23L);
+    Date date2 = new Date(2017L, 5L, 29L);
+    assertTrue(Date.compareDates(date2, date1));
+    assertEqual(Date.compareDates(date1, date2), false);
+    assertEqual(Date.DaysOfMonth(4L), 30L);
+    assertEqual(Date.DaysOfMonth(2L), 28L);
+    assertEqual(Date.DaysOfMonth(1L), 31L);
+  }
+
   public static void main() {
 
     new StackOverflowTest().testcreateStackOverflow();
@@ -529,6 +541,7 @@ public class StackOverflowTest {
     new StackOverflowTest().testSearchPost();
     new StackOverflowTest().testEditUser();
     new StackOverflowTest().testOrderPosts();
+    new StackOverflowTest().testDates();
   }
 
   public StackOverflowTest() {}

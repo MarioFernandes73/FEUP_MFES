@@ -55,6 +55,11 @@ public class StackOverflow {
     userIdCounter = userIdCounter.longValue() + 1L;
   }
 
+  public void editUser(final String name, final String email, final Number age, final Object sex) {
+
+    currentUser = currentUser.editUser(name, email, age, ((Object) sex));
+  }
+
   public Post createPost(
       final String title,
       final String content,
@@ -108,12 +113,12 @@ public class StackOverflow {
 
   public void addPost(final Post question) {
 
-    postsList = SetUtil.union(SetUtil.set(question), Utils.copy(postsList));
+    postsList = SetUtil.union(Utils.copy(postsList), SetUtil.set(question));
   }
 
   public void removePost(final Post question) {
 
-    postsList = SetUtil.diff(SetUtil.set(question), Utils.copy(postsList));
+    postsList = SetUtil.diff(Utils.copy(postsList), SetUtil.set(question));
   }
 
   public VDMSet getUsers() {
@@ -174,17 +179,17 @@ public class StackOverflow {
         }
 
         {
-          Boolean andResult_75 = false;
+          Boolean andResult_83 = false;
 
           if (Utils.equals(
               currPost.getTitle().charAt(Utils.index(counter)),
               inputTitle.charAt(Utils.index(counter2)))) {
             if (Utils.equals(flagFound, false)) {
-              andResult_75 = true;
+              andResult_83 = true;
             }
           }
 
-          if (andResult_75) {
+          if (andResult_83) {
             if (Utils.equals(counter2, inputSize)) {
               postsTemp = SetUtil.union(Utils.copy(postsTemp), SetUtil.set(currPost));
               flagFound = true;
@@ -221,24 +226,19 @@ public class StackOverflow {
     return Utils.copy(postsTemp);
   }
 
-  public void editUser(final String name, final String email, final Number age, final Object sex) {
-
-    currentUser = currentUser.editUser(name, email, age, ((Object) sex));
-  }
-
   public Boolean tryLogin(final String inputUsername, final String inputPassword) {
 
     for (Iterator iterator_5 = users.iterator(); iterator_5.hasNext(); ) {
       User currUser = (User) iterator_5.next();
-      Boolean andResult_80 = false;
+      Boolean andResult_85 = false;
 
       if (Utils.equals(currUser.getUsername(), inputUsername)) {
         if (Utils.equals(currUser.getPassword(), inputPassword)) {
-          andResult_80 = true;
+          andResult_85 = true;
         }
       }
 
-      if (andResult_80) {
+      if (andResult_85) {
         currentUser = currUser;
         return true;
       }
@@ -260,15 +260,15 @@ public class StackOverflow {
       for (Iterator iterator_7 = posts.iterator(); iterator_7.hasNext(); ) {
         Post currPost2 = (Post) iterator_7.next();
         if (!(SetUtil.inSet(currPost2, tempPosts))) {
-          Boolean andResult_81 = false;
+          Boolean andResult_86 = false;
 
           if (Date.compareDates(currPost2.getDate(), currentDate)) {
             if (Date.compareDates(currPost2.getDate(), tempDate)) {
-              andResult_81 = true;
+              andResult_86 = true;
             }
           }
 
-          if (andResult_81) {
+          if (andResult_86) {
             tempPost = currPost2;
             tempDate = currPost2.getDate();
           }
@@ -294,15 +294,15 @@ public class StackOverflow {
       for (Iterator iterator_9 = posts.iterator(); iterator_9.hasNext(); ) {
         Post currPost2 = (Post) iterator_9.next();
         if (!(SetUtil.inSet(currPost2, tempPosts))) {
-          Boolean andResult_82 = false;
+          Boolean andResult_87 = false;
 
           if (currPost2.getRating().longValue() > currentRating.longValue()) {
             if (currPost2.getRating().longValue() > tempRating.longValue()) {
-              andResult_82 = true;
+              andResult_87 = true;
             }
           }
 
-          if (andResult_82) {
+          if (andResult_87) {
             tempPost = currPost2;
             tempRating = currPost2.getRating();
           }

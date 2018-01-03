@@ -53,12 +53,12 @@ public class Post {
 
   public void addComment(final Comment comment) {
 
-    commentsList = SetUtil.union(SetUtil.set(comment), Utils.copy(commentsList));
+    commentsList = SetUtil.union(Utils.copy(commentsList), SetUtil.set(comment));
   }
 
   public void removeComment(final Comment comment) {
 
-    commentsList = SetUtil.diff(SetUtil.set(comment), Utils.copy(commentsList));
+    commentsList = SetUtil.diff(Utils.copy(commentsList), SetUtil.set(comment));
   }
 
   public void increaseRating() {
