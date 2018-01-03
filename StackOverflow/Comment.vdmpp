@@ -1,4 +1,8 @@
 class Comment
+/*
+	Defines the details of the comment using types from Utils class and contains operations to work with comments.
+*/
+
 instance variables
 	private content : Utils`String;
 	private author : RegisteredUser;
@@ -33,6 +37,7 @@ operations
 			author.addReputation(-2)
 		);
 	
+	/* Get Operations */     
 	public getContent: () ==> Utils`String
   	getContent() == 
   	( return content;

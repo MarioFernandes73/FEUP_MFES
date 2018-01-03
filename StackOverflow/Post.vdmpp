@@ -1,4 +1,8 @@
 class Post
+/*
+	Defines the details of the post using types from Utils class and contains operations to work with posts.
+*/
+
 instance variables
 	private title : Utils`String;
 	private content : Utils`String;
@@ -55,6 +59,7 @@ operations
 			author.addReputation(-1)
 		);
 	        
+	/* Get Operations */        
   public getTitle: () ==> Utils`String
   	getTitle() == 
   	(	return title;

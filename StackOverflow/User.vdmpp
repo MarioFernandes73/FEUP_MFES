@@ -1,4 +1,8 @@
 class User
+/*
+	Defines the privileges of a user.
+*/
+
 instance variables
 protected canRate : bool;
 protected canCreatePost : bool;
@@ -10,6 +14,7 @@ protected canRemoveComment : bool;
 protected canBanUsers : bool;
 protected canUnbanUsers : bool;
 protected banned : Utils`BanState;
+
 operations
 		public User:() ==> User
 		User() == (	
@@ -35,46 +40,11 @@ operations
 		canUnbanUsers = false and
 		banned = <Unbanned>;
 		
-public getCanRate: () ==> bool
-		getCanRate() == (return canRate;)
-		post RESULT = canRate;
-
-public getCanCreatePost: () ==> bool
-		getCanCreatePost() == (return canCreatePost;)
-		post RESULT = canCreatePost;
+	public editUser: Utils`String * Utils`String * nat * Utils`Sex ==> User
+	editUser(name1,email1,age1,sex1) == (
+	return self;
+	) pre name1 <> "" and email1 <> "" and age1 > 0 and sex1 <> nil;
 		
-public getCanEditPost: () ==> bool
-		getCanEditPost() == (return canEditPost;)
-		post RESULT = canEditPost;
-		
-public getCanRemovePost: () ==> bool
-		getCanRemovePost() == (return canRemovePost;)
-		post RESULT = canRemovePost;
-		
-public getCanAddComment: () ==> bool
-		getCanAddComment() == (return canAddComment;)
-		post RESULT = canAddComment;
-		
-public getCanEditComment: () ==> bool
-		getCanEditComment() == (return canEditComment;)
-		post RESULT = canEditComment;
-		
-public getCanRemoveComment: () ==> bool
-		getCanRemoveComment() == (return canRemoveComment;)
-		post RESULT = canRemoveComment;
-		
-public getCanBanUsers: () ==> bool
-		getCanBanUsers() == (return canBanUsers;)
-		post RESULT = canBanUsers;
-		
-public getCanUnbanUsers: () ==> bool
-		getCanUnbanUsers() == (return canUnbanUsers;)
-		post RESULT = canUnbanUsers;
-		
-public getBanState: () ==> Utils`BanState
-		getBanState() == (return banned;)
-		pre banned <> nil
-		post RESULT = banned;
 		
 	public setBanState:Utils`BanState ==> ()
 	setBanState(newBanState) == (
@@ -82,6 +52,48 @@ public getBanState: () ==> Utils`BanState
 	) 
 	pre banned <> newBanState
 	post banned = newBanState;
+		
+		/* Get Operations */
+	public getCanRate: () ==> bool
+		getCanRate() == (return canRate;)
+		post RESULT = canRate;
+
+	public getCanCreatePost: () ==> bool
+		getCanCreatePost() == (return canCreatePost;)
+		post RESULT = canCreatePost;
+		
+	public getCanEditPost: () ==> bool
+		getCanEditPost() == (return canEditPost;)
+		post RESULT = canEditPost;
+		
+	public getCanRemovePost: () ==> bool
+		getCanRemovePost() == (return canRemovePost;)
+		post RESULT = canRemovePost;
+		
+	public getCanAddComment: () ==> bool
+		getCanAddComment() == (return canAddComment;)
+		post RESULT = canAddComment;
+		
+	public getCanEditComment: () ==> bool
+		getCanEditComment() == (return canEditComment;)
+		post RESULT = canEditComment;
+		
+	public getCanRemoveComment: () ==> bool
+		getCanRemoveComment() == (return canRemoveComment;)
+		post RESULT = canRemoveComment;
+		
+	public getCanBanUsers: () ==> bool
+		getCanBanUsers() == (return canBanUsers;)
+		post RESULT = canBanUsers;
+		
+	public getCanUnbanUsers: () ==> bool
+		getCanUnbanUsers() == (return canUnbanUsers;)
+		post RESULT = canUnbanUsers;
+		
+	public getBanState: () ==> Utils`BanState
+		getBanState() == (return banned;)
+		pre banned <> nil
+		post RESULT = banned;
 
 	public getEmail: () ==> Utils`String
 		getEmail() == (return "";)
@@ -106,11 +118,5 @@ public getBanState: () ==> Utils`BanState
 	public getPassword: () ==> Utils`String
 		getPassword() == (return "";)
 		post RESULT = "";
-
-public editUser: Utils`String * Utils`String * nat * Utils`Sex ==> User
-editUser(name1,email1,age1,sex1) == (
-return self;
-) pre name1 <> "" and email1 <> "" and age1 > 0 and sex1 <> nil;
-
 
 end User

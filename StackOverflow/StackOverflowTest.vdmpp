@@ -1,4 +1,8 @@
 class StackOverflowTest
+/*
+	Contains the test cases for the StackOverFlow
+*/
+
 instance variables
 	s : StackOverflow := new StackOverflow();
 	

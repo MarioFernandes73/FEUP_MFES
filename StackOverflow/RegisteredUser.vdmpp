@@ -1,4 +1,8 @@
 class RegisteredUser is subclass of User
+/*
+	Defines an authenticated user.
+*/
+
 instance variables
 	protected id : nat;
 	protected name : Utils`String;
@@ -10,6 +14,7 @@ instance variables
 	protected comments : set of Comment := {};
 	protected username : Utils`String;
 	protected password : Utils`String;
+	
 operations
 		public RegisteredUser: nat * Utils`String * Utils`String * nat * Utils`Sex * int * Utils`String * Utils`String ==> RegisteredUser
 		RegisteredUser(id1,name1,email1,age1,sex1,reputation1,username1,password1) == 
@@ -33,53 +38,10 @@ operations
 			return self;)
 		pre name1 <> "" and email1 <> "" and age1 > 0 and (sex1 = <Masculino> or sex1 = <Feminino>)
 		post name = name1 and email = email1 and age = age1 and sex = sex1;
-	
-	public getId: () ==> int
-		getId() == (return id;)
-		pre (id > 0)
-		post RESULT = id;
 		
-	public getName: () ==> Utils`String
-		getName() == (return name;)
-		post RESULT = name;
-		
-	public getAge: () ==> nat
-		getAge() == (return age;)
-		pre (age > 1)
-		post RESULT = age;
-		
-	public getEmail: () ==> Utils`String
-		getEmail() == (return email;)
-		post RESULT = email;
-		
-	public getSex: () ==> Utils`Sex
-		getSex() == (return sex;)
-		pre sex = <Masculino> or sex = <Feminino>
-		post RESULT = sex;
-		
-	public getReputation: () ==> int
-		getReputation() == (return reputation;)
-		post RESULT = reputation;
-	
 	public addReputation: int ==> ()
 		addReputation(value) == (reputation := reputation + value;)
 		pre value <> 0;
-	
-	public getPosts: () ==> set of Post
-		getPosts() == (return posts;)
-		post RESULT = posts;
-		
-					public getComments: () ==> set of Comment
-		getComments() == (return comments;)
-		post RESULT = comments;
-		
-	public getUsername: () ==> Utils`String
-		getUsername() == (return username;)
-		post RESULT = username;
-		
-	public getPassword: () ==> Utils`String
-		getPassword() == (return password;)
-		post RESULT = password;
 		
 	public addPost: Post ==> () 
 	addPost(question) == (posts := {question} union posts;);
@@ -124,5 +86,49 @@ operations
 	(question.removeComment(comment);
 		deleteComment(comment);)
 	pre comment in set comments;
+	
+	/* Get Operations */
+	public getId: () ==> int
+		getId() == (return id;)
+		pre (id > 0)
+		post RESULT = id;
+		
+	public getName: () ==> Utils`String
+		getName() == (return name;)
+		post RESULT = name;
+		
+	public getAge: () ==> nat
+		getAge() == (return age;)
+		pre (age > 1)
+		post RESULT = age;
+		
+	public getEmail: () ==> Utils`String
+		getEmail() == (return email;)
+		post RESULT = email;
+		
+	public getSex: () ==> Utils`Sex
+		getSex() == (return sex;)
+		pre sex = <Masculino> or sex = <Feminino>
+		post RESULT = sex;
+		
+	public getReputation: () ==> int
+		getReputation() == (return reputation;)
+		post RESULT = reputation;
+	
+	public getPosts: () ==> set of Post
+		getPosts() == (return posts;)
+		post RESULT = posts;
+		
+	public getComments: () ==> set of Comment
+		getComments() == (return comments;)
+		post RESULT = comments;
+		
+	public getUsername: () ==> Utils`String
+		getUsername() == (return username;)
+		post RESULT = username;
+		
+	public getPassword: () ==> Utils`String
+		getPassword() == (return password;)
+		post RESULT = password;
 			
 end RegisteredUser

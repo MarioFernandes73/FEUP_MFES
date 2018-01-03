@@ -1,6 +1,11 @@
 class Utils
+/*
+	Defines types used in many classes.
+*/
+
 types
 	public String = seq of char;
 	public BanState = <Banned> | <Unbanned>;
 	public Sex = <Masculino> | <Feminino>;	 
+	
 end Utils

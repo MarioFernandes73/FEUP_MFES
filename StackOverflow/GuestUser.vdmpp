@@ -1,4 +1,8 @@
 class GuestUser is subclass of User
+/*
+	Defines a person who is visiting the site without being authenticated.
+*/
+
 operations
 		public GuestUser:() ==> GuestUser
 		GuestUser() == (	
@@ -13,4 +17,5 @@ operations
 		canBanUsers = false and
 		canUnbanUsers = false and
 		banned = <Unbanned>;
+		
 end GuestUser

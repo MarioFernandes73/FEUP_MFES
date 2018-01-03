@@ -1,4 +1,8 @@
 class RegularUser is subclass of RegisteredUser
+/*
+	Defines an authenticated user with minimum privileges.
+*/
+
 operations
 		public RegularUser:nat * Utils`String * Utils`String * nat * Utils`Sex * int * Utils`String * Utils`String ==> RegularUser	
 		RegularUser(id1,name1,email1,age1,sex1,reputation1,username1,password1) == (
@@ -26,4 +30,5 @@ operations
 		reputation = reputation1 and
 		username = username1 and
 		password = password1;
+		
 end RegularUser

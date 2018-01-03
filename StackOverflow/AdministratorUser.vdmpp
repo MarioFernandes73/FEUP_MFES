@@ -1,4 +1,7 @@
 class AdministratorUser is subclass of RegisteredUser
+/*
+	Defines an authenticated user with maximum privileges
+*/
 operations
 		public AdministratorUser : nat * Utils`String * Utils`String * nat * Utils`Sex * int * Utils`String * Utils`String ==> AdministratorUser 	
 		AdministratorUser(id1, name1, email1, age1, sex1, reputation1, username1, password1) == (
@@ -31,11 +34,13 @@ operations
 		username = username1 and
 		password = password1;
 		
+-- Change the ban state of a user to Banned
 public banUser: User ==> ()
 banUser(user) == (
 user.setBanState(<Banned>);
 ) pre canBanUsers = true;
 	
+-- Change the ban state of a user to Unbanned	
 public unbanUser: User ==> ()
 unbanUser(user) == (
 user.setBanState(<Unbanned>);
