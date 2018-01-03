@@ -44,13 +44,13 @@ operations
 		pre value <> 0;
 		
 	public addPost: Post ==> () 
-	addPost(question) == (posts := {question} union posts;);
+	addPost(question) == (posts := posts union {question};);
 	
 	public addComment: Comment ==> ()
-	addComment(comment)  == (comments := {comment} union comments;);
+	addComment(comment)  == (comments := comments union {comment};);
 	
 	public deleteComment:Comment ==> ()
-	deleteComment(comment) == (comments := {comment} \ comments;);
+	deleteComment(comment) == (comments := comments \ {comment} );
 	
 	public createPost: Utils`String * Utils`String * set of Utils`String *  nat1 *  nat1 * nat1 ==> Post
 		createPost(title,content,tagsList,day,month,year) == 
@@ -66,7 +66,7 @@ operations
 	
 	public removePost:Post ==> ()
 	removePost(question) == 
-	(posts := {question} \ posts;)
+	(posts := posts \ {question};)
 	pre question in set posts;
 	
 	public createComment:Post * Utils`String * nat1 * nat1 * nat1 ==> Comment 

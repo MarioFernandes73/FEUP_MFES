@@ -38,12 +38,12 @@ operations
 	
   public addComment: Comment ==> ()
   	addComment(comment) == 
-  	(	commentsList := {comment} union commentsList;
+  	(	commentsList := commentsList union {comment};
 		);
 	
   public removeComment: Comment ==> ()
   	removeComment(comment) == 
-  	(	commentsList := {comment} \ commentsList;
+  	(	commentsList := commentsList \ {comment};
 		)
 		pre comment in set commentsList;
 		

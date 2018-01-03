@@ -72,13 +72,13 @@ operations
 	
 	public addPost: Post ==> ()
 		addPost(question) == 
-		(postsList := {question} union postsList;) 
+		(postsList := postsList union {question};) 
 		pre (question not in set postsList)
 		post question in set postsList;
 	
 	public removePost: Post ==> ()
 		removePost(question) == 
-		(postsList := {question} \ postsList;) 
+		(postsList := postsList \ {question};) 
 		pre (question in set postsList)
 		post question not in set postsList;
 	
