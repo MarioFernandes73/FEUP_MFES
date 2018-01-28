@@ -1,0 +1,972 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_UC-44O_qEeeWEuXdVkEfCw" name="StackOverflow">
+  <packagedElement xmi:type="uml:Package" xmi:id="_UC-44e_qEeeWEuXdVkEfCw" name="Composite VDM Types">
+    <packagedElement xmi:type="uml:Class" xmi:id="_UC-44u_qEeeWEuXdVkEfCw" name="Seq&lt;T>">
+      <ownedTemplateSignature xmi:type="uml:RedefinableTemplateSignature" xmi:id="_UC-44-_qEeeWEuXdVkEfCw" name="T" parameter="_UC-45O_qEeeWEuXdVkEfCw">
+        <ownedParameter xmi:type="uml:ClassifierTemplateParameter" xmi:id="_UC-45O_qEeeWEuXdVkEfCw" parameteredElement="_UC-45e_qEeeWEuXdVkEfCw">
+          <ownedParameteredElement xmi:type="uml:Class" xmi:id="_UC-45e_qEeeWEuXdVkEfCw" name="T" templateParameter="_UC-45O_qEeeWEuXdVkEfCw"/>
+        </ownedParameter>
+      </ownedTemplateSignature>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_UC-45u_qEeeWEuXdVkEfCw" name="Set&lt;T>">
+      <ownedTemplateSignature xmi:type="uml:RedefinableTemplateSignature" xmi:id="_UC-45-_qEeeWEuXdVkEfCw" name="T" parameter="_UC-46O_qEeeWEuXdVkEfCw">
+        <ownedParameter xmi:type="uml:ClassifierTemplateParameter" xmi:id="_UC-46O_qEeeWEuXdVkEfCw" parameteredElement="_UC-46e_qEeeWEuXdVkEfCw">
+          <ownedParameteredElement xmi:type="uml:Class" xmi:id="_UC-46e_qEeeWEuXdVkEfCw" name="T" templateParameter="_UC-46O_qEeeWEuXdVkEfCw"/>
+        </ownedParameter>
+      </ownedTemplateSignature>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_UC-46u_qEeeWEuXdVkEfCw" name="Product&lt;A,B>">
+      <ownedTemplateSignature xmi:type="uml:RedefinableTemplateSignature" xmi:id="_UC-46-_qEeeWEuXdVkEfCw" name="A,B" parameter="_UC-47O_qEeeWEuXdVkEfCw _UC-47u_qEeeWEuXdVkEfCw">
+        <ownedParameter xmi:type="uml:ClassifierTemplateParameter" xmi:id="_UC-47O_qEeeWEuXdVkEfCw" parameteredElement="_UC-47e_qEeeWEuXdVkEfCw">
+          <ownedParameteredElement xmi:type="uml:Class" xmi:id="_UC-47e_qEeeWEuXdVkEfCw" name="A" templateParameter="_UC-47O_qEeeWEuXdVkEfCw"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:ClassifierTemplateParameter" xmi:id="_UC-47u_qEeeWEuXdVkEfCw" parameteredElement="_UC-47-_qEeeWEuXdVkEfCw">
+          <ownedParameteredElement xmi:type="uml:Class" xmi:id="_UC-47-_qEeeWEuXdVkEfCw" name="B" templateParameter="_UC-47u_qEeeWEuXdVkEfCw"/>
+        </ownedParameter>
+      </ownedTemplateSignature>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_UC-48O_qEeeWEuXdVkEfCw" name="Optional&lt;T>">
+      <ownedTemplateSignature xmi:type="uml:RedefinableTemplateSignature" xmi:id="_UC-48e_qEeeWEuXdVkEfCw" name="T" parameter="_UC-48u_qEeeWEuXdVkEfCw">
+        <ownedParameter xmi:type="uml:ClassifierTemplateParameter" xmi:id="_UC-48u_qEeeWEuXdVkEfCw" parameteredElement="_UC-48-_qEeeWEuXdVkEfCw">
+          <ownedParameteredElement xmi:type="uml:Class" xmi:id="_UC-48-_qEeeWEuXdVkEfCw" name="T" templateParameter="_UC-48u_qEeeWEuXdVkEfCw"/>
+        </ownedParameter>
+      </ownedTemplateSignature>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_UC-49O_qEeeWEuXdVkEfCw" name="AdministratorUser" visibility="public">
+    <generalization xmi:id="_UC-49e_qEeeWEuXdVkEfCw" general="_UC-5he_qEeeWEuXdVkEfCw"/>
+    <ownedOperation xmi:id="_UC-49u_qEeeWEuXdVkEfCw" name="AdministratorUser" visibility="public">
+      <ownedParameter xmi:id="_UC-49-_qEeeWEuXdVkEfCw" name="id1" type="_UC_hWO_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-4-O_qEeeWEuXdVkEfCw" name="name1" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-4-e_qEeeWEuXdVkEfCw" name="email1" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-4-u_qEeeWEuXdVkEfCw" name="age1" type="_UC_hWO_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-4--_qEeeWEuXdVkEfCw" name="sex1" type="_UC_g_-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-4_O_qEeeWEuXdVkEfCw" name="reputation1" type="_UC_hWe_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-4_e_qEeeWEuXdVkEfCw" name="username1" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-4_u_qEeeWEuXdVkEfCw" name="password1" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-4_-_qEeeWEuXdVkEfCw" type="_UC-49O_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5AO_qEeeWEuXdVkEfCw" name="banUser" visibility="public">
+      <ownedParameter xmi:id="_UC-5Ae_qEeeWEuXdVkEfCw" name="user" type="_UC_gte_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5Au_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5A-_qEeeWEuXdVkEfCw" name="unbanUser" visibility="public">
+      <ownedParameter xmi:id="_UC-5BO_qEeeWEuXdVkEfCw" name="user" type="_UC_gte_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5Be_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_UC-5Bu_qEeeWEuXdVkEfCw" name="Comment" visibility="public">
+    <ownedAttribute xmi:id="_UC-5B-_qEeeWEuXdVkEfCw" name="content" visibility="private" type="_UC_g-O_qEeeWEuXdVkEfCw" association="_UC_hXu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC-5CO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC-5Ce_qEeeWEuXdVkEfCw" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5Cu_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC-5C-_qEeeWEuXdVkEfCw" name="author" visibility="private" type="_UC-5he_qEeeWEuXdVkEfCw" association="_UC_hYu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC-5DO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC-5De_qEeeWEuXdVkEfCw" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5Du_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC-5D-_qEeeWEuXdVkEfCw" name="date" visibility="private" type="_UC-5K-_qEeeWEuXdVkEfCw" association="_UC_hZu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC-5EO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC-5Ee_qEeeWEuXdVkEfCw" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5Eu_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC-5E-_qEeeWEuXdVkEfCw" name="rating" visibility="private" type="_UC_hWe_qEeeWEuXdVkEfCw">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5FO_qEeeWEuXdVkEfCw" value="0"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_UC-5Fe_qEeeWEuXdVkEfCw" name="Comment" visibility="public">
+      <ownedParameter xmi:id="_UC-5Fu_qEeeWEuXdVkEfCw" name="commentContent" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5F-_qEeeWEuXdVkEfCw" name="commentAuthor" type="_UC-5he_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5GO_qEeeWEuXdVkEfCw" name="day" type="_UC_hW-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5Ge_qEeeWEuXdVkEfCw" name="month" type="_UC_hW-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5Gu_qEeeWEuXdVkEfCw" name="year" type="_UC_hW-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5G-_qEeeWEuXdVkEfCw" type="_UC-5Bu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5HO_qEeeWEuXdVkEfCw" name="editComment" visibility="public">
+      <ownedParameter xmi:id="_UC-5He_qEeeWEuXdVkEfCw" name="newContent" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5Hu_qEeeWEuXdVkEfCw" type="_UC-5Bu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5H-_qEeeWEuXdVkEfCw" name="increaseRating" visibility="public">
+      <ownedParameter xmi:id="_UC-5IO_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5Ie_qEeeWEuXdVkEfCw" name="decreaseRating" visibility="public">
+      <ownedParameter xmi:id="_UC-5Iu_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5I-_qEeeWEuXdVkEfCw" name="getContent" visibility="public">
+      <ownedParameter xmi:id="_UC-5JO_qEeeWEuXdVkEfCw" type="_UC_g-O_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5Je_qEeeWEuXdVkEfCw" name="getAuthor" visibility="public">
+      <ownedParameter xmi:id="_UC-5Ju_qEeeWEuXdVkEfCw" type="_UC-5he_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5J-_qEeeWEuXdVkEfCw" name="getDate" visibility="public">
+      <ownedParameter xmi:id="_UC-5KO_qEeeWEuXdVkEfCw" type="_UC-5K-_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5Ke_qEeeWEuXdVkEfCw" name="getRating" visibility="public">
+      <ownedParameter xmi:id="_UC-5Ku_qEeeWEuXdVkEfCw" type="_UC_hWe_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_UC-5K-_qEeeWEuXdVkEfCw" name="Date" visibility="public">
+    <ownedAttribute xmi:id="_UC-5LO_qEeeWEuXdVkEfCw" name="year" visibility="public" type="_UC_hW-_qEeeWEuXdVkEfCw">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5Le_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC-5Lu_qEeeWEuXdVkEfCw" name="month" visibility="public" type="_UC_hW-_qEeeWEuXdVkEfCw">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5L-_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC-5MO_qEeeWEuXdVkEfCw" name="day" visibility="public" type="_UC_hW-_qEeeWEuXdVkEfCw">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5Me_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_UC-5Mu_qEeeWEuXdVkEfCw" name="Date" visibility="public">
+      <ownedParameter xmi:id="_UC-5M-_qEeeWEuXdVkEfCw" name="y" type="_UC_hW-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5NO_qEeeWEuXdVkEfCw" name="m" type="_UC_hW-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5Ne_qEeeWEuXdVkEfCw" name="d" type="_UC_hW-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5Nu_qEeeWEuXdVkEfCw" type="_UC-5K-_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5N-_qEeeWEuXdVkEfCw" name="DaysOfMonth" visibility="public" isStatic="true">
+      <ownedParameter xmi:id="_UC-5OO_qEeeWEuXdVkEfCw" name="m" type="_UC_hW-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5Oe_qEeeWEuXdVkEfCw" type="_UC_hW-_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5Ou_qEeeWEuXdVkEfCw" name="compareDates" visibility="public" isStatic="true" isQuery="true">
+      <ownedParameter xmi:id="_UC-5O-_qEeeWEuXdVkEfCw" type="_UC_hXO_qEeeWEuXdVkEfCw" direction="return"/>
+      <ownedParameter xmi:id="_UC-5PO_qEeeWEuXdVkEfCw" name="date1" type="_UC-5K-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5Pe_qEeeWEuXdVkEfCw" name="date2" type="_UC-5K-_qEeeWEuXdVkEfCw"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_UC-5Pu_qEeeWEuXdVkEfCw" name="GuestUser" visibility="public">
+    <generalization xmi:id="_UC-5P-_qEeeWEuXdVkEfCw" general="_UC_gte_qEeeWEuXdVkEfCw"/>
+    <ownedOperation xmi:id="_UC-5QO_qEeeWEuXdVkEfCw" name="GuestUser" visibility="public">
+      <ownedParameter xmi:id="_UC-5Qe_qEeeWEuXdVkEfCw" type="_UC-5Pu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_UC-5Qu_qEeeWEuXdVkEfCw" name="Post" visibility="public">
+    <ownedAttribute xmi:id="_UC-5Q-_qEeeWEuXdVkEfCw" name="title" visibility="private" type="_UC_g-O_qEeeWEuXdVkEfCw" association="_UC_hau_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC-5RO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC-5Re_qEeeWEuXdVkEfCw" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5Ru_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC-5R-_qEeeWEuXdVkEfCw" name="content" visibility="private" type="_UC_g-O_qEeeWEuXdVkEfCw" association="_UC_hbu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC-5SO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC-5Se_qEeeWEuXdVkEfCw" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5Su_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC-5S-_qEeeWEuXdVkEfCw" name="author" visibility="private" type="_UC-5he_qEeeWEuXdVkEfCw" association="_UC_hcu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC-5TO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC-5Te_qEeeWEuXdVkEfCw" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5Tu_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC-5T-_qEeeWEuXdVkEfCw" name="date" visibility="private" type="_UC-5K-_qEeeWEuXdVkEfCw" association="_UC_hdu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC-5UO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC-5Ue_qEeeWEuXdVkEfCw" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5Uu_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC-5U-_qEeeWEuXdVkEfCw" name="views" visibility="private" type="_UC_hWO_qEeeWEuXdVkEfCw">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5VO_qEeeWEuXdVkEfCw" value="0"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC-5Ve_qEeeWEuXdVkEfCw" name="rating" visibility="private" type="_UC_hWe_qEeeWEuXdVkEfCw">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5Vu_qEeeWEuXdVkEfCw" value="0"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC-5V-_qEeeWEuXdVkEfCw" name="tagsList" visibility="private" type="_UC_g-O_qEeeWEuXdVkEfCw" association="_UC_heu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC-5WO_qEeeWEuXdVkEfCw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC-5We_qEeeWEuXdVkEfCw" value="*"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5Wu_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC-5W-_qEeeWEuXdVkEfCw" name="commentsList" visibility="private" type="_UC_hOu_qEeeWEuXdVkEfCw">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5XO_qEeeWEuXdVkEfCw" value="{}"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_UC-5Xe_qEeeWEuXdVkEfCw" name="Post" visibility="public">
+      <ownedParameter xmi:id="_UC-5Xu_qEeeWEuXdVkEfCw" name="postTitle" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5X-_qEeeWEuXdVkEfCw" name="postContent" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5YO_qEeeWEuXdVkEfCw" name="postAuthor" type="_UC-5he_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5Ye_qEeeWEuXdVkEfCw" name="postTags" type="_UC_hN-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5Yu_qEeeWEuXdVkEfCw" name="day" type="_UC_hW-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5Y-_qEeeWEuXdVkEfCw" name="month" type="_UC_hW-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5ZO_qEeeWEuXdVkEfCw" name="year" type="_UC_hW-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5Ze_qEeeWEuXdVkEfCw" type="_UC-5Qu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5Zu_qEeeWEuXdVkEfCw" name="editPost" visibility="public">
+      <ownedParameter xmi:id="_UC-5Z-_qEeeWEuXdVkEfCw" name="newTitle" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5aO_qEeeWEuXdVkEfCw" name="newContent" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5ae_qEeeWEuXdVkEfCw" name="newTags" type="_UC_hN-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5au_qEeeWEuXdVkEfCw" type="_UC-5Qu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5a-_qEeeWEuXdVkEfCw" name="addComment" visibility="public">
+      <ownedParameter xmi:id="_UC-5bO_qEeeWEuXdVkEfCw" name="comment" type="_UC-5Bu_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5be_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5bu_qEeeWEuXdVkEfCw" name="removeComment" visibility="public">
+      <ownedParameter xmi:id="_UC-5b-_qEeeWEuXdVkEfCw" name="comment" type="_UC-5Bu_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5cO_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5ce_qEeeWEuXdVkEfCw" name="increaseRating" visibility="public">
+      <ownedParameter xmi:id="_UC-5cu_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5c-_qEeeWEuXdVkEfCw" name="decreaseRating" visibility="public">
+      <ownedParameter xmi:id="_UC-5dO_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5de_qEeeWEuXdVkEfCw" name="getTitle" visibility="public">
+      <ownedParameter xmi:id="_UC-5du_qEeeWEuXdVkEfCw" type="_UC_g-O_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5d-_qEeeWEuXdVkEfCw" name="getContent" visibility="public">
+      <ownedParameter xmi:id="_UC-5eO_qEeeWEuXdVkEfCw" type="_UC_g-O_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5ee_qEeeWEuXdVkEfCw" name="getAuthor" visibility="public">
+      <ownedParameter xmi:id="_UC-5eu_qEeeWEuXdVkEfCw" type="_UC-5he_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5e-_qEeeWEuXdVkEfCw" name="getDate" visibility="public">
+      <ownedParameter xmi:id="_UC-5fO_qEeeWEuXdVkEfCw" type="_UC-5K-_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5fe_qEeeWEuXdVkEfCw" name="getRating" visibility="public">
+      <ownedParameter xmi:id="_UC-5fu_qEeeWEuXdVkEfCw" type="_UC_hWe_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5f-_qEeeWEuXdVkEfCw" name="getViews" visibility="public">
+      <ownedParameter xmi:id="_UC-5gO_qEeeWEuXdVkEfCw" type="_UC_hWO_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5ge_qEeeWEuXdVkEfCw" name="getTagsList" visibility="public">
+      <ownedParameter xmi:id="_UC-5gu_qEeeWEuXdVkEfCw" type="_UC_hN-_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5g-_qEeeWEuXdVkEfCw" name="getCommentsList" visibility="public">
+      <ownedParameter xmi:id="_UC-5hO_qEeeWEuXdVkEfCw" type="_UC_hOu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_UC-5he_qEeeWEuXdVkEfCw" name="RegisteredUser" visibility="public">
+    <generalization xmi:id="_UC-5hu_qEeeWEuXdVkEfCw" general="_UC_gte_qEeeWEuXdVkEfCw"/>
+    <ownedAttribute xmi:id="_UC-5h-_qEeeWEuXdVkEfCw" name="id" visibility="protected" type="_UC_hWO_qEeeWEuXdVkEfCw">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5iO_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC-5ie_qEeeWEuXdVkEfCw" name="name" visibility="protected" type="_UC_g-O_qEeeWEuXdVkEfCw" association="_UC_hfu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC-5iu_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC-5i-_qEeeWEuXdVkEfCw" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5jO_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC-5je_qEeeWEuXdVkEfCw" name="age" visibility="protected" type="_UC_hWO_qEeeWEuXdVkEfCw">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5ju_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC-5j-_qEeeWEuXdVkEfCw" name="email" visibility="protected" type="_UC_g-O_qEeeWEuXdVkEfCw" association="_UC_hgu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC-5kO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC-5ke_qEeeWEuXdVkEfCw" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5ku_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC-5k-_qEeeWEuXdVkEfCw" name="sex" visibility="protected" type="_UC_g_-_qEeeWEuXdVkEfCw" association="_UC_hhu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC-5lO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC-5le_qEeeWEuXdVkEfCw" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5lu_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC-5l-_qEeeWEuXdVkEfCw" name="reputation" visibility="protected" type="_UC_hWe_qEeeWEuXdVkEfCw">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5mO_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC-5me_qEeeWEuXdVkEfCw" name="posts" visibility="protected" type="_UC-5Qu_qEeeWEuXdVkEfCw" association="_UC_hiu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC-5mu_qEeeWEuXdVkEfCw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC-5m-_qEeeWEuXdVkEfCw" value="*"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5nO_qEeeWEuXdVkEfCw" value="{}"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC-5ne_qEeeWEuXdVkEfCw" name="comments" visibility="protected" type="_UC-5Bu_qEeeWEuXdVkEfCw" association="_UC_hju_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC-5nu_qEeeWEuXdVkEfCw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC-5n-_qEeeWEuXdVkEfCw" value="*"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5oO_qEeeWEuXdVkEfCw" value="{}"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC-5oe_qEeeWEuXdVkEfCw" name="username" visibility="protected" type="_UC_g-O_qEeeWEuXdVkEfCw" association="_UC_hku_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC-5ou_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC-5o-_qEeeWEuXdVkEfCw" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5pO_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC-5pe_qEeeWEuXdVkEfCw" name="password" visibility="protected" type="_UC_g-O_qEeeWEuXdVkEfCw" association="_UC_hlu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC-5pu_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC-5p-_qEeeWEuXdVkEfCw" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC-5qO_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_UC-5qe_qEeeWEuXdVkEfCw" name="RegisteredUser" visibility="public">
+      <ownedParameter xmi:id="_UC-5qu_qEeeWEuXdVkEfCw" name="id1" type="_UC_hWO_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5q-_qEeeWEuXdVkEfCw" name="name1" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5rO_qEeeWEuXdVkEfCw" name="email1" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5re_qEeeWEuXdVkEfCw" name="age1" type="_UC_hWO_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5ru_qEeeWEuXdVkEfCw" name="sex1" type="_UC_g_-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5r-_qEeeWEuXdVkEfCw" name="reputation1" type="_UC_hWe_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5sO_qEeeWEuXdVkEfCw" name="username1" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5se_qEeeWEuXdVkEfCw" name="password1" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5su_qEeeWEuXdVkEfCw" type="_UC-5he_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5s-_qEeeWEuXdVkEfCw" name="editUser" visibility="public">
+      <ownedParameter xmi:id="_UC-5tO_qEeeWEuXdVkEfCw" name="name1" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5te_qEeeWEuXdVkEfCw" name="email1" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5tu_qEeeWEuXdVkEfCw" name="age1" type="_UC_hWO_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5t-_qEeeWEuXdVkEfCw" name="sex1" type="_UC_g_-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5uO_qEeeWEuXdVkEfCw" type="_UC-5he_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5ue_qEeeWEuXdVkEfCw" name="getId" visibility="public">
+      <ownedParameter xmi:id="_UC-5uu_qEeeWEuXdVkEfCw" type="_UC_hWe_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5u-_qEeeWEuXdVkEfCw" name="getName" visibility="public">
+      <ownedParameter xmi:id="_UC-5vO_qEeeWEuXdVkEfCw" type="_UC_g-O_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5ve_qEeeWEuXdVkEfCw" name="getAge" visibility="public">
+      <ownedParameter xmi:id="_UC-5vu_qEeeWEuXdVkEfCw" type="_UC_hWO_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5v-_qEeeWEuXdVkEfCw" name="getEmail" visibility="public">
+      <ownedParameter xmi:id="_UC-5wO_qEeeWEuXdVkEfCw" type="_UC_g-O_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5we_qEeeWEuXdVkEfCw" name="getSex" visibility="public">
+      <ownedParameter xmi:id="_UC-5wu_qEeeWEuXdVkEfCw" type="_UC_g_-_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5w-_qEeeWEuXdVkEfCw" name="getReputation" visibility="public">
+      <ownedParameter xmi:id="_UC-5xO_qEeeWEuXdVkEfCw" type="_UC_hWe_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5xe_qEeeWEuXdVkEfCw" name="addReputation" visibility="public">
+      <ownedParameter xmi:id="_UC-5xu_qEeeWEuXdVkEfCw" name="value" type="_UC_hWe_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-5x-_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5yO_qEeeWEuXdVkEfCw" name="getPosts" visibility="public">
+      <ownedParameter xmi:id="_UC-5ye_qEeeWEuXdVkEfCw" type="_UC_hPe_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5yu_qEeeWEuXdVkEfCw" name="getComments" visibility="public">
+      <ownedParameter xmi:id="_UC-5y-_qEeeWEuXdVkEfCw" type="_UC_hOu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5zO_qEeeWEuXdVkEfCw" name="getUsername" visibility="public">
+      <ownedParameter xmi:id="_UC-5ze_qEeeWEuXdVkEfCw" type="_UC_g-O_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-5zu_qEeeWEuXdVkEfCw" name="getPassword" visibility="public">
+      <ownedParameter xmi:id="_UC-5z-_qEeeWEuXdVkEfCw" type="_UC_g-O_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-50O_qEeeWEuXdVkEfCw" name="addPost" visibility="public">
+      <ownedParameter xmi:id="_UC-50e_qEeeWEuXdVkEfCw" name="question" type="_UC-5Qu_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-50u_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-50-_qEeeWEuXdVkEfCw" name="addComment" visibility="public">
+      <ownedParameter xmi:id="_UC-51O_qEeeWEuXdVkEfCw" name="comment" type="_UC-5Bu_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-51e_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-51u_qEeeWEuXdVkEfCw" name="deleteComment" visibility="public">
+      <ownedParameter xmi:id="_UC-51-_qEeeWEuXdVkEfCw" name="comment" type="_UC-5Bu_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-52O_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-52e_qEeeWEuXdVkEfCw" name="createPost" visibility="public">
+      <ownedParameter xmi:id="_UC-52u_qEeeWEuXdVkEfCw" name="title" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-52-_qEeeWEuXdVkEfCw" name="content" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-53O_qEeeWEuXdVkEfCw" name="tagsList" type="_UC_hN-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-53e_qEeeWEuXdVkEfCw" name="day" type="_UC_hW-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-53u_qEeeWEuXdVkEfCw" name="month" type="_UC_hW-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-53-_qEeeWEuXdVkEfCw" name="year" type="_UC_hW-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-54O_qEeeWEuXdVkEfCw" type="_UC-5Qu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC-54e_qEeeWEuXdVkEfCw" name="editPost" visibility="public">
+      <ownedParameter xmi:id="_UC-54u_qEeeWEuXdVkEfCw" name="question" type="_UC-5Qu_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC-54-_qEeeWEuXdVkEfCw" name="title" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_f8O_qEeeWEuXdVkEfCw" name="content" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_f8e_qEeeWEuXdVkEfCw" name="tagsList" type="_UC_hN-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_f8u_qEeeWEuXdVkEfCw" type="_UC-5Qu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_f8-_qEeeWEuXdVkEfCw" name="removePost" visibility="public">
+      <ownedParameter xmi:id="_UC_f9O_qEeeWEuXdVkEfCw" name="question" type="_UC-5Qu_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_f9e_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_f9u_qEeeWEuXdVkEfCw" name="createComment" visibility="public">
+      <ownedParameter xmi:id="_UC_f9-_qEeeWEuXdVkEfCw" name="question" type="_UC-5Qu_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_f-O_qEeeWEuXdVkEfCw" name="content" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_f-e_qEeeWEuXdVkEfCw" name="day" type="_UC_hW-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_f-u_qEeeWEuXdVkEfCw" name="month" type="_UC_hW-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_f--_qEeeWEuXdVkEfCw" name="year" type="_UC_hW-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_f_O_qEeeWEuXdVkEfCw" type="_UC-5Bu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_f_e_qEeeWEuXdVkEfCw" name="editComment" visibility="public">
+      <ownedParameter xmi:id="_UC_f_u_qEeeWEuXdVkEfCw" name="comment" type="_UC-5Bu_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_f_-_qEeeWEuXdVkEfCw" name="content" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gAO_qEeeWEuXdVkEfCw" type="_UC-5Bu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gAe_qEeeWEuXdVkEfCw" name="removeComment" visibility="public">
+      <ownedParameter xmi:id="_UC_gAu_qEeeWEuXdVkEfCw" name="question" type="_UC-5Qu_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gA-_qEeeWEuXdVkEfCw" name="comment" type="_UC-5Bu_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gBO_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_UC_gBe_qEeeWEuXdVkEfCw" name="RegularUser" visibility="public">
+    <generalization xmi:id="_UC_gBu_qEeeWEuXdVkEfCw" general="_UC-5he_qEeeWEuXdVkEfCw"/>
+    <ownedOperation xmi:id="_UC_gB-_qEeeWEuXdVkEfCw" name="RegularUser" visibility="public">
+      <ownedParameter xmi:id="_UC_gCO_qEeeWEuXdVkEfCw" name="id1" type="_UC_hWO_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gCe_qEeeWEuXdVkEfCw" name="name1" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gCu_qEeeWEuXdVkEfCw" name="email1" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gC-_qEeeWEuXdVkEfCw" name="age1" type="_UC_hWO_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gDO_qEeeWEuXdVkEfCw" name="sex1" type="_UC_g_-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gDe_qEeeWEuXdVkEfCw" name="reputation1" type="_UC_hWe_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gDu_qEeeWEuXdVkEfCw" name="username1" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gD-_qEeeWEuXdVkEfCw" name="password1" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gEO_qEeeWEuXdVkEfCw" type="_UC_gBe_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_UC_gEe_qEeeWEuXdVkEfCw" name="StackOverflow" visibility="public">
+    <ownedAttribute xmi:id="_UC_gEu_qEeeWEuXdVkEfCw" name="userIdCounter" visibility="private" type="_UC_hWO_qEeeWEuXdVkEfCw">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC_gE-_qEeeWEuXdVkEfCw" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC_gFO_qEeeWEuXdVkEfCw" name="users" visibility="private" type="_UC_gte_qEeeWEuXdVkEfCw" association="_UC_hmu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_gFe_qEeeWEuXdVkEfCw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_gFu_qEeeWEuXdVkEfCw" value="*"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC_gF-_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC_gGO_qEeeWEuXdVkEfCw" name="postsList" visibility="private" type="_UC-5Qu_qEeeWEuXdVkEfCw" association="_UC_hnu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_gGe_qEeeWEuXdVkEfCw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_gGu_qEeeWEuXdVkEfCw" value="*"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC_gG-_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC_gHO_qEeeWEuXdVkEfCw" name="currentUser" visibility="private" type="_UC_gte_qEeeWEuXdVkEfCw" association="_UC_hou_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_gHe_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_gHu_qEeeWEuXdVkEfCw" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC_gH-_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_UC_gIO_qEeeWEuXdVkEfCw" name="StackOverflow" visibility="public">
+      <ownedParameter xmi:id="_UC_gIe_qEeeWEuXdVkEfCw" type="_UC_gEe_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gIu_qEeeWEuXdVkEfCw" name="createRegularUser" visibility="public">
+      <ownedParameter xmi:id="_UC_gI-_qEeeWEuXdVkEfCw" name="name" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gJO_qEeeWEuXdVkEfCw" name="email" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gJe_qEeeWEuXdVkEfCw" name="age" type="_UC_hWO_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gJu_qEeeWEuXdVkEfCw" name="sex" type="_UC_g_-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gJ-_qEeeWEuXdVkEfCw" name="reputation" type="_UC_hWO_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gKO_qEeeWEuXdVkEfCw" name="username" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gKe_qEeeWEuXdVkEfCw" name="password" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gKu_qEeeWEuXdVkEfCw" type="_UC_gBe_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gK-_qEeeWEuXdVkEfCw" name="createAdministratorUser" visibility="public">
+      <ownedParameter xmi:id="_UC_gLO_qEeeWEuXdVkEfCw" name="name" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gLe_qEeeWEuXdVkEfCw" name="email" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gLu_qEeeWEuXdVkEfCw" name="age" type="_UC_hWO_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gL-_qEeeWEuXdVkEfCw" name="sex" type="_UC_g_-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gMO_qEeeWEuXdVkEfCw" name="reputation" type="_UC_hWO_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gMe_qEeeWEuXdVkEfCw" name="username" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gMu_qEeeWEuXdVkEfCw" name="password" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gM-_qEeeWEuXdVkEfCw" type="_UC-49O_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gNO_qEeeWEuXdVkEfCw" name="addUser" visibility="public">
+      <ownedParameter xmi:id="_UC_gNe_qEeeWEuXdVkEfCw" name="user" type="_UC_gte_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gNu_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gN-_qEeeWEuXdVkEfCw" name="createPost" visibility="public">
+      <ownedParameter xmi:id="_UC_gOO_qEeeWEuXdVkEfCw" name="title" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gOe_qEeeWEuXdVkEfCw" name="content" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gOu_qEeeWEuXdVkEfCw" name="author" type="_UC-5he_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gO-_qEeeWEuXdVkEfCw" name="tagsList" type="_UC_hN-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gPO_qEeeWEuXdVkEfCw" name="day" type="_UC_hW-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gPe_qEeeWEuXdVkEfCw" name="month" type="_UC_hW-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gPu_qEeeWEuXdVkEfCw" name="year" type="_UC_hW-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gP-_qEeeWEuXdVkEfCw" type="_UC-5Qu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gQO_qEeeWEuXdVkEfCw" name="editPost" visibility="public">
+      <ownedParameter xmi:id="_UC_gQe_qEeeWEuXdVkEfCw" name="question" type="_UC-5Qu_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gQu_qEeeWEuXdVkEfCw" name="newTitle" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gQ-_qEeeWEuXdVkEfCw" name="newContent" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gRO_qEeeWEuXdVkEfCw" name="newTags" type="_UC_hN-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gRe_qEeeWEuXdVkEfCw" type="_UC-5Qu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gRu_qEeeWEuXdVkEfCw" name="deletePost" visibility="public">
+      <ownedParameter xmi:id="_UC_gR-_qEeeWEuXdVkEfCw" name="question" type="_UC-5Qu_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gSO_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gSe_qEeeWEuXdVkEfCw" name="addComment" visibility="public">
+      <ownedParameter xmi:id="_UC_gSu_qEeeWEuXdVkEfCw" name="question" type="_UC-5Qu_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gS-_qEeeWEuXdVkEfCw" name="content" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gTO_qEeeWEuXdVkEfCw" name="author" type="_UC-5he_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gTe_qEeeWEuXdVkEfCw" name="day" type="_UC_hW-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gTu_qEeeWEuXdVkEfCw" name="month" type="_UC_hW-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gT-_qEeeWEuXdVkEfCw" name="year" type="_UC_hW-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gUO_qEeeWEuXdVkEfCw" type="_UC-5Bu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gUe_qEeeWEuXdVkEfCw" name="editComment" visibility="public">
+      <ownedParameter xmi:id="_UC_gUu_qEeeWEuXdVkEfCw" name="comment" type="_UC-5Bu_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gU-_qEeeWEuXdVkEfCw" name="newContent" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gVO_qEeeWEuXdVkEfCw" type="_UC-5Bu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gVe_qEeeWEuXdVkEfCw" name="deleteComment" visibility="public">
+      <ownedParameter xmi:id="_UC_gVu_qEeeWEuXdVkEfCw" name="question" type="_UC-5Qu_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gV-_qEeeWEuXdVkEfCw" name="comment" type="_UC-5Bu_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gWO_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gWe_qEeeWEuXdVkEfCw" name="addPost" visibility="public">
+      <ownedParameter xmi:id="_UC_gWu_qEeeWEuXdVkEfCw" name="question" type="_UC-5Qu_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gW-_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gXO_qEeeWEuXdVkEfCw" name="removePost" visibility="public">
+      <ownedParameter xmi:id="_UC_gXe_qEeeWEuXdVkEfCw" name="question" type="_UC-5Qu_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gXu_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gX-_qEeeWEuXdVkEfCw" name="getUsers" visibility="public">
+      <ownedParameter xmi:id="_UC_gYO_qEeeWEuXdVkEfCw" type="_UC_hQO_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gYe_qEeeWEuXdVkEfCw" name="getPosts" visibility="public">
+      <ownedParameter xmi:id="_UC_gYu_qEeeWEuXdVkEfCw" type="_UC_hPe_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gY-_qEeeWEuXdVkEfCw" name="getCurrentUser" visibility="public">
+      <ownedParameter xmi:id="_UC_gZO_qEeeWEuXdVkEfCw" type="_UC_gte_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gZe_qEeeWEuXdVkEfCw" name="searchUsersByName" visibility="public">
+      <ownedParameter xmi:id="_UC_gZu_qEeeWEuXdVkEfCw" name="inputName" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gZ-_qEeeWEuXdVkEfCw" type="_UC_hQO_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gaO_qEeeWEuXdVkEfCw" name="searchUsersByAge" visibility="public">
+      <ownedParameter xmi:id="_UC_gae_qEeeWEuXdVkEfCw" name="inputName" type="_UC_hWO_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gau_qEeeWEuXdVkEfCw" type="_UC_hQO_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_ga-_qEeeWEuXdVkEfCw" name="searchPostsByTitle" visibility="public">
+      <ownedParameter xmi:id="_UC_gbO_qEeeWEuXdVkEfCw" name="inputTitle" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gbe_qEeeWEuXdVkEfCw" type="_UC_hPe_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gbu_qEeeWEuXdVkEfCw" name="searchPostsByTags" visibility="public">
+      <ownedParameter xmi:id="_UC_gb-_qEeeWEuXdVkEfCw" name="inputTag" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gcO_qEeeWEuXdVkEfCw" type="_UC_hPe_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gce_qEeeWEuXdVkEfCw" name="editUser" visibility="public">
+      <ownedParameter xmi:id="_UC_gcu_qEeeWEuXdVkEfCw" name="name" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gc-_qEeeWEuXdVkEfCw" name="email" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gdO_qEeeWEuXdVkEfCw" name="age" type="_UC_hWO_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gde_qEeeWEuXdVkEfCw" name="sex" type="_UC_g_-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gdu_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gd-_qEeeWEuXdVkEfCw" name="tryLogin" visibility="public">
+      <ownedParameter xmi:id="_UC_geO_qEeeWEuXdVkEfCw" name="inputUsername" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gee_qEeeWEuXdVkEfCw" name="inputPassword" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_geu_qEeeWEuXdVkEfCw" type="_UC_hXO_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_ge-_qEeeWEuXdVkEfCw" name="orderPostsByDate" visibility="public">
+      <ownedParameter xmi:id="_UC_gfO_qEeeWEuXdVkEfCw" name="posts" type="_UC_hPe_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gfe_qEeeWEuXdVkEfCw" type="_UC_hPe_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gfu_qEeeWEuXdVkEfCw" name="orderPostsByRating" visibility="public">
+      <ownedParameter xmi:id="_UC_gf-_qEeeWEuXdVkEfCw" name="posts" type="_UC_hPe_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_ggO_qEeeWEuXdVkEfCw" type="_UC_hPe_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_UC_gge_qEeeWEuXdVkEfCw" name="StackOverflowTest" visibility="public">
+    <ownedAttribute xmi:id="_UC_ggu_qEeeWEuXdVkEfCw" name="s" visibility="private" type="_UC_gEe_qEeeWEuXdVkEfCw" association="_UC_hpu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_gg-_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_ghO_qEeeWEuXdVkEfCw" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC_ghe_qEeeWEuXdVkEfCw" value="new StackOverflow()"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_UC_ghu_qEeeWEuXdVkEfCw" name="assertTrue" visibility="private">
+      <ownedParameter xmi:id="_UC_gh-_qEeeWEuXdVkEfCw" name="cond" type="_UC_hXO_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_giO_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gie_qEeeWEuXdVkEfCw" name="assertEqual" visibility="private">
+      <ownedParameter xmi:id="_UC_giu_qEeeWEuXdVkEfCw" name="expected" type="_UC_hXe_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gi-_qEeeWEuXdVkEfCw" name="actual" type="_UC_hXe_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_gjO_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gje_qEeeWEuXdVkEfCw" name="testcreateStackOverflow" visibility="private">
+      <ownedParameter xmi:id="_UC_gju_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gj-_qEeeWEuXdVkEfCw" name="testCreateRegisteredUser" visibility="private">
+      <ownedParameter xmi:id="_UC_gkO_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gke_qEeeWEuXdVkEfCw" name="testCreateRegularUser" visibility="private">
+      <ownedParameter xmi:id="_UC_gku_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gk-_qEeeWEuXdVkEfCw" name="testCreateAdministratorUser" visibility="private">
+      <ownedParameter xmi:id="_UC_glO_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gle_qEeeWEuXdVkEfCw" name="testBanUser" visibility="private">
+      <ownedParameter xmi:id="_UC_glu_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gl-_qEeeWEuXdVkEfCw" name="testAddUser" visibility="private">
+      <ownedParameter xmi:id="_UC_gmO_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gme_qEeeWEuXdVkEfCw" name="testAddPost" visibility="private">
+      <ownedParameter xmi:id="_UC_gmu_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gm-_qEeeWEuXdVkEfCw" name="testEditPost" visibility="private">
+      <ownedParameter xmi:id="_UC_gnO_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gne_qEeeWEuXdVkEfCw" name="testRating" visibility="private">
+      <ownedParameter xmi:id="_UC_gnu_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gn-_qEeeWEuXdVkEfCw" name="testRemovePost" visibility="private">
+      <ownedParameter xmi:id="_UC_goO_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_goe_qEeeWEuXdVkEfCw" name="testAddComment" visibility="private">
+      <ownedParameter xmi:id="_UC_gou_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_go-_qEeeWEuXdVkEfCw" name="testEditComment" visibility="private">
+      <ownedParameter xmi:id="_UC_gpO_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gpe_qEeeWEuXdVkEfCw" name="testRemoveComment" visibility="private">
+      <ownedParameter xmi:id="_UC_gpu_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gp-_qEeeWEuXdVkEfCw" name="testSearchUser" visibility="private">
+      <ownedParameter xmi:id="_UC_gqO_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gqe_qEeeWEuXdVkEfCw" name="testLogin" visibility="private">
+      <ownedParameter xmi:id="_UC_gqu_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gq-_qEeeWEuXdVkEfCw" name="testSearchPost" visibility="private">
+      <ownedParameter xmi:id="_UC_grO_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gre_qEeeWEuXdVkEfCw" name="testEditUser" visibility="private">
+      <ownedParameter xmi:id="_UC_gru_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gr-_qEeeWEuXdVkEfCw" name="testOrderPosts" visibility="private">
+      <ownedParameter xmi:id="_UC_gsO_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gse_qEeeWEuXdVkEfCw" name="testDates" visibility="private">
+      <ownedParameter xmi:id="_UC_gsu_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gs-_qEeeWEuXdVkEfCw" name="main" visibility="public" isStatic="true">
+      <ownedParameter xmi:id="_UC_gtO_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_UC_gte_qEeeWEuXdVkEfCw" name="User" visibility="public">
+    <ownedAttribute xmi:id="_UC_gtu_qEeeWEuXdVkEfCw" name="canRate" visibility="protected" type="_UC_hXO_qEeeWEuXdVkEfCw">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC_gt-_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC_guO_qEeeWEuXdVkEfCw" name="canCreatePost" visibility="protected" type="_UC_hXO_qEeeWEuXdVkEfCw">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC_gue_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC_guu_qEeeWEuXdVkEfCw" name="canEditPost" visibility="protected" type="_UC_hXO_qEeeWEuXdVkEfCw">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC_gu-_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC_gvO_qEeeWEuXdVkEfCw" name="canRemovePost" visibility="protected" type="_UC_hXO_qEeeWEuXdVkEfCw">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC_gve_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC_gvu_qEeeWEuXdVkEfCw" name="canAddComment" visibility="protected" type="_UC_hXO_qEeeWEuXdVkEfCw">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC_gv-_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC_gwO_qEeeWEuXdVkEfCw" name="canEditComment" visibility="protected" type="_UC_hXO_qEeeWEuXdVkEfCw">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC_gwe_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC_gwu_qEeeWEuXdVkEfCw" name="canRemoveComment" visibility="protected" type="_UC_hXO_qEeeWEuXdVkEfCw">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC_gw-_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC_gxO_qEeeWEuXdVkEfCw" name="canBanUsers" visibility="protected" type="_UC_hXO_qEeeWEuXdVkEfCw">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC_gxe_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC_gxu_qEeeWEuXdVkEfCw" name="canUnbanUsers" visibility="protected" type="_UC_hXO_qEeeWEuXdVkEfCw">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC_gx-_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_UC_gyO_qEeeWEuXdVkEfCw" name="banned" visibility="protected" type="_UC_g-u_qEeeWEuXdVkEfCw" association="_UC_hqu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_gye_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_gyu_qEeeWEuXdVkEfCw" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_UC_gy-_qEeeWEuXdVkEfCw" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_UC_gzO_qEeeWEuXdVkEfCw" name="User" visibility="public">
+      <ownedParameter xmi:id="_UC_gze_qEeeWEuXdVkEfCw" type="_UC_gte_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_gzu_qEeeWEuXdVkEfCw" name="getCanRate" visibility="public">
+      <ownedParameter xmi:id="_UC_gz-_qEeeWEuXdVkEfCw" type="_UC_hXO_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_g0O_qEeeWEuXdVkEfCw" name="getCanCreatePost" visibility="public">
+      <ownedParameter xmi:id="_UC_g0e_qEeeWEuXdVkEfCw" type="_UC_hXO_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_g0u_qEeeWEuXdVkEfCw" name="getCanEditPost" visibility="public">
+      <ownedParameter xmi:id="_UC_g0-_qEeeWEuXdVkEfCw" type="_UC_hXO_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_g1O_qEeeWEuXdVkEfCw" name="getCanRemovePost" visibility="public">
+      <ownedParameter xmi:id="_UC_g1e_qEeeWEuXdVkEfCw" type="_UC_hXO_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_g1u_qEeeWEuXdVkEfCw" name="getCanAddComment" visibility="public">
+      <ownedParameter xmi:id="_UC_g1-_qEeeWEuXdVkEfCw" type="_UC_hXO_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_g2O_qEeeWEuXdVkEfCw" name="getCanEditComment" visibility="public">
+      <ownedParameter xmi:id="_UC_g2e_qEeeWEuXdVkEfCw" type="_UC_hXO_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_g2u_qEeeWEuXdVkEfCw" name="getCanRemoveComment" visibility="public">
+      <ownedParameter xmi:id="_UC_g2-_qEeeWEuXdVkEfCw" type="_UC_hXO_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_g3O_qEeeWEuXdVkEfCw" name="getCanBanUsers" visibility="public">
+      <ownedParameter xmi:id="_UC_g3e_qEeeWEuXdVkEfCw" type="_UC_hXO_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_g3u_qEeeWEuXdVkEfCw" name="getCanUnbanUsers" visibility="public">
+      <ownedParameter xmi:id="_UC_g3-_qEeeWEuXdVkEfCw" type="_UC_hXO_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_g4O_qEeeWEuXdVkEfCw" name="getBanState" visibility="public">
+      <ownedParameter xmi:id="_UC_g4e_qEeeWEuXdVkEfCw" type="_UC_g-u_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_g4u_qEeeWEuXdVkEfCw" name="setBanState" visibility="public">
+      <ownedParameter xmi:id="_UC_g4-_qEeeWEuXdVkEfCw" name="newBanState" type="_UC_g-u_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_g5O_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_g5e_qEeeWEuXdVkEfCw" name="getEmail" visibility="public">
+      <ownedParameter xmi:id="_UC_g5u_qEeeWEuXdVkEfCw" type="_UC_g-O_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_g5-_qEeeWEuXdVkEfCw" name="getSex" visibility="public">
+      <ownedParameter xmi:id="_UC_g6O_qEeeWEuXdVkEfCw" type="_UC_g_-_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_g6e_qEeeWEuXdVkEfCw" name="getName" visibility="public">
+      <ownedParameter xmi:id="_UC_g6u_qEeeWEuXdVkEfCw" type="_UC_g-O_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_g6-_qEeeWEuXdVkEfCw" name="getAge" visibility="public">
+      <ownedParameter xmi:id="_UC_g7O_qEeeWEuXdVkEfCw" type="_UC_hWO_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_g7e_qEeeWEuXdVkEfCw" name="getUsername" visibility="public">
+      <ownedParameter xmi:id="_UC_g7u_qEeeWEuXdVkEfCw" type="_UC_g-O_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_g7-_qEeeWEuXdVkEfCw" name="getPassword" visibility="public">
+      <ownedParameter xmi:id="_UC_g8O_qEeeWEuXdVkEfCw" type="_UC_g-O_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_g8e_qEeeWEuXdVkEfCw" name="editUser" visibility="public">
+      <ownedParameter xmi:id="_UC_g8u_qEeeWEuXdVkEfCw" name="name1" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_g8-_qEeeWEuXdVkEfCw" name="email1" type="_UC_g-O_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_g9O_qEeeWEuXdVkEfCw" name="age1" type="_UC_hWO_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_g9e_qEeeWEuXdVkEfCw" name="sex1" type="_UC_g_-_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_g9u_qEeeWEuXdVkEfCw" type="_UC_gte_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_UC_g9-_qEeeWEuXdVkEfCw" name="Utils" visibility="public">
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_UC_g-O_qEeeWEuXdVkEfCw" name="String">
+      <generalization xmi:id="_UC_g-e_qEeeWEuXdVkEfCw" general="_UC_hNO_qEeeWEuXdVkEfCw"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_UC_g-u_qEeeWEuXdVkEfCw" name="BanState">
+      <generalization xmi:id="_UC_g--_qEeeWEuXdVkEfCw" general="_UC_g_O_qEeeWEuXdVkEfCw"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_UC_g_O_qEeeWEuXdVkEfCw" name="BanState_BannedUnbanned__1374895962">
+      <ownedLiteral xmi:id="_UC_g_e_qEeeWEuXdVkEfCw" name="&lt;Banned>"/>
+      <ownedLiteral xmi:id="_UC_g_u_qEeeWEuXdVkEfCw" name="&lt;Unbanned>"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_UC_g_-_qEeeWEuXdVkEfCw" name="Sex">
+      <generalization xmi:id="_UC_hAO_qEeeWEuXdVkEfCw" general="_UC_hAe_qEeeWEuXdVkEfCw"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_UC_hAe_qEeeWEuXdVkEfCw" name="Sex_FemininoMasculino_618083823">
+      <ownedLiteral xmi:id="_UC_hAu_qEeeWEuXdVkEfCw" name="&lt;Feminino>"/>
+      <ownedLiteral xmi:id="_UC_hA-_qEeeWEuXdVkEfCw" name="&lt;Masculino>"/>
+    </nestedClassifier>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_UC_hBO_qEeeWEuXdVkEfCw" name="IO" visibility="public">
+    <ownedOperation xmi:id="_UC_hBe_qEeeWEuXdVkEfCw" name="writeval" visibility="public" isStatic="true" isQuery="true">
+      <ownedParameter xmi:id="_UC_hBu_qEeeWEuXdVkEfCw" type="_UC_hXO_qEeeWEuXdVkEfCw" direction="return"/>
+      <ownedParameter xmi:id="_UC_hB-_qEeeWEuXdVkEfCw" name="val" type="_UC_hMu_qEeeWEuXdVkEfCw"/>
+      <ownedTemplateSignature xmi:id="_UC_hCO_qEeeWEuXdVkEfCw" parameter="_UC_hCe_qEeeWEuXdVkEfCw">
+        <ownedParameter xmi:id="_UC_hCe_qEeeWEuXdVkEfCw" default="_UC_hCu_qEeeWEuXdVkEfCw">
+          <ownedDefault xmi:type="uml:LiteralString" xmi:id="_UC_hCu_qEeeWEuXdVkEfCw" name="p"/>
+        </ownedParameter>
+      </ownedTemplateSignature>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_hC-_qEeeWEuXdVkEfCw" name="fwriteval" visibility="public" isStatic="true" isQuery="true">
+      <ownedParameter xmi:id="_UC_hDO_qEeeWEuXdVkEfCw" type="_UC_hXO_qEeeWEuXdVkEfCw" direction="return"/>
+      <ownedParameter xmi:id="_UC_hDe_qEeeWEuXdVkEfCw" name="filename" type="_UC_hNO_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_hDu_qEeeWEuXdVkEfCw" name="val" type="_UC_hMu_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_hD-_qEeeWEuXdVkEfCw" name="fdir" type="_UC_hLe_qEeeWEuXdVkEfCw"/>
+      <ownedTemplateSignature xmi:id="_UC_hEO_qEeeWEuXdVkEfCw" parameter="_UC_hEe_qEeeWEuXdVkEfCw">
+        <ownedParameter xmi:id="_UC_hEe_qEeeWEuXdVkEfCw" default="_UC_hEu_qEeeWEuXdVkEfCw">
+          <ownedDefault xmi:type="uml:LiteralString" xmi:id="_UC_hEu_qEeeWEuXdVkEfCw" name="p"/>
+        </ownedParameter>
+      </ownedTemplateSignature>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_hE-_qEeeWEuXdVkEfCw" name="freadval" visibility="public" isStatic="true" isQuery="true">
+      <ownedParameter xmi:id="_UC_hFO_qEeeWEuXdVkEfCw" type="_UC_hQ-_qEeeWEuXdVkEfCw" direction="return"/>
+      <ownedParameter xmi:id="_UC_hFe_qEeeWEuXdVkEfCw" name="filename" type="_UC_hNO_qEeeWEuXdVkEfCw"/>
+      <ownedTemplateSignature xmi:id="_UC_hFu_qEeeWEuXdVkEfCw" parameter="_UC_hF-_qEeeWEuXdVkEfCw">
+        <ownedParameter xmi:id="_UC_hF-_qEeeWEuXdVkEfCw" default="_UC_hGO_qEeeWEuXdVkEfCw">
+          <ownedDefault xmi:type="uml:LiteralString" xmi:id="_UC_hGO_qEeeWEuXdVkEfCw" name="p"/>
+        </ownedParameter>
+      </ownedTemplateSignature>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_hGe_qEeeWEuXdVkEfCw" name="echo" visibility="public">
+      <ownedParameter xmi:id="_UC_hGu_qEeeWEuXdVkEfCw" name="text" type="_UC_hNO_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_hG-_qEeeWEuXdVkEfCw" type="_UC_hXO_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_hHO_qEeeWEuXdVkEfCw" name="fecho" visibility="public">
+      <ownedParameter xmi:id="_UC_hHe_qEeeWEuXdVkEfCw" name="filename" type="_UC_hNO_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_hHu_qEeeWEuXdVkEfCw" name="text" type="_UC_hNO_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_hH-_qEeeWEuXdVkEfCw" name="fdir" type="_UC_hSu_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_hIO_qEeeWEuXdVkEfCw" type="_UC_hXO_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_hIe_qEeeWEuXdVkEfCw" name="ferror" visibility="public">
+      <ownedParameter xmi:id="_UC_hIu_qEeeWEuXdVkEfCw" type="_UC_hNO_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_hI-_qEeeWEuXdVkEfCw" name="print" visibility="public" isStatic="true">
+      <ownedParameter xmi:id="_UC_hJO_qEeeWEuXdVkEfCw" name="arg" type="_UC_hXe_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_hJe_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_hJu_qEeeWEuXdVkEfCw" name="println" visibility="public" isStatic="true">
+      <ownedParameter xmi:id="_UC_hJ-_qEeeWEuXdVkEfCw" name="arg" type="_UC_hXe_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_hKO_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_UC_hKe_qEeeWEuXdVkEfCw" name="printf" visibility="public" isStatic="true">
+      <ownedParameter xmi:id="_UC_hKu_qEeeWEuXdVkEfCw" name="format" type="_UC_hNO_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_hK-_qEeeWEuXdVkEfCw" name="args" type="_UC_hTe_qEeeWEuXdVkEfCw"/>
+      <ownedParameter xmi:id="_UC_hLO_qEeeWEuXdVkEfCw" type="_UC_hWu_qEeeWEuXdVkEfCw" direction="return"/>
+    </ownedOperation>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_UC_hLe_qEeeWEuXdVkEfCw" name="filedirective">
+      <generalization xmi:id="_UC_hLu_qEeeWEuXdVkEfCw" general="_UC_hL-_qEeeWEuXdVkEfCw"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_UC_hL-_qEeeWEuXdVkEfCw" name="filedirective_appendstart__1004785595">
+      <ownedLiteral xmi:id="_UC_hMO_qEeeWEuXdVkEfCw" name="&lt;append>"/>
+      <ownedLiteral xmi:id="_UC_hMe_qEeeWEuXdVkEfCw" name="&lt;start>"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_UC_hMu_qEeeWEuXdVkEfCw" name="p"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_UC_hM-_qEeeWEuXdVkEfCw" name="Binding classes">
+    <packagedElement xmi:type="uml:Class" xmi:id="_UC_hNO_qEeeWEuXdVkEfCw" name="Seq&lt;char>">
+      <templateBinding xmi:id="_UC_hNe_qEeeWEuXdVkEfCw" signature="_UC-44-_qEeeWEuXdVkEfCw">
+        <parameterSubstitution xmi:id="_UC_hNu_qEeeWEuXdVkEfCw" actual="_UC_hUe_qEeeWEuXdVkEfCw" formal="_UC-45O_qEeeWEuXdVkEfCw"/>
+      </templateBinding>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_UC_hN-_qEeeWEuXdVkEfCw" name="Set&lt;Utils::String>">
+      <templateBinding xmi:id="_UC_hOO_qEeeWEuXdVkEfCw" signature="_UC-45-_qEeeWEuXdVkEfCw">
+        <parameterSubstitution xmi:id="_UC_hOe_qEeeWEuXdVkEfCw" actual="_UC_g-O_qEeeWEuXdVkEfCw" formal="_UC-46O_qEeeWEuXdVkEfCw"/>
+      </templateBinding>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_UC_hOu_qEeeWEuXdVkEfCw" name="Set&lt;Comment>">
+      <templateBinding xmi:id="_UC_hO-_qEeeWEuXdVkEfCw" signature="_UC-45-_qEeeWEuXdVkEfCw">
+        <parameterSubstitution xmi:id="_UC_hPO_qEeeWEuXdVkEfCw" actual="_UC-5Bu_qEeeWEuXdVkEfCw" formal="_UC-46O_qEeeWEuXdVkEfCw"/>
+      </templateBinding>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_UC_hPe_qEeeWEuXdVkEfCw" name="Set&lt;Post>">
+      <templateBinding xmi:id="_UC_hPu_qEeeWEuXdVkEfCw" signature="_UC-45-_qEeeWEuXdVkEfCw">
+        <parameterSubstitution xmi:id="_UC_hP-_qEeeWEuXdVkEfCw" actual="_UC-5Qu_qEeeWEuXdVkEfCw" formal="_UC-46O_qEeeWEuXdVkEfCw"/>
+      </templateBinding>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_UC_hQO_qEeeWEuXdVkEfCw" name="Set&lt;User>">
+      <templateBinding xmi:id="_UC_hQe_qEeeWEuXdVkEfCw" signature="_UC-45-_qEeeWEuXdVkEfCw">
+        <parameterSubstitution xmi:id="_UC_hQu_qEeeWEuXdVkEfCw" actual="_UC_gte_qEeeWEuXdVkEfCw" formal="_UC-46O_qEeeWEuXdVkEfCw"/>
+      </templateBinding>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_UC_hQ-_qEeeWEuXdVkEfCw" name="Product&lt;bool,Optional&lt;p>>">
+      <templateBinding xmi:id="_UC_hRO_qEeeWEuXdVkEfCw" signature="_UC-46-_qEeeWEuXdVkEfCw">
+        <parameterSubstitution xmi:id="_UC_hRe_qEeeWEuXdVkEfCw" actual="_UC_hXO_qEeeWEuXdVkEfCw" formal="_UC-47O_qEeeWEuXdVkEfCw"/>
+        <parameterSubstitution xmi:id="_UC_hRu_qEeeWEuXdVkEfCw" actual="_UC_hR-_qEeeWEuXdVkEfCw" formal="_UC-47u_qEeeWEuXdVkEfCw"/>
+      </templateBinding>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_UC_hR-_qEeeWEuXdVkEfCw" name="Optional&lt;p>">
+      <templateBinding xmi:id="_UC_hSO_qEeeWEuXdVkEfCw" signature="_UC-48e_qEeeWEuXdVkEfCw">
+        <parameterSubstitution xmi:id="_UC_hSe_qEeeWEuXdVkEfCw" actual="_UC_hMu_qEeeWEuXdVkEfCw" formal="_UC-48u_qEeeWEuXdVkEfCw"/>
+      </templateBinding>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_UC_hSu_qEeeWEuXdVkEfCw" name="Optional&lt;IO::filedirective>">
+      <templateBinding xmi:id="_UC_hS-_qEeeWEuXdVkEfCw" signature="_UC-48e_qEeeWEuXdVkEfCw">
+        <parameterSubstitution xmi:id="_UC_hTO_qEeeWEuXdVkEfCw" actual="_UC_hLe_qEeeWEuXdVkEfCw" formal="_UC-48u_qEeeWEuXdVkEfCw"/>
+      </templateBinding>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_UC_hTe_qEeeWEuXdVkEfCw" name="Seq&lt;Any>">
+      <templateBinding xmi:id="_UC_hTu_qEeeWEuXdVkEfCw" signature="_UC-44-_qEeeWEuXdVkEfCw">
+        <parameterSubstitution xmi:id="_UC_hT-_qEeeWEuXdVkEfCw" actual="_UC_hXe_qEeeWEuXdVkEfCw" formal="_UC-45O_qEeeWEuXdVkEfCw"/>
+      </templateBinding>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_UC_hUO_qEeeWEuXdVkEfCw" name="Basic VDM Types">
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_UC_hUe_qEeeWEuXdVkEfCw" name="char"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_UC_hUu_qEeeWEuXdVkEfCw" name="&lt;Banned>"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_UC_hU-_qEeeWEuXdVkEfCw" name="&lt;Unbanned>"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_UC_hVO_qEeeWEuXdVkEfCw" name="&lt;Feminino>"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_UC_hVe_qEeeWEuXdVkEfCw" name="&lt;Masculino>"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_UC_hVu_qEeeWEuXdVkEfCw" name="&lt;append>"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_UC_hV-_qEeeWEuXdVkEfCw" name="&lt;start>"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_UC_hWO_qEeeWEuXdVkEfCw" name="nat"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_UC_hWe_qEeeWEuXdVkEfCw" name="int"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_UC_hWu_qEeeWEuXdVkEfCw" name="Void"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_UC_hW-_qEeeWEuXdVkEfCw" name="nat1"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_UC_hXO_qEeeWEuXdVkEfCw" name="bool"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_UC_hXe_qEeeWEuXdVkEfCw" name="Any"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_UC_hXu_qEeeWEuXdVkEfCw" visibility="private" memberEnd="_UC-5B-_qEeeWEuXdVkEfCw _UC_hX-_qEeeWEuXdVkEfCw">
+    <ownedEnd xmi:id="_UC_hX-_qEeeWEuXdVkEfCw" name="" type="_UC-5Bu_qEeeWEuXdVkEfCw" association="_UC_hXu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_hYO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_hYe_qEeeWEuXdVkEfCw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_UC_hYu_qEeeWEuXdVkEfCw" visibility="private" memberEnd="_UC-5C-_qEeeWEuXdVkEfCw _UC_hY-_qEeeWEuXdVkEfCw">
+    <ownedEnd xmi:id="_UC_hY-_qEeeWEuXdVkEfCw" name="" type="_UC-5Bu_qEeeWEuXdVkEfCw" association="_UC_hYu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_hZO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_hZe_qEeeWEuXdVkEfCw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_UC_hZu_qEeeWEuXdVkEfCw" visibility="private" memberEnd="_UC-5D-_qEeeWEuXdVkEfCw _UC_hZ-_qEeeWEuXdVkEfCw">
+    <ownedEnd xmi:id="_UC_hZ-_qEeeWEuXdVkEfCw" name="" type="_UC-5Bu_qEeeWEuXdVkEfCw" association="_UC_hZu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_haO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_hae_qEeeWEuXdVkEfCw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_UC_hau_qEeeWEuXdVkEfCw" visibility="private" memberEnd="_UC-5Q-_qEeeWEuXdVkEfCw _UC_ha-_qEeeWEuXdVkEfCw">
+    <ownedEnd xmi:id="_UC_ha-_qEeeWEuXdVkEfCw" name="" type="_UC-5Qu_qEeeWEuXdVkEfCw" association="_UC_hau_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_hbO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_hbe_qEeeWEuXdVkEfCw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_UC_hbu_qEeeWEuXdVkEfCw" visibility="private" memberEnd="_UC-5R-_qEeeWEuXdVkEfCw _UC_hb-_qEeeWEuXdVkEfCw">
+    <ownedEnd xmi:id="_UC_hb-_qEeeWEuXdVkEfCw" name="" type="_UC-5Qu_qEeeWEuXdVkEfCw" association="_UC_hbu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_hcO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_hce_qEeeWEuXdVkEfCw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_UC_hcu_qEeeWEuXdVkEfCw" visibility="private" memberEnd="_UC-5S-_qEeeWEuXdVkEfCw _UC_hc-_qEeeWEuXdVkEfCw">
+    <ownedEnd xmi:id="_UC_hc-_qEeeWEuXdVkEfCw" name="" type="_UC-5Qu_qEeeWEuXdVkEfCw" association="_UC_hcu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_hdO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_hde_qEeeWEuXdVkEfCw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_UC_hdu_qEeeWEuXdVkEfCw" visibility="private" memberEnd="_UC-5T-_qEeeWEuXdVkEfCw _UC_hd-_qEeeWEuXdVkEfCw">
+    <ownedEnd xmi:id="_UC_hd-_qEeeWEuXdVkEfCw" name="" type="_UC-5Qu_qEeeWEuXdVkEfCw" association="_UC_hdu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_heO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_hee_qEeeWEuXdVkEfCw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_UC_heu_qEeeWEuXdVkEfCw" visibility="private" memberEnd="_UC-5V-_qEeeWEuXdVkEfCw _UC_he-_qEeeWEuXdVkEfCw">
+    <ownedEnd xmi:id="_UC_he-_qEeeWEuXdVkEfCw" name="" type="_UC-5Qu_qEeeWEuXdVkEfCw" association="_UC_heu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_hfO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_hfe_qEeeWEuXdVkEfCw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_UC_hfu_qEeeWEuXdVkEfCw" visibility="protected" memberEnd="_UC-5ie_qEeeWEuXdVkEfCw _UC_hf-_qEeeWEuXdVkEfCw">
+    <ownedEnd xmi:id="_UC_hf-_qEeeWEuXdVkEfCw" name="" type="_UC-5he_qEeeWEuXdVkEfCw" association="_UC_hfu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_hgO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_hge_qEeeWEuXdVkEfCw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_UC_hgu_qEeeWEuXdVkEfCw" visibility="protected" memberEnd="_UC-5j-_qEeeWEuXdVkEfCw _UC_hg-_qEeeWEuXdVkEfCw">
+    <ownedEnd xmi:id="_UC_hg-_qEeeWEuXdVkEfCw" name="" type="_UC-5he_qEeeWEuXdVkEfCw" association="_UC_hgu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_hhO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_hhe_qEeeWEuXdVkEfCw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_UC_hhu_qEeeWEuXdVkEfCw" visibility="protected" memberEnd="_UC-5k-_qEeeWEuXdVkEfCw _UC_hh-_qEeeWEuXdVkEfCw">
+    <ownedEnd xmi:id="_UC_hh-_qEeeWEuXdVkEfCw" name="" type="_UC-5he_qEeeWEuXdVkEfCw" association="_UC_hhu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_hiO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_hie_qEeeWEuXdVkEfCw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_UC_hiu_qEeeWEuXdVkEfCw" visibility="protected" memberEnd="_UC-5me_qEeeWEuXdVkEfCw _UC_hi-_qEeeWEuXdVkEfCw">
+    <ownedEnd xmi:id="_UC_hi-_qEeeWEuXdVkEfCw" name="" type="_UC-5he_qEeeWEuXdVkEfCw" association="_UC_hiu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_hjO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_hje_qEeeWEuXdVkEfCw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_UC_hju_qEeeWEuXdVkEfCw" visibility="protected" memberEnd="_UC-5ne_qEeeWEuXdVkEfCw _UC_hj-_qEeeWEuXdVkEfCw">
+    <ownedEnd xmi:id="_UC_hj-_qEeeWEuXdVkEfCw" name="" type="_UC-5he_qEeeWEuXdVkEfCw" association="_UC_hju_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_hkO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_hke_qEeeWEuXdVkEfCw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_UC_hku_qEeeWEuXdVkEfCw" visibility="protected" memberEnd="_UC-5oe_qEeeWEuXdVkEfCw _UC_hk-_qEeeWEuXdVkEfCw">
+    <ownedEnd xmi:id="_UC_hk-_qEeeWEuXdVkEfCw" name="" type="_UC-5he_qEeeWEuXdVkEfCw" association="_UC_hku_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_hlO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_hle_qEeeWEuXdVkEfCw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_UC_hlu_qEeeWEuXdVkEfCw" visibility="protected" memberEnd="_UC-5pe_qEeeWEuXdVkEfCw _UC_hl-_qEeeWEuXdVkEfCw">
+    <ownedEnd xmi:id="_UC_hl-_qEeeWEuXdVkEfCw" name="" type="_UC-5he_qEeeWEuXdVkEfCw" association="_UC_hlu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_hmO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_hme_qEeeWEuXdVkEfCw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_UC_hmu_qEeeWEuXdVkEfCw" visibility="private" memberEnd="_UC_gFO_qEeeWEuXdVkEfCw _UC_hm-_qEeeWEuXdVkEfCw">
+    <ownedEnd xmi:id="_UC_hm-_qEeeWEuXdVkEfCw" name="" type="_UC_gEe_qEeeWEuXdVkEfCw" association="_UC_hmu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_hnO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_hne_qEeeWEuXdVkEfCw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_UC_hnu_qEeeWEuXdVkEfCw" visibility="private" memberEnd="_UC_gGO_qEeeWEuXdVkEfCw _UC_hn-_qEeeWEuXdVkEfCw">
+    <ownedEnd xmi:id="_UC_hn-_qEeeWEuXdVkEfCw" name="" type="_UC_gEe_qEeeWEuXdVkEfCw" association="_UC_hnu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_hoO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_hoe_qEeeWEuXdVkEfCw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_UC_hou_qEeeWEuXdVkEfCw" visibility="private" memberEnd="_UC_gHO_qEeeWEuXdVkEfCw _UC_ho-_qEeeWEuXdVkEfCw">
+    <ownedEnd xmi:id="_UC_ho-_qEeeWEuXdVkEfCw" name="" type="_UC_gEe_qEeeWEuXdVkEfCw" association="_UC_hou_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_hpO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_hpe_qEeeWEuXdVkEfCw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_UC_hpu_qEeeWEuXdVkEfCw" visibility="private" memberEnd="_UC_ggu_qEeeWEuXdVkEfCw _UC_hp-_qEeeWEuXdVkEfCw">
+    <ownedEnd xmi:id="_UC_hp-_qEeeWEuXdVkEfCw" name="" type="_UC_gge_qEeeWEuXdVkEfCw" association="_UC_hpu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_hqO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_hqe_qEeeWEuXdVkEfCw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_UC_hqu_qEeeWEuXdVkEfCw" visibility="protected" memberEnd="_UC_gyO_qEeeWEuXdVkEfCw _UC_hq-_qEeeWEuXdVkEfCw">
+    <ownedEnd xmi:id="_UC_hq-_qEeeWEuXdVkEfCw" name="" type="_UC_gte_qEeeWEuXdVkEfCw" association="_UC_hqu_qEeeWEuXdVkEfCw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UC_hrO_qEeeWEuXdVkEfCw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UC_hre_qEeeWEuXdVkEfCw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Model>
